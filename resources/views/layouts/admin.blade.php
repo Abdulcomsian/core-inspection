@@ -154,7 +154,7 @@
                                 </span>
                                 <div class="menu-sub menu-sub-accordion" style="display: none;">
                                     <div class="menu-item">
-                                        <a href="#"
+                                        <a href="{{ route('admin.report.forcast') }}"
                                             class="menu-link {{ request()->is('admin/reports/forecast') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobForcastController;
 use App\Http\Controllers\OtpConfirmationController;
 use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
+
+    // Report
+
+    // Job Forcast
+    Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
+        Route::get('forcast', [JobForcastController::class, 'index'])->name('forcast');
+    });
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
