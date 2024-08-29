@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Report;
 
 use App\Models\Role;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class JobForcastController extends Controller
 {

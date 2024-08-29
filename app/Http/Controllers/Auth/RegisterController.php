@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use App\Models\Role;
+use App\Models\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -76,16 +77,11 @@ class RegisterController extends Controller
         if (isset($data['role'])) {
             $role = Role::where('title', $data['role'])->first();
             
-            // Check if role is found
             if ($role) {
                 $user->roles()->attach($role->id);
             } else {
-                // Handle the case where the role is not found
-                // You can throw an exception, log the error, or handle it in some other way
                 throw new \Exception('Role not found');
             }
         }
-    
-        return $user;
     }
 }

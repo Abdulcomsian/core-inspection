@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\JobForcastController;
-use App\Http\Controllers\OtpConfirmationController;
-use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\OtpConfirmationController;
+use App\Http\Controllers\Report\InspectionController;
+use App\Http\Controllers\Report\JobForcastController;
+use App\Http\Controllers\Report\OverdueClientController;
+use App\Http\Controllers\Report\ScheduleController;
 
 Route::redirect('/', '/login');
 Route::get('/home', function () {
@@ -17,7 +20,7 @@ Route::get('/home', function () {
 
 Auth::routes();
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
+Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
@@ -35,7 +38,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Job Forcast
     Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
-        Route::get('forcast', [JobForcastController::class, 'index'])->name('forcast');
+        Route::group(['prefix' => 'forcast', 'as' => 'forcast.'], function () {
+            Route::get('index', [JobForcastController::class, 'index'])->name('index');
+        });
+
+        Route::group(['prefix' => 'overdue_client', 'as' => 'overdue_client.'], function () {
+            Route::get('index', [OverdueClientController::class, 'index'])->name('index');
+        });
+
+        Route::group(['prefix' => 'inspection', 'as' => 'inspection.'], function () {
+            Route::get('index', [InspectionController::class, 'index'])->name('index');
+        });
+
+        Route::group(['prefix' => 'schedule', 'as' => 'schedule.'], function () {
+            Route::get('index', [ScheduleController::class, 'index'])->name('index');
+        });
     });
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {

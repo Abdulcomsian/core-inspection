@@ -139,7 +139,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <form id="addPermissionForm" method="POST"
-                                            action="{{ route('admin.permissions.store') }}">
+                                            action="{{ route('permissions.store') }}">
                                             @csrf
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="addPermissionModalLabel">Add New Permission
@@ -201,20 +201,20 @@
                                             </td>
                                             <td>
                                                 {{-- @can('permission_show')
-                                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.permissions.show', $permission->id) }}">
+                                                    <a class="btn btn-xs btn-primary" href="{{ route('permissions.show', $permission->id) }}">
                                                         {{ trans('global.view') }}
                                                     </a>
                                                 @endcan --}}
 
                                                 @can('permission_edit')
                                                     <a class="btn btn-sm btn-info"
-                                                        href="{{ route('admin.permissions.edit', $permission->id) }}">
+                                                        href="{{ route('permissions.edit', $permission->id) }}">
                                                         {{ trans('global.edit') }}
                                                     </a>
                                                 @endcan
 
                                                 @can('permission_delete')
-                                                    <form action="{{ route('admin.permissions.destroy', $permission->id) }}"
+                                                    <form action="{{ route('permissions.destroy', $permission->id) }}"
                                                         method="POST"
                                                         onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
                                                         style="display: inline-block;">
@@ -245,7 +245,7 @@
                 let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
                 let deleteButton = {
                     text: deleteButtonTrans,
-                    url: "{{ route('admin.permissions.massDestroy') }}",
+                    url: "{{ route('permissions.massDestroy') }}",
                     className: 'btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({
