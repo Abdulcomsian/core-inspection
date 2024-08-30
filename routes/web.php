@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EquipmentsController;
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPasswordController;
@@ -40,6 +42,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
         Route::group(['prefix' => 'forcast', 'as' => 'forcast.'], function () {
             Route::get('index', [JobForcastController::class, 'index'])->name('index');
+            Route::get('create', [JobForcastController::class, 'create'])->name('create');
         });
 
         Route::group(['prefix' => 'overdue_client', 'as' => 'overdue_client.'], function () {
@@ -53,6 +56,16 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
         Route::group(['prefix' => 'schedule', 'as' => 'schedule.'], function () {
             Route::get('index', [ScheduleController::class, 'index'])->name('index');
         });
+    });
+
+    Route::group(['prefix' => 'job', 'as' => 'job.'], function () {
+        Route::get('index', [JobController::class,'index'])->name('index');
+        Route::get('create', [JobController::class,'create'])->name('create');
+    });
+
+    Route::group(['prefix' => 'equipment', 'as' => 'equipment.'], function () {
+        Route::get('index', [EquipmentsController::class,'index'])->name('index');
+        Route::get('create', [EquipmentsController::class,'create'])->name('create');
     });
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {

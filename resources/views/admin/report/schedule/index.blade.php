@@ -22,30 +22,24 @@
         <div class="container-fluid">
             <div class="card bgg-light-primary">
                 <div class="card-title">
-                    <!-- Optional: Add a title here if needed -->
                 </div>
-                <div class="card bgg-light-primary">
-                    <div class="card-title">
-                        <!-- Optional: Add a title here if needed -->
-                    </div>
-                    <div class="card-body pt-0">
-                        <div class="form-section">
-                            <div class="row">
-                                <div class="col-md-8 col-8">
-                                    <div class="custom-grid-layout">
-                                        <label for="branchSelect1" class="small-label">Search</label>
-                                        <div class="d-flex flex-column flex-md-row gap-2 mb-3">
-                                            <select id="geographicZoneSelect" class="form-select mb-3">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                            </select>
-                                        </div>
+                <div class="card-body pt-0">
+                    <div class="form-section">
+                        <div class="row">
+                            <div class="col-md-8 col-8">
+                                <div class="custom-grid-layout">
+                                    <label for="branchSelect1" class="small-label">Search</label>
+                                    <div class="d-flex flex-column flex-md-row gap-2 mb-3">
+                                        <select id="geographicZoneSelect" class="form-select mb-3">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-4">
-                                        <button class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                                </div>
+                            </div>
+                            <div class="col-md-4 col-4">
+                                    <button class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
                             </div>
                         </div>
                     </div>

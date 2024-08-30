@@ -24,53 +24,48 @@
                 <div class="card-title">
                     <!-- Optional: Add a title here if needed -->
                 </div>
-                <div class="card bgg-light-primary">
-                    <div class="card-title">
-                        <!-- Optional: Add a title here if needed -->
-                    </div>
-                    <div class="card-body pt-0">
-                        <div class="form-section">
-                            <div class="row">
-                                <div class="col-md-2 col-12 mb-3">
-                                    <label for="dateInput" class="small-label">Date</label>
-                                    <input type="date" id="dateInput" class="form-control">
-                                </div>
-                                <div class="col-md-10 col-12">
-                                    <div class="custom-grid-layout">
-                                        <label for="branchSelect1" class="small-label">Branch</label>
-                                        <div class="d-flex flex-column flex-md-row gap-2 mb-3">
-                                            <select id="branchSelect1" class="form-control mb-2 mb-md-0">
-                                                <option value="1">Head Office</option>
-                                            </select>
-                                            <select id="branchSelect2" class="form-control mb-2 mb-md-0">
-                                                <option value="1">Include Previous Month</option>
-                                                <option value="2">Selected Month Only</option>
-                                            </select>
-                                            <select id="branchSelect3" class="form-control mb-2 mb-md-0">
-                                                <option value="1">Include Missed Items</option>
-                                                <option value="2">Exclude Missed Items</option>
-                                            </select>
-                                            <button class="btn btn-primary btn-sm"><i class="fa fa-cogs"></i> Run</button>
-                                        </div>
-                                        <label for="client" class="small-label">Client</label>
-                                        <select id="client" class="form-control mb-3">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                <div class="card-body pt-0">
+                    <div class="form-section">
+                        <div class="row">
+                            <div class="col-md-2 col-12 mb-3">
+                                <label for="dateInput" class="small-label">Date</label>
+                                <input type="date" id="dateInput" class="form-control">
+                            </div>
+                            <div class="col-md-10 col-12">
+                                <div class="custom-grid-layout">
+                                    <label for="branchSelect1" class="small-label">Branch</label>
+                                    <div class="d-flex flex-column flex-md-row gap-2 mb-3">
+                                        <select id="branchSelect1" class="form-control mb-2 mb-md-0">
+                                            <option value="1">Head Office</option>
                                         </select>
-                                        <label for="geographicZoneSelect" class="small-label">Geographic Zone</label>
-                                        <select id="geographicZoneSelect" class="form-control mb-3">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                        <select id="branchSelect2" class="form-control mb-2 mb-md-0">
+                                            <option value="1">Include Previous Month</option>
+                                            <option value="2">Selected Month Only</option>
                                         </select>
-                                        <label for="salesPersonSelect" class="small-label">Sales Person</label>
-                                        <select id="salesPersonSelect" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                                        <select id="branchSelect3" class="form-control mb-2 mb-md-0">
+                                            <option value="1">Include Missed Items</option>
+                                            <option value="2">Exclude Missed Items</option>
                                         </select>
+                                        <button class="btn btn-primary btn-sm"><i class="fa fa-cogs"></i> Run</button>
                                     </div>
+                                    <label for="client" class="small-label">Client</label>
+                                    <select id="client" class="form-control mb-3">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <label for="geographicZoneSelect" class="small-label">Geographic Zone</label>
+                                    <select id="geographicZoneSelect" class="form-control mb-3">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <label for="salesPersonSelect" class="small-label">Sales Person</label>
+                                    <select id="salesPersonSelect" class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -372,6 +367,50 @@
                             </table>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <div class="modal-content">
+                <div class="modal-header" id="kt_modal_add_user_header">
+                    <h2 class="fw-bolder">Add User</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">Email address</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlSelect1">Example select</label>
+                          <select class="form-control" id="exampleFormControlSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlSelect2">Example multiple select</label>
+                          <select multiple class="form-control" id="exampleFormControlSelect2">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlTextarea1">Example textarea</label>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                      </form>
                 </div>
             </div>
         </div>

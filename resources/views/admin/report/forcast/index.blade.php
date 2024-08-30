@@ -24,39 +24,34 @@
                 <div class="card-title">
                     <!-- Optional: Add a title here if needed -->
                 </div>
-                <div class="card bgg-light-primary">
-                    <div class="card-title">
-                        <!-- Optional: Add a title here if needed -->
-                    </div>
-                    <div class="card-body pt-0">
-                        <div class="form-section">
-                            <div class="row">
-                                <div class="col-md-4 col-12 mb-3">
-                                    <label for="dateInput">Date</label>
-                                    <input type="date" id="dateInput" class="form-control">
-                                </div>
-                                <div class="col-md-8 col-12">
-                                    <div class="custom-grid-layout">
-                                        <label for="branchSelect">Branch</label>
-                                        <div class="d-flex flex-column flex-md-row gap-2 mb-3">
-                                            <select id="branchSelect" class="form-control mb-2 mb-md-0">
-                                                <option value="1">Head Office</option>
-                                            </select>
-                                            <button class="btn btn-primary">Search</button>
-                                        </div>
-                                        <label for="geographicZoneSelect">Geographic Zone</label>
-                                        <select id="geographicZoneSelect" class="form-control mb-3">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
+                <div class="card-body pt-0">
+                    <div class="form-section">
+                        <div class="row">
+                            <div class="col-md-4 col-12 mb-3">
+                                <label for="dateInput">Date</label>
+                                <input type="date" id="dateInput" class="form-control">
+                            </div>
+                            <div class="col-md-8 col-12">
+                                <div class="custom-grid-layout">
+                                    <label for="branchSelect">Branch</label>
+                                    <div class="d-flex flex-column flex-md-row gap-2 mb-3">
+                                        <select id="branchSelect" class="form-control mb-2 mb-md-0">
+                                            <option value="1">Head Office</option>
                                         </select>
-                                        <label for="salesPersonSelect">Sales Person</label>
-                                        <select id="salesPersonSelect" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
+                                        <button class="btn btn-primary">Search</button>
                                     </div>
+                                    <label for="geographicZoneSelect">Geographic Zone</label>
+                                    <select id="geographicZoneSelect" class="form-control mb-3">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <label for="salesPersonSelect">Sales Person</label>
+                                    <select id="salesPersonSelect" class="form-control">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -69,8 +64,8 @@
                 <div class="container-fluid">
                     <div class="mt-3">
                         <div class="d-flex mb-3">
-                            <button type="button" class="btn btn-primary me-3" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_add_user">
+                            <a href="{{ route('report.forcast.create') }}">
+                            <button type="button" class="btn btn-primary me-3">
                                 <span class="svg-icon svg-icon-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                         width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -82,6 +77,7 @@
                                 </span>
                                 Add New
                             </button>
+                        </a>
                             <button type="button" class="btn btn-light-primary" data-bs-toggle="modal"
                                 data-bs-target="#kt_modal_export_users">
                                 <span class="svg-icon svg-icon-2">

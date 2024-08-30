@@ -200,7 +200,7 @@
 
                             <!-- Jobs Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('jobs') ? 'active' : '' }}" href="#">
+                                <a class="menu-link {{ request()->is('job/index') ? 'active' : '' }}" href="{{ route('job.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-briefcase"></i>
                                     </span>
@@ -220,7 +220,7 @@
 
                             <!-- Equipment Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}" href="#">
+                                <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}" href="{{ route('equipment.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-tools"></i>
                                     </span>
