@@ -1,5 +1,13 @@
 <?php
 
+use App\Http\Controllers\Configuration\BranchController;
+use App\Http\Controllers\Configuration\CommentController;
+use App\Http\Controllers\Configuration\CompetenciesMaintenanceController;
+use App\Http\Controllers\Configuration\EquipmentTypeController;
+use App\Http\Controllers\Configuration\GeneralSettingController;
+use App\Http\Controllers\Configuration\PartMaintenanceController;
+use App\Http\Controllers\Configuration\UserController;
+use App\Http\Controllers\Configuration\ZoneMaintenanceController;
 use App\Http\Controllers\EquipmentsController;
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +18,10 @@ use App\Http\Controllers\Report\InspectionController;
 use App\Http\Controllers\Report\JobForcastController;
 use App\Http\Controllers\Report\OverdueClientController;
 use App\Http\Controllers\Report\ScheduleController;
+use App\Http\Controllers\Setup\InspectionTemplateController;
+use App\Http\Controllers\Setup\JobTemplateController;
+use App\Http\Controllers\Setup\RegisterTemplateController;
+use App\Http\Controllers\Setup\SummaryTemplateController;
 
 Route::redirect('/', '/login');
 Route::get('/home', function () {
@@ -66,6 +78,49 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::group(['prefix' => 'equipment', 'as' => 'equipment.'], function () {
         Route::get('index', [EquipmentsController::class,'index'])->name('index');
         Route::get('create', [EquipmentsController::class,'create'])->name('create');
+    });
+
+    Route::group(['prefix' => 'configuration', 'as' => 'configuration.'], function () {
+        Route::group(['prefix' => 'branch', 'as' => 'branch.'], function () {
+            Route::get('index', [BranchController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'equipment_type', 'as' => 'equipment_type.'], function () {
+            Route::get('index', [EquipmentTypeController::class, 'index'])->name('index');
+            Route::get('create', [EquipmentTypeController::class, 'create'])->name('create');
+        });
+        Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+            Route::get('index', [UserController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'part_maintenance', 'as' => 'part_maintenance.'], function () {
+            Route::get('index', [PartMaintenanceController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'competencies_maintenance', 'as' => 'competencies_maintenance.'], function () {
+            Route::get('index', [CompetenciesMaintenanceController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'zone_maintenance', 'as' => 'zone_maintenance.'], function () {
+            Route::get('index', [ZoneMaintenanceController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'predefined_comment', 'as' => 'predefined_comment.'], function () {
+            Route::get('index', [CommentController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'general_setting', 'as' => 'general_setting.'], function () {
+            Route::get('index', [GeneralSettingController::class, 'index'])->name('index');
+        });
+    });
+
+    Route::group(['prefix' => 'setup', 'as' => 'setup.'], function () {
+        Route::group(['prefix' => 'inspection_template', 'as' => 'inspection_template.'], function () {
+            Route::get('index', [InspectionTemplateController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'job_template', 'as' => 'job_template.'], function () {
+            Route::get('index', [JobTemplateController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'register_template', 'as' => 'register_template.'], function () {
+            Route::get('index', [RegisterTemplateController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'summary_template', 'as' => 'summary_template.'], function () {
+            Route::get('index', [SummaryTemplateController::class, 'index'])->name('index');
+        });
     });
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {

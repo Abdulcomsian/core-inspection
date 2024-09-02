@@ -15,7 +15,6 @@ class JobForcastController extends Controller
 
     public function create()
     {
-        $roles = Role::with(['permissions'])->get();
-        return view('admin.report.forcast.create', compact('roles'));
+        return view('admin.report.forcast.create');
     }
 }

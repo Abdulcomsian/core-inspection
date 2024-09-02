@@ -174,3 +174,27 @@ table th {
         margin-bottom: 20px;
     }
 }
+.dz-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #666;
+}
+
+.form-check-label {
+    font-weight: 500;
+}
+
+.form-control {
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.fa-question-circle {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.fa-question-circle:hover {
+    color: #0056b3;
+}
+
