@@ -44,7 +44,7 @@ class UsersController extends Controller
 
         $user->roles()->sync([$role->id]);
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('users.index');
     }
 
 
@@ -73,7 +73,7 @@ class UsersController extends Controller
 
         $user->roles()->sync([$role->id]);
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('users.index');
     }
 
     public function destroy(User $user)

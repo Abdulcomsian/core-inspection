@@ -22,16 +22,18 @@
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css">
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+    {{-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" /> --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/min/dropzone.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="{{asset('assets/css/dashboard.css')}}">
     <!--end::Global Stylesheets Bundle-->
 </head>
 
@@ -104,6 +106,7 @@
                             </div>
 
                             <!-- User Management Menu Item -->
+                            @can('user_management_access')
                             <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
@@ -114,8 +117,8 @@
                                 </span>
                                 <div class="menu-sub menu-sub-accordion" style="display: none;">
                                     <div class="menu-item">
-                                        <a href="{{ route('admin.users.index') }}"
-                                            class="menu-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                                        <a href="{{ route('users.index') }}"
+                                            class="menu-link {{ request()->is('users') || request()->is('users/*') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -123,8 +126,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('admin.roles.index') }}"
-                                            class="menu-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
+                                        <a href="{{ route('roles.index') }}"
+                                            class="menu-link {{ request()->is('roles') || request()->is('roles/*') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -132,8 +135,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('admin.permissions.index') }}"
-                                            class="menu-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                                        <a href="{{ route('permissions.index') }}"
+                                            class="menu-link {{ request()->is('permissions') || request()->is('permissions/*') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -142,20 +145,22 @@
                                     </div>
                                 </div>
                             </div>
+                            @endcan
 
                             <!-- Reports Menu Item -->
+                            @can('report_access')
                             <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
-                                <span class="menu-link">
-                                    <span class="menu-icon">
-                                        <i class="fas fa-chart-line"></i>
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </span>
+                                        <span class="menu-title">Reports</span>
+                                        <span class="menu-arrow"></span>
                                     </span>
-                                    <span class="menu-title">Reports</span>
-                                    <span class="menu-arrow"></span>
-                                </span>
                                 <div class="menu-sub menu-sub-accordion" style="display: none;">
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/forecast') ? 'active' : '' }}">
+                                        <a href="{{ route('report.forcast.index') }}"
+                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -163,8 +168,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/overdue') ? 'active' : '' }}">
+                                        <a href="{{ route('report.overdue_client.index') }}"
+                                            class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -172,8 +177,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/inspections') ? 'active' : '' }}">
+                                        <a href="{{ route('report.inspection.index') }}"
+                                            class="menu-link {{ request()->is('report/inspection/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -181,8 +186,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/schedule') ? 'active' : '' }}">
+                                        <a href="{{ route('report.schedule.index') }}"
+                                            class="menu-link {{ request()->is('report/schedule/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -191,10 +196,11 @@
                                     </div>
                                 </div>
                             </div>
+                            @endcan
 
                             <!-- Jobs Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('jobs') ? 'active' : '' }}" href="#">
+                                <a class="menu-link {{ request()->is('job/index') ? 'active' : '' }}" href="{{ route('job.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-briefcase"></i>
                                     </span>
@@ -214,7 +220,7 @@
 
                             <!-- Equipment Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}" href="#">
+                                <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}" href="{{ route('equipment.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-tools"></i>
                                     </span>
@@ -243,8 +249,8 @@
                                 </span>
                                 <div class="menu-sub menu-sub-accordion" style="display: none;">
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/forecast') ? 'active' : '' }}">
+                                        <a href="{{ route('configuration.branch.index') }}"
+                                            class="menu-link {{ request()->is('configuration/branch/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -252,8 +258,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/overdue') ? 'active' : '' }}">
+                                        <a href="{{ route('configuration.equipment_type.index') }}"
+                                            class="menu-link {{ request()->is('configuration/equipment_type/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -261,8 +267,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/inspections') ? 'active' : '' }}">
+                                        <a href="{{ route('configuration.users.index') }}"
+                                            class="menu-link {{ request()->is('configuration/users/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -270,8 +276,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/schedule') ? 'active' : '' }}">
+                                        <a href="{{ route('configuration.part_maintenance.index') }}"
+                                            class="menu-link {{ request()->is('configuration/part_maintenance/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -279,8 +285,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/schedule') ? 'active' : '' }}">
+                                        <a href="{{ route('configuration.competencies_maintenance.index') }}"
+                                            class="menu-link {{ request()->is('configuration/competencies_maintenance/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -288,8 +294,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/schedule') ? 'active' : '' }}">
+                                        <a href="{{ route('configuration.zone_maintenance.index') }}"
+                                            class="menu-link {{ request()->is('configuration/zone_maintenance/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -297,12 +303,21 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/schedule') ? 'active' : '' }}">
+                                        <a href="{{ route('configuration.predefined_comment.index') }}"
+                                            class="menu-link {{ request()->is('configuration/predefined_comment/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
-                                            <span class="menu-title">Lookups</span>
+                                            <span class="menu-title">Predefined Comments</span>
+                                        </a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="{{ route('configuration.general_setting.index') }}"
+                                            class="menu-link {{ request()->is('configuration/general_setting/index') ? 'active' : '' }}">
+                                            <span class="menu-bullet">
+                                                <span class="bullet bullet-dot"></span>
+                                            </span>
+                                            <span class="menu-title">General Settings</span>
                                         </a>
                                     </div>
                                 </div>
@@ -319,8 +334,8 @@
                                 </span>
                                 <div class="menu-sub menu-sub-accordion" style="display: none;">
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/forecast') ? 'active' : '' }}">
+                                        <a href="{{ route('setup.inspection_template.index') }}"
+                                            class="menu-link {{ request()->is('setup/inspection_template/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -328,7 +343,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
+                                        <a href="{{ route('setup.job_template.index') }}"
                                             class="menu-link {{ request()->is('admin/reports/overdue') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
@@ -337,8 +352,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/inspections') ? 'active' : '' }}">
+                                        <a href="{{ route('setup.register_template.index') }}"
+                                            class="menu-link {{ request()-> is('admin/reports/inspections') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -347,7 +362,7 @@
                                     </div>
                                     <div class="menu-item">
                                         <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/inspections') ? 'active' : '' }}">
+                                            class="menu-link {{ request()->is('setup/register_template/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -355,42 +370,19 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/inspections') ? 'active' : '' }}">
+                                        <a href="{{ route('setup.summary_template.index') }}"
+                                            class="menu-link {{ request()->is('setup/summary_template/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
                                             <span class="menu-title">Summary Template</span>
                                         </a>
                                     </div>
-                                    <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/inspections') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Customer Inspection Templates</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('admin/reports/inspections') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Client Site</span>
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
-
                         </div>
-                        <!--end::Menu-->
                     </div>
-                    <!--end::Aside Menu-->
                 </div>
-
-                <!--end::Aside menu-->
             </div>
             <!--end::Aside-->
             <!--begin::Wrapper-->
@@ -2164,17 +2156,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.flash.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.4/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
     <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
@@ -2187,7 +2172,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
     <!-- include the library -->
     <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         /*!

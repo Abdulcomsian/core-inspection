@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-toolbar">
                             <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                                <a href="{{ route('admin.users.index') }}">
+                                <a href="{{ route('users.index') }}">
                                 <button type="button" class="btn btn-primary">
                                     <span class="svg-icon svg-icon-2">
                                     </span>
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="container">
-                        <form class="form" method="POST" action="{{ route('admin.users.store') }}">
+                        <form class="form" method="POST" action="{{ route('users.store') }}">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group row">

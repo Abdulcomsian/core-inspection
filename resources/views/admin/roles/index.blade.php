@@ -397,20 +397,20 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     {{-- @can('role_show')
-                                                        <a class="btn btn-sm btn-primary mr-2" href="{{ route('admin.roles.show', $role->id) }}">
+                                                        <a class="btn btn-sm btn-primary mr-2" href="{{ route('roles.show', $role->id) }}">
                                                             {{ trans('global.view') }}
                                                         </a>
                                                     @endcan --}}
 
                                                     @can('role_edit')
                                                         <a class="btn btn-sm btn-info mr-2"
-                                                            href="{{ route('admin.roles.edit', $role->id) }}">
+                                                            href="{{ route('roles.edit', $role->id) }}">
                                                             {{ trans('global.edit') }}
                                                         </a>
                                                     @endcan
 
                                                     @can('role_delete')
-                                                        <form action="{{ route('admin.roles.destroy', $role->id) }}"
+                                                        <form action="{{ route('roles.destroy', $role->id) }}"
                                                             method="POST"
                                                             onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
                                                             style="display: inline;">
@@ -442,7 +442,7 @@
                 let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
                 let deleteButton = {
                     text: deleteButtonTrans,
-                    url: "{{ route('admin.roles.massDestroy') }}",
+                    url: "{{ route('roles.massDestroy') }}",
                     className: 'btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({

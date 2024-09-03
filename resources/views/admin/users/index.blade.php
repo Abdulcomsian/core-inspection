@@ -399,14 +399,14 @@
                                                 </a>
                                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
                                                     <div class="menu-item px-3">
-                                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="menu-link px-3">Edit</a>
+                                                        <a href="{{ route('users.edit', $user->id) }}" class="menu-link px-3">Edit</a>
                                                     </div>
                                                     <div class="menu-item px-3">
-                                                        <a href="{{ route('admin.users.destroy', $user->id) }}" onclick="event.preventDefault(); if(confirm('Are you sure?')) { document.getElementById('delete-form-{{ $user->id }}').submit(); }" class="menu-link px-3" data-kt-users-table-filter="delete_row">
+                                                        <a href="{{ route('users.destroy', $user->id) }}" onclick="event.preventDefault(); if(confirm('Are you sure?')) { document.getElementById('delete-form-{{ $user->id }}').submit(); }" class="menu-link px-3" data-kt-users-table-filter="delete_row">
                                                             Delete
                                                         </a>
                     
-                                                        <form id="delete-form-{{ $user->id }}" action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display: none;">
+                                                        <form id="delete-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: none;">
                                                             @csrf
                                                             @method('DELETE')
                                                         </form>
@@ -434,7 +434,7 @@
                 let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
                 let deleteButton = {
                     text: deleteButtonTrans,
-                    url: "{{ route('admin.roles.massDestroy') }}",
+                    url: "{{ route('roles.massDestroy') }}",
                     className: 'btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({
