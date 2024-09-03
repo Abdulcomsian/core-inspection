@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Configuration\BranchController;
 use App\Http\Controllers\Configuration\CommentController;
 use App\Http\Controllers\Configuration\CompetenciesMaintenanceController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\Report\ScheduleController;
 use App\Http\Controllers\Setup\InspectionTemplateController;
 use App\Http\Controllers\Setup\JobTemplateController;
 use App\Http\Controllers\Setup\RegisterTemplateController;
+use App\Http\Controllers\Setup\ServiceTemplateController;
 use App\Http\Controllers\Setup\SummaryTemplateController;
 
 Route::redirect('/', '/login');
@@ -80,6 +82,11 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
         Route::get('create', [EquipmentsController::class,'create'])->name('create');
     });
 
+    Route::group(['prefix' => 'client', 'as' => 'client.'], function () {
+        Route::get('index', [ClientController::class,'index'])->name('index');
+        Route::get('create', [ClientController::class,'create'])->name('create');
+    });
+
     Route::group(['prefix' => 'configuration', 'as' => 'configuration.'], function () {
         Route::group(['prefix' => 'branch', 'as' => 'branch.'], function () {
             Route::get('index', [BranchController::class, 'index'])->name('index');
@@ -117,6 +124,9 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
         });
         Route::group(['prefix' => 'register_template', 'as' => 'register_template.'], function () {
             Route::get('index', [RegisterTemplateController::class, 'index'])->name('index');
+        });
+        Route::group(['prefix' => 'service_template', 'as' => 'service_template.'], function () {
+            Route::get('index', [ServiceTemplateController::class, 'index'])->name('index');
         });
         Route::group(['prefix' => 'summary_template', 'as' => 'summary_template.'], function () {
             Route::get('index', [SummaryTemplateController::class, 'index'])->name('index');

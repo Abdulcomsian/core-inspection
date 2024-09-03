@@ -37,6 +37,17 @@
     <!--end::Global Stylesheets Bundle-->
 </head>
 
+<style>
+    .menu-item.active > .menu-link {
+    background-color: #f0f0f0; /* Example: Active background color */
+}
+
+.menu-item.active > .menu-sub {
+    display: block !important; /* Ensure that active submenus are visible */
+}
+
+</style>
+
 <body id="kt_body"
     class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed"
     style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
@@ -83,8 +94,6 @@
                     </div>
                     <!--end::Aside toggler-->
                 </div>
-                <!--end::Brand-->
-                <!--begin::Aside menu-->
                 <div class="aside-menu flex-column-fluid">
                     <!--begin::Aside Menu-->
                     <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true"
@@ -209,14 +218,14 @@
                             </div>
 
                             <!-- Scheduler Menu Item -->
-                            <div class="menu-item">
+                            {{-- <div class="menu-item">
                                 <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}" href="#">
                                     <span class="menu-icon">
                                         <i class="fas fa-calendar-alt"></i>
                                     </span>
                                     <span class="menu-title">Scheduler</span>
                                 </a>
-                            </div>
+                            </div> --}}
 
                             <!-- Equipment Menu Item -->
                             <div class="menu-item">
@@ -230,7 +239,7 @@
 
                             <!-- Clients Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}" href="#">
+                                <a class="menu-link {{ request()->is('client/index') ? 'active' : '' }}" href="{{ route('client.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-user-friends"></i>
                                     </span>
@@ -361,8 +370,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('setup/register_template/index') ? 'active' : '' }}">
+                                        <a href="{{ route('setup.service_template.index') }}"
+                                            class="menu-link {{ request()->is('setup/service_template/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>

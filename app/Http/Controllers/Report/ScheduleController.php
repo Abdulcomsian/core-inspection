@@ -9,7 +9,6 @@ class ScheduleController extends Controller
 {
     public function index()
     {
-        $roles = Role::with(['permissions'])->get();
-        return view('admin.report.schedule.index', compact('roles'));
+        return view('admin.report.schedule.index');
     }
 }
