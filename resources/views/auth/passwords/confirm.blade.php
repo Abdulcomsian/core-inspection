@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Software')
 @section('styles')
 <style>
     .lockscreen-image-fallback {

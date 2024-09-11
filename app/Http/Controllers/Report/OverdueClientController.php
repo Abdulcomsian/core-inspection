@@ -9,7 +9,6 @@ class OverdueClientController extends Controller
 {
     public function index()
     {
-        $roles = Role::with(['permissions'])->get();
-        return view('admin.report.overdue_client.index', compact('roles'));
+        return view('admin.report.overdue_client.index');
     }
 }

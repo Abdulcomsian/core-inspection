@@ -1,96 +1,87 @@
 @extends('layouts.admin')
-
+@section('title', 'Software')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <div class="container-fluid" id="kt_toolbar_container">
-            <div class="toolbar d-flex flex-stack">
-                <div class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
-                    <span class="h-20px border-gray-200 border-start mx-4"></span>
-                    <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                        <li class="breadcrumb-item text-muted">
-                            <a href="index.html" class="text-dark text-hover-primary">Dashboard</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <li class="breadcrumb-item text-muted">Equipment Type Details</li>
-                    </ul>
-                </div>
+        <div class="toolbar d-flex flex-stack">
+            <div class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
+                <span class="h-20px border-gray-200 border-start mx-4"></span>
+                <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
+                    <li class="breadcrumb-item text-muted">
+                        <a href="index.html" class="text-dark text-hover-primary">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="bullet bg-gray-200 w-5px h-2px"></span>
+                    </li>
+                    <li class="breadcrumb-item text-muted">Equipment Type Details</li>
+                </ul>
             </div>
         </div>
 
         <div class="container-fluid">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
-                    <form action="#">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="form-header">
-                                        <h3>Equipment Type Description</h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="form-header">
+                                    <h3>Equipment Type Description</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group input-spacing">
+                                        <label for="description">Description</label>
+                                        <input class="form-control" type="text" name="description" id="description"
+                                            placeholder="Description">
                                     </div>
-                                    <div class="card-body">
-                                        <div class="form-group input-spacing">
-                                            <label for="description">Description</label>
-                                            <input class="form-control" type="text" name="description"
-                                                id="description" placeholder="Description">
-                                        </div>
-                                        <div class="form-group input-spacing">
-                                            <label for="descriptionFormula">Description Formula</label>
-                                            <input class="form-control" type="text" name="sale_order_no"
-                                                id="descriptionFormula"
-                                                placeholder="Description Formula eg <<Height of Lift>>m">
-                                        </div>
-                                        <div class="form-group input-spacing">
-                                            <label for="salesOrderNo">Inspection Interval</label>
-                                            <select id="inspectionInterval" class="form-control mb-3">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                            </select>
-                                        </div>
+                                    <div class="form-group input-spacing">
+                                        <label for="descriptionFormula">Description Formula</label>
+                                        <input class="form-control" type="text" name="sale_order_no"
+                                            id="descriptionFormula"
+                                            placeholder="Description Formula eg <<Height of Lift>>m">
+                                    </div>
+                                    <div class="form-group input-spacing">
+                                        <label for="salesOrderNo">Inspection Interval</label>
+                                        <select id="inspectionInterval" class="form-control mb-3">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
                                     </div>
                                 </div>
-
-                                <div class="card">
-                                    <div class="form-header">
-                                        <h3>Equipment Type Attributes</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="section-container"></div>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <button class="btn btn-primary btn-sm mt-3" id="add-section-btn"><i
-                                                        class="fas fa-plus"></i>Add
-                                                    Section</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="form-header">
-                                        <h3>Reference Documents</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <form action="/upload" class="dropzone" id="my-dropzone">
-                                                    <div class="dz-message">
-                                                        <h4>Drag and drop files here or click to upload</h4>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-success btn-sm"><i
-                                        class="far fa-save"></i>Save Definition</button>
-                                <button type="button" class="btn btn-danger btn-sm"><i
-                                        class="fa fa-ban"></i>Cancel</button>
                             </div>
+
+                            <div class="card">
+                                <div class="form-header">
+                                    <h3>Equipment Type Attributes</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id="section-container"></div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <button class="btn btn-primary btn-sm mt-3" id="add-section-btn"><i
+                                                    class="fas fa-plus"></i>Add
+                                                Section</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="form-header">
+                                    <h3>Reference Documents</h3>
+                                </div>
+                                <div class="card-body">
+                                    <form action="#" class="dropzone" id="my-dropzone">
+                                        <div class="dz-message">
+                                            <h4>Drag and drop files here or click to upload</h4>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-sm"><i class="far fa-save"></i>Save
+                                Definition</button>
+                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-ban"></i>Cancel</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -101,6 +92,41 @@
 @section('scripts')
     @parent
     <script>
+        $(document).ready(function() {
+            Dropzone.autoDiscover = false;
+            if (!Dropzone.instances.length) {
+                let productDropzone = new Dropzone("#my-dropzone", {
+                    maxFilesize: 5,
+                    addRemoveLinks: true,
+                    acceptedFiles: "image/*",
+                    dictDefaultMessage: "Drop your files here or click to upload",
+                    dictRemoveFile: "Remove",
+                    dictMaxFilesExceeded: "You can only upload up to 5 images.",
+                    autoProcessQueue: false,
+                    init: function() {
+                        this.on("success", function(file, response) {
+                            fileMappings[file.name] = response.path;
+                            imagePaths.push(response);
+                            $('#imagePaths').val(imagePaths.join(','));
+                        });
+
+                        this.on("addedfile", function(file) {
+                            tempFilesArr.push(file);
+                        });
+
+                        this.on("removedfile", function(file) {
+                            let index = tempFilesArr.findIndex(tempFile => tempFile.name ===
+                                file
+                                .name);
+                            if (index !== -1) {
+                                tempFilesArr.splice(index, 1);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+
         document.getElementById('add-section-btn').addEventListener('click', function() {
             const sectionContainer = document.getElementById('section-container');
 

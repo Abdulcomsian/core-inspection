@@ -4,7 +4,7 @@
 <head>
     <base href="">
     <meta charset="utf-8" />
-    <title>Metronic Bootstrap 5 Theme | Keenthemes</title>
+    <title>Core Inspection - @yield('title')</title>
     <meta name="description"
         content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
     <meta name="keywords"
@@ -15,44 +15,32 @@
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
-    <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    {{-- <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css">
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
-    {{-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/min/dropzone.min.css" rel="stylesheet">  
-    <link rel="stylesheet" href="{{asset('assets/css/dashboard.css')}}">
-    <!--end::Global Stylesheets Bundle-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
 </head>
 
 <style>
-    .menu-item.active > .menu-link {
-    background-color: #f0f0f0; /* Example: Active background color */
-}
+    .menu-item.active>.menu-link {
+        background-color: #f0f0f0;
+    }
 
-.menu-item.active > .menu-sub {
-    display: block !important; /* Ensure that active submenus are visible */
-}
-
+    .menu-item.active>.menu-sub {
+        display: block !important;
+    }
 </style>
 
 <body id="kt_body"
     class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed"
     style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
-    <!--begin::Main-->
-    <!--begin::Root-->
     <div class="d-flex flex-column flex-root">
         <!--begin::Page-->
         <div class="page d-flex flex-row flex-column-fluid">
@@ -116,49 +104,49 @@
 
                             <!-- User Management Menu Item -->
                             @can('user_management_access')
-                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
-                                <span class="menu-link">
-                                    <span class="menu-icon">
-                                        <i class="fas fa-users-cog"></i>
+                                <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="fas fa-users-cog"></i>
+                                        </span>
+                                        <span class="menu-title">User Management</span>
+                                        <span class="menu-arrow"></span>
                                     </span>
-                                    <span class="menu-title">User Management</span>
-                                    <span class="menu-arrow"></span>
-                                </span>
-                                <div class="menu-sub menu-sub-accordion" style="display: none;">
-                                    <div class="menu-item">
-                                        <a href="{{ route('users.index') }}"
-                                            class="menu-link {{ request()->is('users') || request()->is('users/*') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Users</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="{{ route('roles.index') }}"
-                                            class="menu-link {{ request()->is('roles') || request()->is('roles/*') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Roles</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="{{ route('permissions.index') }}"
-                                            class="menu-link {{ request()->is('permissions') || request()->is('permissions/*') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Permissions</span>
-                                        </a>
+                                    <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                        <div class="menu-item">
+                                            <a href="{{ route('users.index') }}"
+                                                class="menu-link {{ request()->is('users') || request()->is('users/*') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Users</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('roles.index') }}"
+                                                class="menu-link {{ request()->is('roles') || request()->is('roles/*') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Roles</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('permissions.index') }}"
+                                                class="menu-link {{ request()->is('permissions') || request()->is('permissions/*') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Permissions</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             @endcan
 
                             <!-- Reports Menu Item -->
                             @can('report_access')
-                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                                <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <i class="fas fa-chart-line"></i>
@@ -166,50 +154,51 @@
                                         <span class="menu-title">Reports</span>
                                         <span class="menu-arrow"></span>
                                     </span>
-                                <div class="menu-sub menu-sub-accordion" style="display: none;">
-                                    <div class="menu-item">
-                                        <a href="{{ route('report.forcast.index') }}"
-                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Job Forecast</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="{{ route('report.overdue_client.index') }}"
-                                            class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Overdue Clients</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="{{ route('report.inspection.index') }}"
-                                            class="menu-link {{ request()->is('report/inspection/index') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">All Inspections</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="{{ route('report.schedule.index') }}"
-                                            class="menu-link {{ request()->is('report/schedule/index') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Schedule Reports</span>
-                                        </a>
+                                    <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                        <div class="menu-item">
+                                            <a href="{{ route('report.forcast.index') }}"
+                                                class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Job Forecast</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('report.overdue_client.index') }}"
+                                                class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Overdue Clients</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('report.inspection.index') }}"
+                                                class="menu-link {{ request()->is('report/inspection/index') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">All Inspections</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('report.schedule.index') }}"
+                                                class="menu-link {{ request()->is('report/schedule/index') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Schedule Reports</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             @endcan
 
                             <!-- Jobs Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('job/index') ? 'active' : '' }}" href="{{ route('job.index') }}">
+                                <a class="menu-link {{ request()->is('job/index') ? 'active' : '' }}"
+                                    href="{{ route('job.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-briefcase"></i>
                                     </span>
@@ -229,7 +218,8 @@
 
                             <!-- Equipment Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}" href="{{ route('equipment.index') }}">
+                                <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}"
+                                    href="{{ route('equipment.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-tools"></i>
                                     </span>
@@ -239,7 +229,8 @@
 
                             <!-- Clients Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('client/index') ? 'active' : '' }}" href="{{ route('client.index') }}">
+                                <a class="menu-link {{ request()->is('client/index') ? 'active' : '' }}"
+                                    href="{{ route('client.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-user-friends"></i>
                                     </span>
@@ -362,7 +353,7 @@
                                     </div>
                                     <div class="menu-item">
                                         <a href="{{ route('setup.register_template.index') }}"
-                                            class="menu-link {{ request()-> is('admin/reports/inspections') ? 'active' : '' }}">
+                                            class="menu-link {{ request()->is('admin/reports/inspections') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -444,11 +435,9 @@
                                     <!--begin::Menu-->
                                     <div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch"
                                         id="#kt_header_menu" data-kt-menu="true">
-                                        <div class="menu-item me-lg-1">
-                                            <a class="menu-link active py-3" href="{{ url('/') }}">
-                                                <span class="menu-title">Dashboard</span>
-                                            </a>
-                                        </div>
+                                        <a class="menu-link active py-3" href="{{ url('/') }}">
+                                            <span class="menu-title">@yield('header')</span>
+                                        </a>
                                     </div>
                                     <!--end::Menu-->
                                 </div>
@@ -1207,7 +1196,8 @@
                                             </div>
                                             <div class="separator my-2"></div>
                                             <div class="menu-item px-5">
-                                                <a href="{{ route('profile.password.edit') }}" class="menu-link px-5">
+                                                <a href="{{ route('profile.password.edit') }}"
+                                                    class="menu-link px-5">
                                                     <i class="fas fa-user-circle"
                                                         style="color: #3498db; margin-right: 8px;"></i>
                                                     Account
@@ -1220,7 +1210,8 @@
                                             <div class="menu-item px-5">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                    <i class="fas fa-sign-out-alt" style="color: #e74c3c; margin-right: 8px;"></i>
+                                                    <i class="fas fa-sign-out-alt"
+                                                        style="color: #e74c3c; margin-right: 8px;"></i>
                                                     {{ __('Sign out') }}
                                                 </a>
 
@@ -1276,11 +1267,6 @@
         </div>
         <!--end::Page-->
     </div>
-    <!--end::Root-->
-    <!--begin::Drawers-->
-    <!--end::Drawers-->
-    <!--begin::Modals-->
-    <!--begin::Modal - Create App-->
     <div class="modal fade" id="kt_modal_create_app" tabindex="-1" aria-hidden="true">
         <!--begin::Modal dialog-->
         <div class="modal-dialog modal-dialog-centered mw-900px">
@@ -2132,9 +2118,6 @@
         </div>
         <!--end::Modal dialog-->
     </div>
-    <!--end::Modal - Create App-->
-    <!--end::Modals-->
-    <!--begin::Scrolltop-->
     <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
         <!--begin::Svg Icon | path: icons/duotone/Navigation/Up-2.svg-->
         <span class="svg-icon">
@@ -2152,9 +2135,6 @@
         </span>
         <!--end::Svg Icon-->
     </div>
-    <!--end::Scrolltop-->
-    <!--end::Main-->
-    <!--begin::Javascript-->
 
     <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
@@ -2162,7 +2142,6 @@
     <script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>
     <script src="{{ asset('assets/js/custom/modals/create-app.js') }}"></script>
     <script src="{{ asset('assets/js/custom/modals/upgrade-plan.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
@@ -2181,305 +2160,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
     <!-- include the library -->
     <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
 
-    <script>
-        /*!
-         * AdminLTE v3.0.0-alpha.2 (https://adminlte.io)
-         * Copyright 2014-2018 Abdullah Almsaeed <abdullah@almsaeedstudio.com>
-         * Licensed under MIT (https://github.com/almasaeed2010/AdminLTE/blob/master/LICENSE)
-         */
-        ! function(e, t) {
-            "object" == typeof exports && "undefined" != typeof module ? t(exports) : "function" == typeof define && define
-                .amd ? define(["exports"], t) : t(e.adminlte = {})
-        }(this, function(e) {
-            "use strict";
-            var i, t, o, n, r, a, s, c, f, l, u, d, h, p, _, g, y, m, v, C, D, E, A, O, w, b, L, S, j, T, I, Q, R, P, x,
-                B, M, k, H, N, Y, U, V, G, W, X, z, F, q, J, K, Z, $, ee, te, ne = "function" == typeof Symbol &&
-                "symbol" == typeof Symbol.iterator ? function(e) {
-                    return typeof e
-                } : function(e) {
-                    return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ?
-                        "symbol" : typeof e
-                },
-                ie = function(e, t) {
-                    if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
-                },
-                oe = (i = jQuery, t = "ControlSidebar", o = "lte.control.sidebar", n = i.fn[t], r = ".control-sidebar",
-                    a = '[data-widget="control-sidebar"]', s = ".main-header", c = "control-sidebar-open", f =
-                    "control-sidebar-slide-open", l = {
-                        slide: !0
-                    }, u = function() {
-                        function n(e, t) {
-                            ie(this, n), this._element = e, this._config = this._getConfig(t)
-                        }
-                        return n.prototype.show = function() {
-                            this._config.slide ? i("body").removeClass(f) : i("body").removeClass(c)
-                        }, n.prototype.collapse = function() {
-                            this._config.slide ? i("body").addClass(f) : i("body").addClass(c)
-                        }, n.prototype.toggle = function() {
-                            this._setMargin(), i("body").hasClass(c) || i("body").hasClass(f) ? this.show() : this
-                                .collapse()
-                        }, n.prototype._getConfig = function(e) {
-                            return i.extend({}, l, e)
-                        }, n.prototype._setMargin = function() {
-                            i(r).css({
-                                top: i(s).outerHeight()
-                            })
-                        }, n._jQueryInterface = function(t) {
-                            return this.each(function() {
-                                var e = i(this).data(o);
-                                if (e || (e = new n(this, i(this).data()), i(this).data(o, e)),
-                                    "undefined" === e[t]) throw new Error(t + " is not a function");
-                                e[t]()
-                            })
-                        }, n
-                    }(), i(document).on("click", a, function(e) {
-                        e.preventDefault(), u._jQueryInterface.call(i(this), "toggle")
-                    }), i.fn[t] = u._jQueryInterface, i.fn[t].Constructor = u, i.fn[t].noConflict = function() {
-                        return i.fn[t] = n, u._jQueryInterface
-                    }, u),
-                re = (d = jQuery, h = "Layout", p = "lte.layout", _ = d.fn[h], g = ".main-sidebar", y = ".main-header",
-                    m = ".content-wrapper", v = ".main-footer", C = "hold-transition", D = function() {
-                        function n(e) {
-                            ie(this, n), this._element = e, this._init()
-                        }
-                        return n.prototype.fixLayoutHeight = function() {
-                            var e = {
-                                    window: d(window).height(),
-                                    header: d(y).outerHeight(),
-                                    footer: d(v).outerHeight(),
-                                    sidebar: d(g).height()
-                                },
-                                t = this._max(e);
-                            d(m).css("min-height", e.window - e.header - e.footer), d(g).css("min-height", e
-                                .window - e.header)
-                        }, n.prototype._init = function() {
-                            var e = this;
-                            d("body").removeClass(C), this.fixLayoutHeight(), d(g).on(
-                                "collapsed.lte.treeview expanded.lte.treeview collapsed.lte.pushmenu expanded.lte.pushmenu",
-                                function() {
-                                    e.fixLayoutHeight()
-                                }), d(window).resize(function() {
-                                e.fixLayoutHeight()
-                            }), d("body, html").css("height", "auto")
-                        }, n.prototype._max = function(t) {
-                            var n = 0;
-                            return Object.keys(t).forEach(function(e) {
-                                t[e] > n && (n = t[e])
-                            }), n
-                        }, n._jQueryInterface = function(t) {
-                            return this.each(function() {
-                                var e = d(this).data(p);
-                                e || (e = new n(this), d(this).data(p, e)), t && e[t]()
-                            })
-                        }, n
-                    }(), d(window).on("load", function() {
-                        D._jQueryInterface.call(d("body"))
-                    }), d.fn[h] = D._jQueryInterface, d.fn[h].Constructor = D, d.fn[h].noConflict = function() {
-                        return d.fn[h] = _, D._jQueryInterface
-                    }, D),
-                ae = (E = jQuery, A = "PushMenu", w = "." + (O = "lte.pushmenu"), b = E.fn[A], L = {
-                    COLLAPSED: "collapsed" + w,
-                    SHOWN: "shown" + w
-                }, S = {
-                    screenCollapseSize: 768
-                }, j = {
-                    TOGGLE_BUTTON: '[data-widget="pushmenu"]',
-                    SIDEBAR_MINI: ".sidebar-mini",
-                    SIDEBAR_COLLAPSED: ".sidebar-collapse",
-                    BODY: "body",
-                    OVERLAY: "#sidebar-overlay",
-                    WRAPPER: ".wrapper"
-                }, T = "sidebar-collapse", I = "sidebar-open", Q = function() {
-                    function n(e, t) {
-                        ie(this, n), this._element = e, this._options = E.extend({}, S, t), E(j.OVERLAY).length ||
-                            this._addOverlay()
-                    }
-                    return n.prototype.show = function() {
-                        E(j.BODY).addClass(I).removeClass(T);
-                        var e = E.Event(L.SHOWN);
-                        E(this._element).trigger(e)
-                    }, n.prototype.collapse = function() {
-                        E(j.BODY).removeClass(I).addClass(T);
-                        var e = E.Event(L.COLLAPSED);
-                        E(this._element).trigger(e)
-                    }, n.prototype.toggle = function() {
-                        (E(window).width() >= this._options.screenCollapseSize ? !E(j.BODY).hasClass(T) : E(j
-                            .BODY).hasClass(I)) ? this.collapse(): this.show()
-                    }, n.prototype._addOverlay = function() {
-                        var e = this,
-                            t = E("<div />", {
-                                id: "sidebar-overlay"
-                            });
-                        t.on("click", function() {
-                            e.collapse()
-                        }), E(j.WRAPPER).append(t)
-                    }, n._jQueryInterface = function(t) {
-                        return this.each(function() {
-                            var e = E(this).data(O);
-                            e || (e = new n(this), E(this).data(O, e)), t && e[t]()
-                        })
-                    }, n
-                }(), E(document).on("click", j.TOGGLE_BUTTON, function(e) {
-                    e.preventDefault();
-                    var t = e.currentTarget;
-                    "pushmenu" !== E(t).data("widget") && (t = E(t).closest(j.TOGGLE_BUTTON)), Q
-                        ._jQueryInterface.call(E(t), "toggle")
-                }), E.fn[A] = Q._jQueryInterface, E.fn[A].Constructor = Q, E.fn[A].noConflict = function() {
-                    return E.fn[A] = b, Q._jQueryInterface
-                }, Q),
-                se = (R = jQuery, P = "Treeview", B = "." + (x = "lte.treeview"), M = R.fn[P], k = {
-                    SELECTED: "selected" + B,
-                    EXPANDED: "expanded" + B,
-                    COLLAPSED: "collapsed" + B,
-                    LOAD_DATA_API: "load" + B
-                }, H = ".nav-item", N = ".nav-treeview", Y = ".menu-open", V = "menu-open", G = {
-                    trigger: (U = '[data-widget="treeview"]') + " " + ".nav-link",
-                    animationSpeed: 300,
-                    accordion: !0
-                }, W = function() {
-                    function i(e, t) {
-                        ie(this, i), this._config = t, this._element = e
-                    }
-                    return i.prototype.init = function() {
-                        this._setupListeners()
-                    }, i.prototype.expand = function(e, t) {
-                        var n = this,
-                            i = R.Event(k.EXPANDED);
-                        if (this._config.accordion) {
-                            var o = t.siblings(Y).first(),
-                                r = o.find(N).first();
-                            this.collapse(r, o)
-                        }
-                        e.slideDown(this._config.animationSpeed, function() {
-                            t.addClass(V), R(n._element).trigger(i)
-                        })
-                    }, i.prototype.collapse = function(e, t) {
-                        var n = this,
-                            i = R.Event(k.COLLAPSED);
-                        e.slideUp(this._config.animationSpeed, function() {
-                            t.removeClass(V), R(n._element).trigger(i), e.find(Y + " > " + N).slideUp(),
-                                e.find(Y).removeClass(V)
-                        })
-                    }, i.prototype.toggle = function(e) {
-                        var t = R(e.currentTarget),
-                            n = t.next();
-                        if (n.is(N)) {
-                            e.preventDefault();
-                            var i = t.parents(H).first();
-                            i.hasClass(V) ? this.collapse(R(n), i) : this.expand(R(n), i)
-                        }
-                    }, i.prototype._setupListeners = function() {
-                        var t = this;
-                        R(document).on("click", this._config.trigger, function(e) {
-                            t.toggle(e)
-                        })
-                    }, i._jQueryInterface = function(n) {
-                        return this.each(function() {
-                            var e = R(this).data(x),
-                                t = R.extend({}, G, R(this).data());
-                            e || (e = new i(R(this), t), R(this).data(x, e)), "init" === n && e[n]()
-                        })
-                    }, i
-                }(), R(window).on(k.LOAD_DATA_API, function() {
-                    R(U).each(function() {
-                        W._jQueryInterface.call(R(this), "init")
-                    })
-                }), R.fn[P] = W._jQueryInterface, R.fn[P].Constructor = W, R.fn[P].noConflict = function() {
-                    return R.fn[P] = M, W._jQueryInterface
-                }, W),
-                ce = (X = jQuery, z = "Widget", q = "." + (F = "lte.widget"), J = X.fn[z], K = {
-                    EXPANDED: "expanded" + q,
-                    COLLAPSED: "collapsed" + q,
-                    REMOVED: "removed" + q
-                }, $ = "collapsed-card", ee = {
-                    animationSpeed: "normal",
-                    collapseTrigger: (Z = {
-                        DATA_REMOVE: '[data-widget="remove"]',
-                        DATA_COLLAPSE: '[data-widget="collapse"]',
-                        CARD: ".card",
-                        CARD_HEADER: ".card-header",
-                        CARD_BODY: ".card-body",
-                        CARD_FOOTER: ".card-footer",
-                        COLLAPSED: ".collapsed-card"
-                    }).DATA_COLLAPSE,
-                    removeTrigger: Z.DATA_REMOVE
-                }, te = function() {
-                    function n(e, t) {
-                        ie(this, n), this._element = e, this._parent = e.parents(Z.CARD).first(), this._settings = X
-                            .extend({}, ee, t)
-                    }
-                    return n.prototype.collapse = function() {
-                        var e = this;
-                        this._parent.children(Z.CARD_BODY + ", " + Z.CARD_FOOTER).slideUp(this._settings
-                            .animationSpeed,
-                            function() {
-                                e._parent.addClass($)
-                            });
-                        var t = X.Event(K.COLLAPSED);
-                        this._element.trigger(t, this._parent)
-                    }, n.prototype.expand = function() {
-                        var e = this;
-                        this._parent.children(Z.CARD_BODY + ", " + Z.CARD_FOOTER).slideDown(this._settings
-                            .animationSpeed,
-                            function() {
-                                e._parent.removeClass($)
-                            });
-                        var t = X.Event(K.EXPANDED);
-                        this._element.trigger(t, this._parent)
-                    }, n.prototype.remove = function() {
-                        this._parent.slideUp();
-                        var e = X.Event(K.REMOVED);
-                        this._element.trigger(e, this._parent)
-                    }, n.prototype.toggle = function() {
-                        this._parent.hasClass($) ? this.expand() : this.collapse()
-                    }, n.prototype._init = function(e) {
-                        var t = this;
-                        this._parent = e, X(this).find(this._settings.collapseTrigger).click(function() {
-                            t.toggle()
-                        }), X(this).find(this._settings.removeTrigger).click(function() {
-                            t.remove()
-                        })
-                    }, n._jQueryInterface = function(t) {
-                        return this.each(function() {
-                            var e = X(this).data(F);
-                            e || (e = new n(X(this), e), X(this).data(F, "string" == typeof t ? e : t)),
-                                "string" == typeof t && t.match(/remove|toggle/) ? e[t]() : "object" ===
-                                ("undefined" == typeof t ? "undefined" : ne(t)) && e._init(X(this))
-                        })
-                    }, n
-                }(), X(document).on("click", Z.DATA_COLLAPSE, function(e) {
-                    e && e.preventDefault(), te._jQueryInterface.call(X(this), "toggle")
-                }), X(document).on("click", Z.DATA_REMOVE, function(e) {
-                    e && e.preventDefault(), te._jQueryInterface.call(X(this), "remove")
-                }), X.fn[z] = te._jQueryInterface, X.fn[z].Constructor = te, X.fn[z].noConflict = function() {
-                    return X.fn[z] = J, te._jQueryInterface
-                }, te);
-            e.ControlSidebar = oe, e.Layout = re, e.PushMenu = ae, e.Treeview = se, e.Widget = ce, Object
-                .defineProperty(e, "__esModule", {
-                    value: !0
-                })
-        });
-        //# sourceMappingURL=adminlte.min.js.map
-
-        // Function to add comma separators (you can modify this if needed)
-        function formatNumberWithCommas(numberString) {
-            // Separate integer and decimal parts
-            const [integerPart, decimalPart = ""] = numberString.split(".");
-
-            // Add comma separators to the integer part (reverse for efficient insertion)
-            const formattedInteger = integerPart.split("").reverse().join("").match(/.{1,3}/g).join(",");
-            const reversedFormattedInteger = formattedInteger.split("").reverse().join("");
-
-            // Combine formatted parts and add decimal
-            const formattedValue = reversedFormattedInteger + '.' + decimalPart.padEnd(2,
-                '0'); // Limit to two decimal places
-
-            return formattedValue;
-        }
-    </script>
     <script>
         @if (session('success'))
             toastr.success('{{ session('success') }}');

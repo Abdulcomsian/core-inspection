@@ -1,21 +1,19 @@
 @extends('layouts.admin')
-
+@section('title', 'Software')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <div class="container-fluid" id="kt_toolbar_container">
-            <div class="toolbar d-flex flex-stack">
-                <div class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
-                    <span class="h-20px border-gray-200 border-start mx-4"></span>
-                    <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                        <li class="breadcrumb-item text-muted">
-                            <a href="index.html" class="text-dark text-hover-primary">Dashboard</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <li class="breadcrumb-item text-muted">Job #(Pending)</li>
-                    </ul>
-                </div>
+        <div class="toolbar d-flex flex-stack">
+            <div class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
+                <span class="h-20px border-gray-200 border-start mx-4"></span>
+                <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
+                    <li class="breadcrumb-item text-muted">
+                        <a href="index.html" class="text-dark text-hover-primary">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="bullet bg-gray-200 w-5px h-2px"></span>
+                    </li>
+                    <li class="breadcrumb-item text-muted">Job #(Pending)</li>
+                </ul>
             </div>
         </div>
 
@@ -42,10 +40,10 @@
                                 <div class="row">
                                     <div class="col-md-6 d-flex">
                                         <div class="inner-card card flex-fill">
+                                            <div class="form-header">
+                                                <h3>Mandatory Job Information</h3>
+                                            </div>
                                             <div class="card-body">
-                                                <div class="form-header">
-                                                    <h3>Mandatory Job Information</h3>
-                                                </div>
                                                 <div class="form-group input-spacing">
                                                     <label for="JobInfoClientSelect">Client</label>
                                                     <select id="JobInfoClientSelect" class="form-control">
@@ -82,10 +80,10 @@
                                     </div>
                                     <div class="col-md-6 d-flex">
                                         <div class="inner-card card flex-fill">
+                                            <div class="form-header">
+                                                <h3>Scheduling Information</h3>
+                                            </div>
                                             <div class="card-body">
-                                                <div class="form-header">
-                                                    <h3>Scheduling Information</h3>
-                                                </div>
                                                 <div class="form-group row input-spacing">
                                                     <div class="col-md-4">
                                                         <label for="scheduleDate">Schedule For</label>
@@ -140,10 +138,10 @@
 
                                     <div class="col-md-6 d-flex">
                                         <div class="inner-card card flex-fill">
+                                            <div class="form-header">
+                                                <h3>Job Location Details</h3>
+                                            </div>
                                             <div class="card-body">
-                                                <div class="form-header">
-                                                    <h3>Job Location Details</h3>
-                                                </div>
                                                 <div class="form-group input-spacing">
                                                     <label for="jobLocPhone">Contact</label>
                                                     <input class="form-control" type="number" name="job_loc_phone"
@@ -190,10 +188,10 @@
                                     </div>
                                     <div class="col-md-6 d-flex">
                                         <div class="inner-card card flex-fill">
+                                            <div class="form-header">
+                                                <h3>Notes / Customer Requirements</h3>
+                                            </div>
                                             <div class="card-body">
-                                                <div class="form-header">
-                                                    <h3>Notes / Customer Requirements</h3>
-                                                </div>
                                                 <div class="form-group">
                                                     <textarea class="form-control" name="cus_req_note" id="cusReqNote" cols="30" rows="10"></textarea>
                                                 </div>
@@ -203,10 +201,10 @@
 
                                     <div class="col-md-12">
                                         <div class="card">
+                                            <div class="form-header">
+                                                <h3>Extra Fields</h3>
+                                            </div>
                                             <div class="card-body">
-                                                <div class="form-header">
-                                                    <h3>Extra Fields</h3>
-                                                </div>
                                                 <div class="form-group input-spacing">
                                                     <label for="salesOrderNo">Sales Order Number</label>
                                                     <input class="form-control" type="text" name="sale_order_no"
@@ -226,33 +224,25 @@
 
                 <!-- Attachments Tab Content -->
                 <div class="tab-pane fade" id="attachments" role="tabpanel" aria-labelledby="attachments-tab">
-                    <div class="main-card card">
+                    <div class="inner-card card">
+                        <div class="form-header">
+                            <h3>Attachments</h3>
+                        </div>
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="inner-card card">
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="form-header">
-                                                    <h3>Attachments</h3>
-                                                </div>
-                                                <div class="form-group input-spacing">
-                                                    <label for="fileUpload">Upload Files</label>
-                                                    <input type="file" id="fileUpload" class="form-control" multiple>
-                                                </div>
-                                                <div class="form-group input-spacing">
-                                                    <label for="attachmentsList">Existing Attachments</label>
-                                                    <ul id="attachmentsList" class="list-group">
-                                                        <li class="list-group-item">File1.pdf</li>
-                                                        <li class="list-group-item">File2.jpg</li>
-                                                        <li class="list-group-item">File3.docx</li>
-                                                    </ul>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                            <form>
+                                <div class="form-group input-spacing">
+                                    <label for="fileUpload">Upload Files</label>
+                                    <input type="file" id="fileUpload" class="form-control" multiple>
                                 </div>
-                            </div>
+                                <div class="form-group input-spacing">
+                                    <label for="attachmentsList">Existing Attachments</label>
+                                    <ul id="attachmentsList" class="list-group">
+                                        <li class="list-group-item">File1.pdf</li>
+                                        <li class="list-group-item">File2.jpg</li>
+                                        <li class="list-group-item">File3.docx</li>
+                                    </ul>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

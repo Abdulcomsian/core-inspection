@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Software')
 @section('content')
     <div class="d-flex flex-column flex-root">
         <!--begin::Authentication - Sign-up -->

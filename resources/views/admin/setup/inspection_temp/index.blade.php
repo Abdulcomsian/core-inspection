@@ -1,21 +1,19 @@
 @extends('layouts.admin')
-
+@section('title', 'Software')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <div class="container-fluid" id="kt_toolbar_container">
-            <div class="toolbar d-flex flex-stack">
-                <div class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
-                    <span class="h-20px border-gray-200 border-start mx-4"></span>
-                    <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                        <li class="breadcrumb-item text-muted">
-                            <a href="#" class="text-dark text-hover-primary">Dashboard</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <li class="breadcrumb-item text-muted">Inspection Templates</li>
-                    </ul>
-                </div>
+        <div class="toolbar d-flex flex-stack">
+            <div class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
+                <span class="h-20px border-gray-200 border-start mx-4"></span>
+                <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
+                    <li class="breadcrumb-item text-muted">
+                        <a href="#" class="text-dark text-hover-primary">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="bullet bg-gray-200 w-5px h-2px"></span>
+                    </li>
+                    <li class="breadcrumb-item text-muted">Inspection Templates</li>
+                </ul>
             </div>
         </div>
 
