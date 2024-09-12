@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Software')
+@section('header', 'Update Profile')
 <style>
     .dark-bold-text {
         color: #343a40;
@@ -83,14 +84,6 @@
 
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <!-- Toolbar -->
-        <div class="toolbar" id="kt_toolbar">
-            <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-                <div class="page-title d-flex align-items-center text-dark fw-bolder fs-3">
-                    Update Profile
-                </div>
-            </div>
-        </div>
 
         <!-- Content Area -->
         <div class="post d-flex flex-column-fluid" id="kt_post">

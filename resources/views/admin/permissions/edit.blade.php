@@ -1,34 +1,8 @@
 @extends('layouts.admin')
 @section('title', 'Software')
+@section('header', 'Update Permission')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <div class="toolbar" id="kt_toolbar">
-            <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-                <div data-kt-place="true" data-kt-place-mode="prepend"
-                    data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-                    class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
-                    <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">Users List</h1>
-                    <span class="h-20px border-gray-200 border-start mx-4"></span>
-                    <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                        <li class="breadcrumb-item text-muted">
-                            <a href="index.html" class="text-muted text-hover-primary">Home</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <li class="breadcrumb-item text-muted">User Management</li>
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <li class="breadcrumb-item text-muted">Users</li>
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <li class="breadcrumb-item text-dark">Update Permission</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <div id="kt_content_container" class="container">
                 <div class="card">
