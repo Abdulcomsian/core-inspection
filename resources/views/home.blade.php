@@ -1,4 +1,6 @@
 @extends('layouts.admin')
+@section('title', 'Software')
+@section('header', 'Dashboard')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 @section('styles')
     <style>
@@ -54,184 +56,171 @@
     </style>
 @endsection
 @section('content')
-    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <div class="toolbar" id="kt_toolbar">
-            <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-                <div data-kt-place="true" data-kt-place-mode="prepend"
-                    data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
-                    class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
-                    <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">Dashboard
-                        <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
-                    </h1>
-                </div>
-            </div>
-        </div>
-        <div class="page-content page-container" id="page-content">
-            <div class="padding">
-                <div class="row container d-flex justify-content-center">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-block">
-                                <div class="container mt-4">
-                                    <div class="row" id="sortable">
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 1">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 1</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
+    <div class="page-content page-container content d-flex flex-column flex-column-fluid" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-block">
+                            <div class="container mt-4">
+                                <div class="row" id="sortable">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
                                             </div>
-                                        </div>
-                                
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 2">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 2</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 3">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 3</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 12">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 4</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 1">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 5</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 2">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 6</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 3">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 7</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 12">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 8</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 1">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 9</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 2">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 10</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 3">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 11</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100">
-                                                <div class="text-right">
-                                                    <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
-                                                </div>
-                                                <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 12">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">Product 12</h4>
-                                                    <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
-                                                </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 1">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 1</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>                                
-                            </div>
+                            
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 2">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 2</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 3">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 3</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 12">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 4</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 1">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 5</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 2">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 6</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 3">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 7</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 12">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 8</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 1">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 9</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 2">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 10</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 3">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 11</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card h-100">
+                                            <div class="text-right">
+                                                <div class="edit-cog" data-toggle="modal" data-target="#customizeModal" onclick="setCurrentGrid('grid1')"><i class="fa fa-cog"></i></div>
+                                            </div>
+                                            <img class="card-img-top img-fluid" src="{{asset('assets/media/books/card1.jpeg')}}" alt="Product 12">
+                                            <div class="card-body">
+                                                <h4 class="card-title">Product 12</h4>
+                                                <p class="card-text">For what reason would it be advisable for me to think about business content?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                                
                         </div>
                     </div>
                 </div>

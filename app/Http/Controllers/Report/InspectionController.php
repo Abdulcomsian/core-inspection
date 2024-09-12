@@ -9,7 +9,6 @@ class InspectionController extends Controller
 {
     public function index()
     {
-        $roles = Role::with(['permissions'])->get();
-        return view('admin.report.inspection.index', compact('roles'));
+        return view('admin.report.inspection.index');
     }
 }

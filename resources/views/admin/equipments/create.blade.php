@@ -1,23 +1,8 @@
 @extends('layouts.admin')
-
+@section('title', 'Software')
+@section('header', 'Equipment Details')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <div class="container-fluid" id="kt_toolbar_container">
-            <div class="toolbar d-flex flex-stack">
-                <div class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
-                    <span class="h-20px border-gray-200 border-start mx-4"></span>
-                    <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                        <li class="breadcrumb-item text-muted">
-                            <a href="index.html" class="text-dark text-hover-primary">Dashboard</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <li class="breadcrumb-item text-muted">Equipment Details</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
 
         <div class="container-fluid">
             <div class="container">
@@ -76,10 +61,10 @@
                                         <!-- Mandatory Equipment Information -->
                                         <div class="col-md-6">
                                             <div class="card">
+                                                <div class="form-header">
+                                                    <h3>Mandatory Equipment Information</h3>
+                                                </div>
                                                 <div class="card-body">
-                                                    <div class="form-header">
-                                                        <h3>Mandatory Equipment Information</h3>
-                                                    </div>
                                                     <div class="form-group mb-3">
                                                         <label for="JobInfoClientSelect">Client</label>
                                                         <select id="JobInfoClientSelect" class="form-control">
@@ -105,8 +90,8 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group mb-3 d-flex justify-content-center">
-                                                        <button type="button"
-                                                            class="btn btn-success btn-sm">Load from Template</button>
+                                                        <button type="button" class="btn btn-success btn-sm">Load from
+                                                            Template</button>
                                                     </div>
                                                     <div class="form-group mb-3">
                                                         <label for="EquipmentId">ID#</label>
@@ -123,10 +108,10 @@
                                         <!-- Optional Equipment Information -->
                                         <div class="col-md-6 d-flex">
                                             <div class="card">
+                                                <div class="form-header">
+                                                    <h3>Optional Equipment Information</h3>
+                                                </div>
                                                 <div class="card-body">
-                                                    <div class="form-header">
-                                                        <h3>Optional Equipment Information</h3>
-                                                    </div>
                                                     <div class="form-group mb-3 input-spacing">
                                                         <label for="clientRef">Client Ref</label>
                                                         <input class="form-control" type="text" name="client_ref"
@@ -165,33 +150,37 @@
 
                                     <div class="col-md-12">
                                         <div class="card">
+                                            <div class="form-header">
+                                                <h3>Current Equipment Status</h3>
+                                            </div>
                                             <div class="card-body">
-                                                <div class="form-header">
-                                                    <h3>Current Equipment Status</h3>
-                                                </div>
                                                 <div class="form-group input-spacing">
                                                     <label for="salesOrderNo">Last Result</label>
                                                     <div class="d-flex flex-wrap gap-3">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="status" id="statusPassed" value="Passed">
+                                                            <input class="form-check-input" type="radio" name="status"
+                                                                id="statusPassed" value="Passed">
                                                             <label class="form-check-label" for="statusPassed">
                                                                 Passed
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="status" id="statusFailed" value="Failed">
+                                                            <input class="form-check-input" type="radio" name="status"
+                                                                id="statusFailed" value="Failed">
                                                             <label class="form-check-label" for="statusFailed">
                                                                 Failed
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="status" id="statusMissed" value="Not Seen">
+                                                            <input class="form-check-input" type="radio" name="status"
+                                                                id="statusMissed" value="Not Seen">
                                                             <label class="form-check-label" for="statusMissed">
                                                                 Not Seen
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="status" id="statusNoValue" value="No Value" checked>
+                                                            <input class="form-check-input" type="radio" name="status"
+                                                                id="statusNoValue" value="No Value" checked>
                                                             <label class="form-check-label" for="statusNoValue">
                                                                 No Value
                                                             </label>
@@ -212,7 +201,8 @@
                                                 </div>
                                                 <div class="form-group input-spacing">
                                                     <label for="salesOrderNo">Last Inspected</label>
-                                                    <input class="form-control" type="date" name="sale_order_no" id="salesOrderNo">
+                                                    <input class="form-control" type="date" name="sale_order_no"
+                                                        id="salesOrderNo">
                                                 </div>
                                             </div>
                                         </div>
@@ -220,10 +210,10 @@
 
                                     <div class="col-md-12">
                                         <div class="card">
+                                            <div class="form-header">
+                                                <h3>ANCHOR POINT / SAFETY LINE (PERMANENT)</h3>
+                                            </div>
                                             <div class="card-body">
-                                                <div class="form-header">
-                                                    <h3>ANCHOR POINT / SAFETY LINE (PERMANENT)</h3>
-                                                </div>
                                                 <div class="form-group row input-spacing">
                                                     <div class="col-md-4">
                                                         <label for="scheduleDate">Schedule For</label>
@@ -275,7 +265,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <button type="button" class="btn btn-success btn-sm"><i
                                         class="fas fa-save"></i>Save</button>
@@ -292,7 +282,8 @@
                 <div class="tab-pane fade" id="inspection" role="tabpanel" aria-labelledby="inspection">
                     <div class="mt-3">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover datatable datatable-Role" data-ordering="false">
+                            <table class="table table-bordered table-striped table-hover datatable datatable-Role"
+                                data-ordering="false">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -319,7 +310,8 @@
                 <div class="tab-pane fade" id="attachment" role="tabpanel" aria-labelledby="attachment">
                     <div class="mt-3">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover datatable datatable-Role" data-ordering="false">
+                            <table class="table table-bordered table-striped table-hover datatable datatable-Role"
+                                data-ordering="false">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -339,12 +331,16 @@
                                     <!-- Your rows here -->
                                 </tbody>
                             </table>
-                            <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Add Attachement</button>
+                            <button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Add
+                                Attachement</button>
                         </div>
                         <div class="mt-3">
-                            <button type="button" class="btn btn-success btn-sm"><i class="fas fa-save"></i>Save</button>
-                            <button type="button" class="btn btn-success btn-sm"><i class="far fa-save"></i>Save & Inspect</button>
-                            <button type="button" class="btn btn-danger btn-sm"><i class="fas fa-ban"></i>Cancel</button>
+                            <button type="button" class="btn btn-success btn-sm"><i
+                                    class="fas fa-save"></i>Save</button>
+                            <button type="button" class="btn btn-success btn-sm"><i class="far fa-save"></i>Save &
+                                Inspect</button>
+                            <button type="button" class="btn btn-danger btn-sm"><i
+                                    class="fas fa-ban"></i>Cancel</button>
                         </div>
                     </div>
                 </div>

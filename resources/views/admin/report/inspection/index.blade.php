@@ -1,29 +1,10 @@
 @extends('layouts.admin')
-
+@section('title', 'Software')
+@section('header', 'Inspections')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <div class="container-fluid" id="kt_toolbar_container">
-            <div class="toolbar d-flex flex-stack">
-                <div class="page-title d-flex align-items-center me-3 flex-wrap mb-5 mb-lg-0 lh-1">
-                    <span class="h-20px border-gray-200 border-start mx-4"></span>
-                    <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                        <li class="breadcrumb-item text-muted">
-                            <a href="index.html" class="text-dark text-hover-primary">Dashboard</a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <li class="breadcrumb-item text-muted">Inspections</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
         <div class="container-fluid">
-            <div class="card bgg-light-primary" style="height: 80px;">
-                <div class="card-title">
-                    <!-- Optional: Add a title here if needed -->
-                </div>
+            <div class="card bgg-light-primary" style="height: 50px;">
             </div>
 
             <div class="card mt-5">

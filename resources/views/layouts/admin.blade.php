@@ -4,7 +4,7 @@
 <head>
     <base href="">
     <meta charset="utf-8" />
-    <title>Metronic Bootstrap 5 Theme | Keenthemes</title>
+    <title>Core Inspection - @yield('title')</title>
     <meta name="description"
         content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
     <meta name="keywords"
@@ -15,65 +15,46 @@
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
-    <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    {{-- <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css">
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
-    {{-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css" rel="stylesheet" />
-    <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.0.1/min/dropzone.min.css" rel="stylesheet">  
-    <link rel="stylesheet" href="{{asset('assets/css/dashboard.css')}}">
-    <!--end::Global Stylesheets Bundle-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
 </head>
 
 <style>
-    .menu-item.active > .menu-link {
-    background-color: #f0f0f0; /* Example: Active background color */
-}
+    .menu-item.active>.menu-link {
+        background-color: #f0f0f0;
+    }
 
-.menu-item.active > .menu-sub {
-    display: block !important; /* Ensure that active submenus are visible */
-}
-
+    .menu-item.active>.menu-sub {
+        display: block !important;
+    }
 </style>
 
 <body id="kt_body"
     class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed"
     style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
-    <!--begin::Main-->
-    <!--begin::Root-->
     <div class="d-flex flex-column flex-root">
-        <!--begin::Page-->
         <div class="page d-flex flex-row flex-column-fluid">
-            <!--begin::Aside-->
             <div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true"
                 data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}"
                 data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}"
                 data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
-                <!--begin::Brand-->
                 <div class="aside-logo flex-column-auto" id="kt_aside_logo">
-                    <!--begin::Logo-->
                     <a href="index.html">
                         <img alt="Logo" src="{{ asset('assets/src/media/logos/logo-1.svg') }}"
                             class="h-15px logo" />
                     </a>
-                    <!--end::Logo-->
-                    <!--begin::Aside toggler-->
                     <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
                         data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
                         data-kt-toggle-name="aside-minimize">
-                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Angle-double-left.svg-->
                         <span class="svg-icon svg-icon-1 rotate-180">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -90,21 +71,16 @@
                                 </g>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->
                     </div>
-                    <!--end::Aside toggler-->
                 </div>
                 <div class="aside-menu flex-column-fluid">
-                    <!--begin::Aside Menu-->
                     <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true"
                         data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto"
                         data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
                         data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
-                        <!--begin::Menu-->
                         <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                             id="kt_aside_menu" data-kt-menu="true">
 
-                            <!-- Dashboard Menu Item -->
                             <div class="menu-item">
                                 <a class="menu-link {{ request()->is('/') ? 'active' : '' }}" href="/">
                                     <span class="menu-icon">
@@ -114,51 +90,9 @@
                                 </a>
                             </div>
 
-                            <!-- User Management Menu Item -->
-                            @can('user_management_access')
-                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
-                                <span class="menu-link">
-                                    <span class="menu-icon">
-                                        <i class="fas fa-users-cog"></i>
-                                    </span>
-                                    <span class="menu-title">User Management</span>
-                                    <span class="menu-arrow"></span>
-                                </span>
-                                <div class="menu-sub menu-sub-accordion" style="display: none;">
-                                    <div class="menu-item">
-                                        <a href="{{ route('users.index') }}"
-                                            class="menu-link {{ request()->is('users') || request()->is('users/*') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Users</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="{{ route('roles.index') }}"
-                                            class="menu-link {{ request()->is('roles') || request()->is('roles/*') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Roles</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="{{ route('permissions.index') }}"
-                                            class="menu-link {{ request()->is('permissions') || request()->is('permissions/*') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Permissions</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            @endcan
-
                             <!-- Reports Menu Item -->
-                            @can('report_access')
-                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                            {{-- @can('report_access')
+                                <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <i class="fas fa-chart-line"></i>
@@ -166,6 +100,56 @@
                                         <span class="menu-title">Reports</span>
                                         <span class="menu-arrow"></span>
                                     </span>
+                                    <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                        <div class="menu-item">
+                                            <a href="{{ route('report.forcast.index') }}"
+                                                class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Job Forecast</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('report.overdue_client.index') }}"
+                                                class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Overdue Clients</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('report.inspection.index') }}"
+                                                class="menu-link {{ request()->is('report/inspection/index') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">All Inspections</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('report.schedule.index') }}"
+                                                class="menu-link {{ request()->is('report/schedule/index') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Schedule Reports</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endcan --}}
+
+                            <!-- Jobs Menu Item -->
+                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                                <span class="menu-link">
+                                    <span class="menu-icon">
+                                        <i class="fas fa-briefcase"></i>
+                                    </span>
+                                    <span class="menu-title">Jobs</span>
+                                    <span class="menu-arrow"></span>
+                                </span>
                                 <div class="menu-sub menu-sub-accordion" style="display: none;">
                                     <div class="menu-item">
                                         <a href="{{ route('report.forcast.index') }}"
@@ -173,16 +157,7 @@
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
-                                            <span class="menu-title">Job Forecast</span>
-                                        </a>
-                                    </div>
-                                    <div class="menu-item">
-                                        <a href="{{ route('report.overdue_client.index') }}"
-                                            class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
-                                            <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
-                                            </span>
-                                            <span class="menu-title">Overdue Clients</span>
+                                            <span class="menu-title">Rentals</span>
                                         </a>
                                     </div>
                                     <div class="menu-item">
@@ -191,31 +166,30 @@
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
-                                            <span class="menu-title">All Inspections</span>
+                                            <span class="menu-title">Inspections</span>
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('report.schedule.index') }}"
-                                            class="menu-link {{ request()->is('report/schedule/index') ? 'active' : '' }}">
+                                        <a href="#"
+                                            class="menu-link {{ request()->is('report/inspection/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
-                                            <span class="menu-title">Schedule Reports</span>
+                                            <span class="menu-title">Scheduler</span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                            @endcan
 
-                            <!-- Jobs Menu Item -->
-                            <div class="menu-item">
-                                <a class="menu-link {{ request()->is('job/index') ? 'active' : '' }}" href="{{ route('job.index') }}">
+                            {{-- <div class="menu-item">
+                                <a class="menu-link {{ request()->is('job/index') ? 'active' : '' }}"
+                                    href="{{ route('job.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-briefcase"></i>
                                     </span>
                                     <span class="menu-title">Jobs</span>
                                 </a>
-                            </div>
+                            </div> --}}
 
                             <!-- Scheduler Menu Item -->
                             {{-- <div class="menu-item">
@@ -227,28 +201,170 @@
                                 </a>
                             </div> --}}
 
-                            <!-- Equipment Menu Item -->
+                            <!-- Assets Menu Item -->
+                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                                <span class="menu-link">
+                                    <span class="menu-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </span>
+                                    <span class="menu-title">Assets</span>
+                                    <span class="menu-arrow"></span>
+                                </span>
+                                <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                    <div class="menu-item">
+                                        <a href="{{ route('configuration.equipment_type.index') }}"
+                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                            <span class="menu-bullet">
+                                                <span class="bullet bullet-dot"></span>
+                                            </span>
+                                            <span class="menu-title">Equipment Types</span>
+                                        </a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="{{ route('report.schedule.index') }}"
+                                            class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
+                                            <span class="menu-bullet">
+                                                <span class="bullet bullet-dot"></span>
+                                            </span>
+                                            <span class="menu-title">Parts</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Assets Menu Item -->
+                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                                <span class="menu-link">
+                                    <span class="menu-icon">
+                                        <i class="fas fa-user-friends"></i>
+                                    </span>
+                                    <span class="menu-title">Clients</span>
+                                    <span class="menu-arrow"></span>
+                                </span>
+                                <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                    <div class="menu-item">
+                                        <a href="{{ route('configuration.equipment_type.index') }}"
+                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                            <span class="menu-bullet">
+                                                <span class="bullet bullet-dot"></span>
+                                            </span>
+                                            <span class="menu-title">Locations</span>
+                                        </a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="{{ route('report.schedule.index') }}"
+                                            class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
+                                            <span class="menu-bullet">
+                                                <span class="bullet bullet-dot"></span>
+                                            </span>
+                                            <span class="menu-title">Zones</span>
+                                        </a>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a href="{{ route('configuration.users.index') }}"
+                                            class="menu-link {{ request()->is('configuration/users/index') ? 'active' : '' }}">
+                                            <span class="menu-bullet">
+                                                <span class="bullet bullet-dot"></span>
+                                            </span>
+                                            <span class="menu-title">Users</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- User Management Menu Item -->
+                            @can('user_management_access')
+                                <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                                    <span class="menu-link">
+                                        <span class="menu-icon">
+                                            <i class="fas fa-users-cog"></i>
+                                        </span>
+                                        <span class="menu-title">User Management</span>
+                                        <span class="menu-arrow"></span>
+                                    </span>
+                                    <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                        <div class="menu-item">
+                                            <a href="{{ route('users.index') }}"
+                                                class="menu-link {{ request()->is('users') || request()->is('users/*') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Users</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('roles.index') }}"
+                                                class="menu-link {{ request()->is('roles') || request()->is('roles/*') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Roles</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a href="{{ route('permissions.index') }}"
+                                                class="menu-link {{ request()->is('permissions') || request()->is('permissions/*') ? 'active' : '' }}">
+                                                <span class="menu-bullet">
+                                                    <span class="bullet bullet-dot"></span>
+                                                </span>
+                                                <span class="menu-title">Permissions</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endcan
+
+                            <!-- Billing Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}" href="{{ route('equipment.index') }}">
+                                <a class="menu-link {{ request()->is('/billing') ? 'active' : '' }}" href="/">
+                                    <span class="menu-icon">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                    </span>
+                                    <span class="menu-title">Billing</span>
+                                </a>
+                            </div>
+
+                            <!-- Signout Menu Item -->
+                            <div class="menu-item">
+                                <a class="menu-link"
+                                    href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <span class="menu-icon">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                    </span>
+                                    <span class="menu-title">Sign Out</span>
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+
+                            <!-- Equipment Menu Item -->
+                            {{-- <div class="menu-item">
+                                <a class="menu-link {{ request()->is('scheduler') ? 'active' : '' }}"
+                                    href="{{ route('equipment.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-tools"></i>
                                     </span>
                                     <span class="menu-title">Equipment</span>
                                 </a>
-                            </div>
+                            </div> --}}
 
                             <!-- Clients Menu Item -->
-                            <div class="menu-item">
-                                <a class="menu-link {{ request()->is('client/index') ? 'active' : '' }}" href="{{ route('client.index') }}">
+                            {{-- <div class="menu-item">
+                                <a class="menu-link {{ request()->is('client/index') ? 'active' : '' }}"
+                                    href="{{ route('client.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-user-friends"></i>
                                     </span>
                                     <span class="menu-title">Clients</span>
                                 </a>
-                            </div>
+                            </div> --}}
 
                             <!-- Configuration Menu Item -->
-                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                            {{-- <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <i class="fas fa-cogs"></i>
@@ -330,10 +446,10 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <!-- Setup Menu Item -->
-                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                            {{-- <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <i class="fas fa-wrench"></i>
@@ -362,7 +478,7 @@
                                     </div>
                                     <div class="menu-item">
                                         <a href="{{ route('setup.register_template.index') }}"
-                                            class="menu-link {{ request()-> is('admin/reports/inspections') ? 'active' : '' }}">
+                                            class="menu-link {{ request()->is('admin/reports/inspections') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -388,22 +504,16 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
             </div>
-            <!--end::Aside-->
-            <!--begin::Wrapper-->
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-                <!--begin::Header-->
                 <div id="kt_header" style="" class="header align-items-stretch">
-                    <!--begin::Container-->
                     <div class="container-fluid d-flex align-items-stretch justify-content-between">
-                        <!--begin::Aside mobile toggle-->
                         <div class="d-flex align-items-center d-lg-none ms-n3 me-1" title="Show aside menu">
                             <div class="btn btn-icon btn-active-light-primary" id="kt_aside_mobile_toggle">
-                                <!--begin::Svg Icon | path: icons/duotone/Text/Menu.svg-->
                                 <span class="svg-icon svg-icon-2x mt-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                         width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -417,22 +527,15 @@
                                         </g>
                                     </svg>
                                 </span>
-                                <!--end::Svg Icon-->
                             </div>
                         </div>
-                        <!--end::Aside mobile toggle-->
-                        <!--begin::Mobile logo-->
                         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                             <a href="index.html" class="d-lg-none">
                                 <img alt="Logo" src="assets/media/logos/logo-3.svg" class="h-30px" />
                             </a>
                         </div>
-                        <!--end::Mobile logo-->
-                        <!--begin::Wrapper-->
                         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
-                            <!--begin::Navbar-->
                             <div class="d-flex align-items-stretch" id="kt_header_nav">
-                                <!--begin::Menu wrapper-->
                                 <div class="header-menu align-items-stretch" data-kt-drawer="true"
                                     data-kt-drawer-name="header-menu"
                                     data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
@@ -441,36 +544,22 @@
                                     data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-place="true"
                                     data-kt-place-mode="prepend"
                                     data-kt-place-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
-                                    <!--begin::Menu-->
                                     <div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch"
                                         id="#kt_header_menu" data-kt-menu="true">
-                                        <div class="menu-item me-lg-1">
-                                            <a class="menu-link active py-3" href="{{ url('/') }}">
-                                                <span class="menu-title">Dashboard</span>
-                                            </a>
-                                        </div>
+                                        <h3 class="menu-link active py-3 text-dark">
+                                            <span class="menu-title">@yield('header')</span>
+                                        </h3>
                                     </div>
-                                    <!--end::Menu-->
                                 </div>
-                                <!--end::Menu wrapper-->
                             </div>
-                            <!--end::Navbar-->
-                            <!--begin::Topbar-->
                             <div class="d-flex align-items-stretch flex-shrink-0">
-                                <!--begin::Toolbar wrapper-->
                                 <div class="d-flex align-items-stretch flex-shrink-0">
-                                    <!--begin::Search-->
                                     <div class="d-flex align-items-stretch ms-1 ms-lg-3">
                                     </div>
-                                    <!--end::Search-->
-
-                                    <!--begin::Notifications-->
                                     <div class="d-flex align-items-center ms-1 ms-lg-3">
-                                        <!--begin::Menu- wrapper-->
                                         <div class="btn btn-icon btn-active-light-primary position-relative w-30px h-30px w-md-40px h-md-40px"
                                             data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                             data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
-                                            <!--begin::Svg Icon | path: icons/duotone/Code/Compiling.svg-->
                                             <span class="svg-icon svg-icon-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"
                                                     viewBox="0 0 24 24" version="1.1">
@@ -482,20 +571,14 @@
                                                         fill="#000000" />
                                                 </svg>
                                             </span>
-                                            <!--end::Svg Icon-->
                                         </div>
-                                        <!--begin::Menu-->
                                         <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px"
                                             data-kt-menu="true">
-                                            <!--begin::Heading-->
                                             <div class="d-flex flex-column bgi-no-repeat rounded-top"
                                                 style="background-image:url('assets/media//misc/pattern-1.jpg')">
-                                                <!--begin::Title-->
                                                 <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
                                                     <span class="fs-8 opacity-75 ps-3">24 reports</span>
                                                 </h3>
-                                                <!--end::Title-->
-                                                <!--begin::Tabs-->
                                                 <ul
                                                     class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-bold px-9">
                                                     <li class="nav-item">
@@ -514,24 +597,15 @@
                                                             href="#kt_topbar_notifications_3">Logs</a>
                                                     </li>
                                                 </ul>
-                                                <!--end::Tabs-->
                                             </div>
-                                            <!--end::Heading-->
-                                            <!--begin::Tab content-->
                                             <div class="tab-content">
-                                                <!--begin::Tab panel-->
                                                 <div class="tab-pane fade" id="kt_topbar_notifications_1"
                                                     role="tabpanel">
-                                                    <!--begin::Items-->
                                                     <div class="scroll-y mh-325px my-5 px-8">
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center">
-                                                                <!--begin::Symbol-->
                                                                 <div class="symbol symbol-35px me-4">
                                                                     <span class="symbol-label bg-light-primary">
-                                                                        <!--begin::Svg Icon | path: icons/duotone/Clothes/Crown.svg-->
                                                                         <span
                                                                             class="svg-icon svg-icon-2 svg-icon-primary">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -545,11 +619,8 @@
                                                                                     fill="#000000" />
                                                                             </svg>
                                                                         </span>
-                                                                        <!--end::Svg Icon-->
                                                                     </span>
                                                                 </div>
-                                                                <!--end::Symbol-->
-                                                                <!--begin::Title-->
                                                                 <div class="mb-0 me-2">
                                                                     <a href="#"
                                                                         class="fs-6 text-gray-800 text-hover-primary fw-bolder">Project
@@ -557,22 +628,13 @@
                                                                     <div class="text-gray-400 fs-7">Phase 1 development
                                                                     </div>
                                                                 </div>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">1 hr</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center">
-                                                                <!--begin::Symbol-->
                                                                 <div class="symbol symbol-35px me-4">
                                                                     <span class="symbol-label bg-light-danger">
-                                                                        <!--begin::Svg Icon | path: icons/duotone/Code/Warning-2.svg-->
                                                                         <span
                                                                             class="svg-icon svg-icon-2 svg-icon-danger">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -589,11 +651,8 @@
                                                                                     rx="1" />
                                                                             </svg>
                                                                         </span>
-                                                                        <!--end::Svg Icon-->
                                                                     </span>
                                                                 </div>
-                                                                <!--end::Symbol-->
-                                                                <!--begin::Title-->
                                                                 <div class="mb-0 me-2">
                                                                     <a href="#"
                                                                         class="fs-6 text-gray-800 text-hover-primary fw-bolder">HR
@@ -601,22 +660,13 @@
                                                                     <div class="text-gray-400 fs-7">Confidential staff
                                                                         documents</div>
                                                                 </div>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">2 hrs</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center">
-                                                                <!--begin::Symbol-->
                                                                 <div class="symbol symbol-35px me-4">
                                                                     <span class="symbol-label bg-light-warning">
-                                                                        <!--begin::Svg Icon | path: icons/duotone/Communication/Group.svg-->
                                                                         <span
                                                                             class="svg-icon svg-icon-2 svg-icon-warning">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -632,11 +682,8 @@
                                                                                     fill-rule="nonzero" />
                                                                             </svg>
                                                                         </span>
-                                                                        <!--end::Svg Icon-->
                                                                     </span>
                                                                 </div>
-                                                                <!--end::Symbol-->
-                                                                <!--begin::Title-->
                                                                 <div class="mb-0 me-2">
                                                                     <a href="#"
                                                                         class="fs-6 text-gray-800 text-hover-primary fw-bolder">Company
@@ -644,22 +691,13 @@
                                                                     <div class="text-gray-400 fs-7">Corporeate staff
                                                                         profiles</div>
                                                                 </div>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">5 hrs</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center">
-                                                                <!--begin::Symbol-->
                                                                 <div class="symbol symbol-35px me-4">
                                                                     <span class="symbol-label bg-light-success">
-                                                                        <!--begin::Svg Icon | path: icons/duotone/General/Thunder.svg-->
                                                                         <span
                                                                             class="svg-icon svg-icon-2 svg-icon-success">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -677,11 +715,8 @@
                                                                                 </g>
                                                                             </svg>
                                                                         </span>
-                                                                        <!--end::Svg Icon-->
                                                                     </span>
                                                                 </div>
-                                                                <!--end::Symbol-->
-                                                                <!--begin::Title-->
                                                                 <div class="mb-0 me-2">
                                                                     <a href="#"
                                                                         class="fs-6 text-gray-800 text-hover-primary fw-bolder">Project
@@ -689,22 +724,13 @@
                                                                     <div class="text-gray-400 fs-7">New frontend admin
                                                                         theme</div>
                                                                 </div>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">2 days</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center">
-                                                                <!--begin::Symbol-->
                                                                 <div class="symbol symbol-35px me-4">
                                                                     <span class="symbol-label bg-light-primary">
-                                                                        <!--begin::Svg Icon | path: icons/duotone/Communication/Flag.svg-->
                                                                         <span
                                                                             class="svg-icon svg-icon-2 svg-icon-primary">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -718,11 +744,8 @@
                                                                                     fill="#000000" opacity="0.3" />
                                                                             </svg>
                                                                         </span>
-                                                                        <!--end::Svg Icon-->
                                                                     </span>
                                                                 </div>
-                                                                <!--end::Symbol-->
-                                                                <!--begin::Title-->
                                                                 <div class="mb-0 me-2">
                                                                     <a href="#"
                                                                         class="fs-6 text-gray-800 text-hover-primary fw-bolder">Project
@@ -730,22 +753,13 @@
                                                                     <div class="text-gray-400 fs-7">Product launch
                                                                         status update</div>
                                                                 </div>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">21 Jan</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center">
-                                                                <!--begin::Symbol-->
                                                                 <div class="symbol symbol-35px me-4">
                                                                     <span class="symbol-label bg-light-info">
-                                                                        <!--begin::Svg Icon | path: icons/duotone/Design/Image.svg-->
                                                                         <span
                                                                             class="svg-icon svg-icon-2 svg-icon-info">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -762,11 +776,8 @@
                                                                                 </g>
                                                                             </svg>
                                                                         </span>
-                                                                        <!--end::Svg Icon-->
                                                                     </span>
                                                                 </div>
-                                                                <!--end::Symbol-->
-                                                                <!--begin::Title-->
                                                                 <div class="mb-0 me-2">
                                                                     <a href="#"
                                                                         class="fs-6 text-gray-800 text-hover-primary fw-bolder">Banner
@@ -774,22 +785,13 @@
                                                                     <div class="text-gray-400 fs-7">Collection of
                                                                         banner images</div>
                                                                 </div>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">21 Jan</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center">
-                                                                <!--begin::Symbol-->
                                                                 <div class="symbol symbol-35px me-4">
                                                                     <span class="symbol-label bg-light-warning">
-                                                                        <!--begin::Svg Icon | path: icons/duotone/Design/Component.svg-->
                                                                         <span
                                                                             class="svg-icon svg-icon-2 svg-icon-warning">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -800,11 +802,8 @@
                                                                                     fill="#000000" />
                                                                             </svg>
                                                                         </span>
-                                                                        <!--end::Svg Icon-->
                                                                     </span>
                                                                 </div>
-                                                                <!--end::Symbol-->
-                                                                <!--begin::Title-->
                                                                 <div class="mb-0 me-2">
                                                                     <a href="#"
                                                                         class="fs-6 text-gray-800 text-hover-primary fw-bolder">Icon
@@ -812,22 +811,14 @@
                                                                     <div class="text-gray-400 fs-7">Collection of SVG
                                                                         icons</div>
                                                                 </div>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">20 March</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
                                                     </div>
-                                                    <!--end::Items-->
-                                                    <!--begin::View more-->
                                                     <div class="py-3 text-center border-top">
                                                         <a href="pages/profile/activity.html"
                                                             class="btn btn-color-gray-600 btn-active-color-primary">View
                                                             All
-                                                            <!--begin::Svg Icon | path: icons/duotone/Navigation/Right-2.svg-->
                                                             <span class="svg-icon svg-icon-5">
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -846,300 +837,158 @@
                                                                             transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
                                                                     </g>
                                                                 </svg>
-                                                            </span>
-                                                            <!--end::Svg Icon--></a>
+                                                            </span></a>
                                                     </div>
-                                                    <!--end::View more-->
                                                 </div>
-                                                <!--end::Tab panel-->
-                                                <!--begin::Tab panel-->
                                                 <div class="tab-pane fade show active" id="kt_topbar_notifications_2"
                                                     role="tabpanel">
-                                                    <!--begin::Wrapper-->
                                                     <div class="d-flex flex-column px-9">
-                                                        <!--begin::Section-->
                                                         <div class="pt-10 pb-0">
-                                                            <!--begin::Title-->
                                                             <h3 class="text-dark text-center fw-bolder">Get Pro Access
                                                             </h3>
-                                                            <!--end::Title-->
-                                                            <!--begin::Text-->
                                                             <div class="text-center text-gray-600 fw-bold pt-1">
                                                                 Outlines keep you honest. They stoping you from amazing
                                                                 poorly about drive</div>
-                                                            <!--end::Text-->
-                                                            <!--begin::Action-->
                                                             <div class="text-center mt-5 mb-9">
                                                                 <a href="#" class="btn btn-sm btn-primary px-6"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#kt_modal_upgrade_plan">Upgrade</a>
                                                             </div>
-                                                            <!--end::Action-->
                                                         </div>
-                                                        <!--end::Section-->
-                                                        <!--begin::Illustration-->
                                                         <div class="text-center px-4">
                                                             <img class="mw-100 mh-200px" alt="metronic"
                                                                 src="assets/media/illustrations/work.png" />
                                                         </div>
-                                                        <!--end::Illustration-->
                                                     </div>
-                                                    <!--end::Wrapper-->
                                                 </div>
-                                                <!--end::Tab panel-->
-                                                <!--begin::Tab panel-->
                                                 <div class="tab-pane fade" id="kt_topbar_notifications_3"
                                                     role="tabpanel">
-                                                    <!--begin::Items-->
                                                     <div class="scroll-y mh-325px my-5 px-8">
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-success me-4">200
                                                                     OK</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">New
                                                                     order</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">Just now</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-danger me-4">500
                                                                     ERR</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">New
                                                                     customer</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">2 hrs</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-success me-4">200
                                                                     OK</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">Payment
                                                                     process</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">5 hrs</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-warning me-4">300
                                                                     WRN</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">Search
                                                                     query</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">2 days</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-success me-4">200
                                                                     OK</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">API
                                                                     connection</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">1 week</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-success me-4">200
                                                                     OK</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">Database
                                                                     restore</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">Mar 5</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-warning me-4">300
                                                                     WRN</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">System
                                                                     update</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">May 15</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-warning me-4">300
                                                                     WRN</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">Server
                                                                     OS update</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">Apr 3</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-warning me-4">300
                                                                     WRN</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">API
                                                                     rollback</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">Jun 30</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-danger me-4">500
                                                                     ERR</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">Refund
                                                                     process</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">Jul 10</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-danger me-4">500
                                                                     ERR</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">Withdrawal
                                                                     process</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">Sep 10</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
-                                                        <!--begin::Item-->
                                                         <div class="d-flex flex-stack py-4">
-                                                            <!--begin::Section-->
                                                             <div class="d-flex align-items-center me-2">
-                                                                <!--begin::Code-->
                                                                 <span class="w-70px badge badge-light-danger me-4">500
                                                                     ERR</span>
-                                                                <!--end::Code-->
-                                                                <!--begin::Title-->
                                                                 <a href="#"
                                                                     class="text-gray-800 text-hover-primary fw-bold">Mail
                                                                     tasks</a>
-                                                                <!--end::Title-->
                                                             </div>
-                                                            <!--end::Section-->
-                                                            <!--begin::Label-->
                                                             <span class="badge badge-light fs-8">Dec 10</span>
-                                                            <!--end::Label-->
                                                         </div>
-                                                        <!--end::Item-->
                                                     </div>
-                                                    <!--end::Items-->
-                                                    <!--begin::View more-->
                                                     <div class="py-3 text-center border-top">
-                                                        <a href="pages/profile/activity.html"
+                                                        <a href="#"
                                                             class="btn btn-color-gray-600 btn-active-color-primary">View
                                                             All
-                                                            <!--begin::Svg Icon | path: icons/duotone/Navigation/Right-2.svg-->
                                                             <span class="svg-icon svg-icon-5">
                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1158,69 +1007,54 @@
                                                                             transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
                                                                     </g>
                                                                 </svg>
-                                                            </span>
-                                                            <!--end::Svg Icon--></a>
+                                                            </span></a>
                                                     </div>
-                                                    <!--end::View more-->
                                                 </div>
-                                                <!--end::Tab panel-->
                                             </div>
-                                            <!--end::Tab content-->
                                         </div>
-                                        <!--end::Menu-->
-                                        <!--end::Menu wrapper-->
                                     </div>
-                                    <!--end::Notifications-->
-                                    <!--begin::User-->
                                     <div class="d-flex align-items-center ms-1 ms-lg-3"
                                         id="kt_header_user_menu_toggle">
-                                        <!--begin::Menu wrapper-->
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
                                             data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                             data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
                                             <img src="{{ asset('assets/media/avatars/150-2.jpg') }}"
                                                 alt="metronic" />
                                         </div>
-                                        <!--begin::Menu-->
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold py-4 fs-6 w-275px"
                                             data-kt-menu="true">
-                                            <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <div class="menu-content d-flex align-items-center px-3">
-                                                    <!--begin::Avatar-->
                                                     <div class="symbol symbol-50px me-5">
                                                         <img alt="Logo"
                                                             src="{{ asset('assets/media/avatars/150-2.jpg') }}" />
                                                     </div>
-                                                    <!--end::Avatar-->
-                                                    <!--begin::Username-->
                                                     <div class="d-flex flex-column">
                                                         <div class="fw-bolder d-flex align-items-center fs-5">
                                                             {{ auth()->user()->name }}
-                                                            {{-- <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span> --}}
                                                         </div>
                                                         <a href="#"
                                                             class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
                                                     </div>
-                                                    <!--end::Username-->
                                                 </div>
                                             </div>
                                             <div class="separator my-2"></div>
                                             <div class="menu-item px-5">
-                                                <a href="{{ route('profile.password.edit') }}" class="menu-link px-5">
+                                                <a href="{{ route('profile.password.edit') }}"
+                                                    class="menu-link px-5">
                                                     <i class="fas fa-user-circle"
                                                         style="color: #3498db; margin-right: 8px;"></i>
                                                     Account
                                                 </a>
                                             </div>
 
-                                            <!-- Separator -->
                                             <div class="separator my-2"></div>
 
                                             <div class="menu-item px-5">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                    <i class="fas fa-sign-out-alt" style="color: #e74c3c; margin-right: 8px;"></i>
+                                                    <i class="fas fa-sign-out-alt"
+                                                        style="color: #e74c3c; margin-right: 8px;"></i>
                                                     {{ __('Sign out') }}
                                                 </a>
 
@@ -1231,13 +1065,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--end::User -->
-                                    <!--begin::Heaeder menu toggle-->
                                     <div class="d-flex align-items-center d-lg-none ms-2 me-n3"
                                         title="Show header menu">
                                         <div class="btn btn-icon btn-active-light-primary"
                                             id="kt_header_menu_mobile_toggle">
-                                            <!--begin::Svg Icon | path: icons/duotone/Text/Toggle-Right.svg-->
                                             <span class="svg-icon svg-icon-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -1254,46 +1085,23 @@
                                                     </g>
                                                 </svg>
                                             </span>
-                                            <!--end::Svg Icon-->
                                         </div>
                                     </div>
-                                    <!--end::Heaeder menu toggle-->
                                 </div>
-                                <!--end::Toolbar wrapper-->
                             </div>
-                            <!--end::Topbar-->
                         </div>
-                        <!--end::Wrapper-->
                     </div>
-                    <!--end::Container-->
                 </div>
-                <!--end::Header-->
-                <!--begin::Content-->
                 @yield('content')
-                <!--end::Content-->
             </div>
-            <!--end::Wrapper-->
         </div>
-        <!--end::Page-->
     </div>
-    <!--end::Root-->
-    <!--begin::Drawers-->
-    <!--end::Drawers-->
-    <!--begin::Modals-->
-    <!--begin::Modal - Create App-->
     <div class="modal fade" id="kt_modal_create_app" tabindex="-1" aria-hidden="true">
-        <!--begin::Modal dialog-->
         <div class="modal-dialog modal-dialog-centered mw-900px">
-            <!--begin::Modal content-->
             <div class="modal-content">
-                <!--begin::Modal header-->
                 <div class="modal-header">
-                    <!--begin::Modal title-->
                     <h2>Create App</h2>
-                    <!--end::Modal title-->
-                    <!--begin::Close-->
                     <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
                         <span class="svg-icon svg-icon-1">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -1306,162 +1114,96 @@
                                 </g>
                             </svg>
                         </span>
-                        <!--end::Svg Icon-->
                     </div>
-                    <!--end::Close-->
                 </div>
-                <!--end::Modal header-->
-                <!--begin::Modal body-->
                 <div class="modal-body py-lg-10 px-lg-10">
-                    <!--begin::Stepper-->
                     <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid"
                         id="kt_modal_create_app_stepper">
-                        <!--begin::Aside-->
                         <div
                             class="d-flex justify-content-center justify-content-xl-start flex-row-auto w-100 w-xl-300px">
-                            <!--begin::Nav-->
                             <div class="stepper-nav ps-lg-10">
-                                <!--begin::Step 1-->
                                 <div class="stepper-item current" data-kt-stepper-element="nav">
-                                    <!--begin::Line-->
                                     <div class="stepper-line w-40px"></div>
-                                    <!--end::Line-->
-                                    <!--begin::Icon-->
                                     <div class="stepper-icon w-40px h-40px">
                                         <i class="stepper-check fas fa-check"></i>
                                         <span class="stepper-number">1</span>
                                     </div>
-                                    <!--end::Icon-->
-                                    <!--begin::Label-->
                                     <div class="stepper-label">
                                         <h3 class="stepper-title">Details</h3>
                                         <div class="stepper-desc">Name your App</div>
                                     </div>
-                                    <!--end::Label-->
                                 </div>
-                                <!--end::Step 1-->
-                                <!--begin::Step 2-->
                                 <div class="stepper-item" data-kt-stepper-element="nav">
-                                    <!--begin::Line-->
                                     <div class="stepper-line w-40px"></div>
-                                    <!--end::Line-->
-                                    <!--begin::Icon-->
                                     <div class="stepper-icon w-40px h-40px">
                                         <i class="stepper-check fas fa-check"></i>
                                         <span class="stepper-number">2</span>
                                     </div>
-                                    <!--begin::Icon-->
-                                    <!--begin::Label-->
                                     <div class="stepper-label">
                                         <h3 class="stepper-title">Frameworks</h3>
                                         <div class="stepper-desc">Define your app framework</div>
                                     </div>
-                                    <!--begin::Label-->
                                 </div>
-                                <!--end::Step 2-->
-                                <!--begin::Step 3-->
                                 <div class="stepper-item" data-kt-stepper-element="nav">
-                                    <!--begin::Line-->
                                     <div class="stepper-line w-40px"></div>
-                                    <!--end::Line-->
-                                    <!--begin::Icon-->
                                     <div class="stepper-icon w-40px h-40px">
                                         <i class="stepper-check fas fa-check"></i>
                                         <span class="stepper-number">3</span>
                                     </div>
-                                    <!--end::Icon-->
-                                    <!--begin::Label-->
                                     <div class="stepper-label">
                                         <h3 class="stepper-title">Database</h3>
                                         <div class="stepper-desc">Select the app database type</div>
                                     </div>
-                                    <!--end::Label-->
                                 </div>
-                                <!--end::Step 3-->
-                                <!--begin::Step 4-->
                                 <div class="stepper-item" data-kt-stepper-element="nav">
-                                    <!--begin::Line-->
                                     <div class="stepper-line w-40px"></div>
-                                    <!--end::Line-->
-                                    <!--begin::Icon-->
                                     <div class="stepper-icon w-40px h-40px">
                                         <i class="stepper-check fas fa-check"></i>
                                         <span class="stepper-number">4</span>
                                     </div>
-                                    <!--end::Icon-->
-                                    <!--begin::Label-->
                                     <div class="stepper-label">
                                         <h3 class="stepper-title">Billing</h3>
                                         <div class="stepper-desc">Provide payment details</div>
                                     </div>
-                                    <!--end::Label-->
                                 </div>
-                                <!--end::Step 4-->
-                                <!--begin::Step 5-->
                                 <div class="stepper-item" data-kt-stepper-element="nav">
-                                    <!--begin::Line-->
                                     <div class="stepper-line w-40px"></div>
-                                    <!--end::Line-->
-                                    <!--begin::Icon-->
                                     <div class="stepper-icon w-40px h-40px">
                                         <i class="stepper-check fas fa-check"></i>
                                         <span class="stepper-number">5</span>
                                     </div>
-                                    <!--end::Icon-->
-                                    <!--begin::Label-->
                                     <div class="stepper-label">
                                         <h3 class="stepper-title">Release</h3>
                                         <div class="stepper-desc">Review and Submit</div>
                                     </div>
-                                    <!--end::Label-->
                                 </div>
-                                <!--end::Step 5-->
                             </div>
-                            <!--end::Nav-->
                         </div>
-                        <!--begin::Aside-->
-                        <!--begin::Content-->
                         <div class="flex-row-fluid py-lg-5 px-lg-15">
-                            <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_modal_create_app_form">
-                                <!--begin::Step 1-->
                                 <div class="current" data-kt-stepper-element="content">
                                     <div class="w-100">
-                                        <!--begin::Input group-->
                                         <div class="fv-row mb-10">
-                                            <!--begin::Label-->
                                             <label class="d-flex align-items-center fs-5 fw-bold mb-2">
                                                 <span class="required">App Name</span>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7"
                                                     data-bs-toggle="tooltip" title="Specify your unique app name"></i>
                                             </label>
-                                            <!--end::Label-->
-                                            <!--begin::Input-->
                                             <input type="text"
                                                 class="form-control form-control-lg form-control-solid" name="name"
                                                 placeholder="" value="" />
-                                            <!--end::Input-->
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
                                         <div class="fv-row">
-                                            <!--begin::Label-->
                                             <label class="d-flex align-items-center fs-5 fw-bold mb-4">
                                                 <span class="required">Category</span>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7"
                                                     data-bs-toggle="tooltip" title="Select your app category"></i>
                                             </label>
-                                            <!--end::Label-->
-                                            <!--begin:Options-->
                                             <div class="fv-row">
-                                                <!--begin:Option-->
                                                 <label class="d-flex flex-stack mb-5 cursor-pointer">
-                                                    <!--begin:Label-->
                                                     <span class="d-flex align-items-center me-2">
-                                                        <!--begin:Icon-->
                                                         <span class="symbol symbol-50px me-6">
                                                             <span class="symbol-label bg-light-primary">
-                                                                <!--begin::Svg Icon | path: icons/duotone/Home/Globe.svg-->
                                                                 <span class="svg-icon svg-icon-1 svg-icon-primary">
                                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1479,35 +1221,23 @@
                                                                         </g>
                                                                     </svg>
                                                                 </span>
-                                                                <!--end::Svg Icon-->
                                                             </span>
                                                         </span>
-                                                        <!--end:Icon-->
-                                                        <!--begin:Info-->
                                                         <span class="d-flex flex-column">
                                                             <span class="fw-bolder fs-6">Quick Online Courses</span>
                                                             <span class="fs-7 text-muted">Creating a clear text
                                                                 structure is just one SEO</span>
                                                         </span>
-                                                        <!--end:Info-->
                                                     </span>
-                                                    <!--end:Label-->
-                                                    <!--begin:Input-->
                                                     <span class="form-check form-check-custom form-check-solid">
                                                         <input class="form-check-input" type="radio"
                                                             name="category" value="1" />
                                                     </span>
-                                                    <!--end:Input-->
                                                 </label>
-                                                <!--end::Option-->
-                                                <!--begin:Option-->
                                                 <label class="d-flex flex-stack mb-5 cursor-pointer">
-                                                    <!--begin:Label-->
                                                     <span class="d-flex align-items-center me-2">
-                                                        <!--begin:Icon-->
                                                         <span class="symbol symbol-50px me-6">
                                                             <span class="symbol-label bg-light-danger">
-                                                                <!--begin::Svg Icon | path: icons/duotone/Layout/Layout-4-blocks-2.svg-->
                                                                 <span class="svg-icon svg-icon-1 svg-icon-danger">
                                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1530,36 +1260,24 @@
                                                                         </g>
                                                                     </svg>
                                                                 </span>
-                                                                <!--end::Svg Icon-->
                                                             </span>
                                                         </span>
-                                                        <!--end:Icon-->
-                                                        <!--begin:Info-->
                                                         <span class="d-flex flex-column">
                                                             <span class="fw-bolder fs-6">Face to Face
                                                                 Discussions</span>
                                                             <span class="fs-7 text-muted">Creating a clear text
                                                                 structure is just one aspect</span>
                                                         </span>
-                                                        <!--end:Info-->
                                                     </span>
-                                                    <!--end:Label-->
-                                                    <!--begin:Input-->
                                                     <span class="form-check form-check-custom form-check-solid">
                                                         <input class="form-check-input" type="radio"
                                                             name="category" value="2" />
                                                     </span>
-                                                    <!--end:Input-->
                                                 </label>
-                                                <!--end::Option-->
-                                                <!--begin:Option-->
                                                 <label class="d-flex flex-stack cursor-pointer">
-                                                    <!--begin:Label-->
                                                     <span class="d-flex align-items-center me-2">
-                                                        <!--begin:Icon-->
                                                         <span class="symbol symbol-50px me-6">
                                                             <span class="symbol-label bg-light-success">
-                                                                <!--begin::Svg Icon | path: icons/duotone/Devices/Watch1.svg-->
                                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                                         width="24px" height="24px"
@@ -1578,304 +1296,192 @@
                                                                             fill="#000000" opacity="0.3" />
                                                                     </svg>
                                                                 </span>
-                                                                <!--end::Svg Icon-->
                                                             </span>
                                                         </span>
-                                                        <!--end:Icon-->
-                                                        <!--begin:Info-->
                                                         <span class="d-flex flex-column">
                                                             <span class="fw-bolder fs-6">Full Intro Training</span>
                                                             <span class="fs-7 text-muted">Creating a clear text
                                                                 structure copywriting</span>
                                                         </span>
-                                                        <!--end:Info-->
                                                     </span>
-                                                    <!--end:Label-->
-                                                    <!--begin:Input-->
                                                     <span class="form-check form-check-custom form-check-solid">
                                                         <input class="form-check-input" type="radio"
                                                             name="category" value="3" />
                                                     </span>
-                                                    <!--end:Input-->
                                                 </label>
-                                                <!--end::Option-->
                                             </div>
-                                            <!--end:Options-->
                                         </div>
-                                        <!--end::Input group-->
                                     </div>
                                 </div>
-                                <!--end::Step 1-->
-                                <!--begin::Step 2-->
                                 <div data-kt-stepper-element="content">
                                     <div class="w-100">
-                                        <!--begin::Input group-->
                                         <div class="fv-row">
-                                            <!--begin::Label-->
                                             <label class="d-flex align-items-center fs-5 fw-bold mb-4">
                                                 <span class="required">Select Framework</span>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7"
                                                     data-bs-toggle="tooltip" title="Specify your apps framework"></i>
                                             </label>
-                                            <!--end::Label-->
-                                            <!--begin:Option-->
                                             <label class="d-flex flex-stack cursor-pointer mb-5">
-                                                <!--begin:Label-->
                                                 <span class="d-flex align-items-center me-2">
-                                                    <!--begin:Icon-->
                                                     <span class="symbol symbol-50px me-6">
                                                         <span class="symbol-label bg-light-warning">
                                                             <i class="fab fa-html5 text-warning fs-2x"></i>
                                                         </span>
                                                     </span>
-                                                    <!--end:Icon-->
-                                                    <!--begin:Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bolder fs-6">HTML5</span>
                                                         <span class="fs-7 text-muted">Base Web Projec</span>
                                                     </span>
-                                                    <!--end:Info-->
                                                 </span>
-                                                <!--end:Label-->
-                                                <!--begin:Input-->
                                                 <span class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" checked="checked"
                                                         name="framework" value="1" />
                                                 </span>
-                                                <!--end:Input-->
                                             </label>
-                                            <!--end::Option-->
-                                            <!--begin:Option-->
                                             <label class="d-flex flex-stack cursor-pointer mb-5">
-                                                <!--begin:Label-->
                                                 <span class="d-flex align-items-center me-2">
-                                                    <!--begin:Icon-->
                                                     <span class="symbol symbol-50px me-6">
                                                         <span class="symbol-label bg-light-success">
                                                             <i class="fab fa-react text-success fs-2x"></i>
                                                         </span>
                                                     </span>
-                                                    <!--end:Icon-->
-                                                    <!--begin:Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bolder fs-6">ReactJS</span>
                                                         <span class="fs-7 text-muted">Robust and flexible app
                                                             framework</span>
                                                     </span>
-                                                    <!--end:Info-->
                                                 </span>
-                                                <!--end:Label-->
-                                                <!--begin:Input-->
                                                 <span class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" name="framework"
                                                         value="2" />
                                                 </span>
-                                                <!--end:Input-->
                                             </label>
-                                            <!--end::Option-->
-                                            <!--begin:Option-->
                                             <label class="d-flex flex-stack cursor-pointer mb-5">
-                                                <!--begin:Label-->
                                                 <span class="d-flex align-items-center me-2">
-                                                    <!--begin:Icon-->
                                                     <span class="symbol symbol-50px me-6">
                                                         <span class="symbol-label bg-light-danger">
                                                             <i class="fab fa-angular text-danger fs-2x"></i>
                                                         </span>
                                                     </span>
-                                                    <!--end:Icon-->
-                                                    <!--begin:Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bolder fs-6">Angular</span>
                                                         <span class="fs-7 text-muted">Powerful data mangement</span>
                                                     </span>
-                                                    <!--end:Info-->
                                                 </span>
-                                                <!--end:Label-->
-                                                <!--begin:Input-->
                                                 <span class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" name="framework"
                                                         value="3" />
                                                 </span>
-                                                <!--end:Input-->
                                             </label>
-                                            <!--end::Option-->
-                                            <!--begin:Option-->
                                             <label class="d-flex flex-stack cursor-pointer">
-                                                <!--begin:Label-->
                                                 <span class="d-flex align-items-center me-2">
-                                                    <!--begin:Icon-->
                                                     <span class="symbol symbol-50px me-6">
                                                         <span class="symbol-label bg-light-primary">
                                                             <i class="fab fa-vuejs text-primary fs-2x"></i>
                                                         </span>
                                                     </span>
-                                                    <!--end:Icon-->
-                                                    <!--begin:Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bolder fs-6">Vue</span>
                                                         <span class="fs-7 text-muted">Lightweight and responsive
                                                             framework</span>
                                                     </span>
-                                                    <!--end:Info-->
                                                 </span>
-                                                <!--end:Label-->
-                                                <!--begin:Input-->
                                                 <span class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" name="framework"
                                                         value="4" />
                                                 </span>
-                                                <!--end:Input-->
                                             </label>
-                                            <!--end::Option-->
                                         </div>
-                                        <!--end::Input group-->
                                     </div>
                                 </div>
-                                <!--end::Step 2-->
-                                <!--begin::Step 3-->
                                 <div data-kt-stepper-element="content">
                                     <div class="w-100">
-                                        <!--begin::Input group-->
                                         <div class="fv-row mb-10">
-                                            <!--begin::Label-->
                                             <label class="required fs-5 fw-bold mb-2">Database Name</label>
-                                            <!--end::Label-->
-                                            <!--begin::Input-->
                                             <input type="text"
                                                 class="form-control form-control-lg form-control-solid" name="dbname"
                                                 placeholder="" value="master_db" />
-                                            <!--end::Input-->
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
                                         <div class="fv-row">
-                                            <!--begin::Label-->
                                             <label class="d-flex align-items-center fs-5 fw-bold mb-4">
                                                 <span class="required">Select Database Engine</span>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7"
                                                     data-bs-toggle="tooltip"
                                                     title="Select your app database engine"></i>
                                             </label>
-                                            <!--end::Label-->
-                                            <!--begin:Option-->
                                             <label class="d-flex flex-stack cursor-pointer mb-5">
-                                                <!--begin::Label-->
                                                 <span class="d-flex align-items-center me-2">
-                                                    <!--begin::Icon-->
                                                     <span class="symbol symbol-50px me-6">
                                                         <span class="symbol-label bg-light-success">
                                                             <i class="fas fa-database text-success fs-2x"></i>
                                                         </span>
                                                     </span>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bolder fs-6">MySQL</span>
                                                         <span class="fs-7 text-muted">Basic MySQL database</span>
                                                     </span>
-                                                    <!--end::Info-->
                                                 </span>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
                                                 <span class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" name="dbengine"
                                                         checked="checked" value="1" />
                                                 </span>
-                                                <!--end::Input-->
                                             </label>
-                                            <!--end::Option-->
-                                            <!--begin:Option-->
                                             <label class="d-flex flex-stack cursor-pointer mb-5">
-                                                <!--begin::Label-->
                                                 <span class="d-flex align-items-center me-2">
-                                                    <!--begin::Icon-->
                                                     <span class="symbol symbol-50px me-6">
                                                         <span class="symbol-label bg-light-danger">
                                                             <i class="fab fa-google text-danger fs-2x"></i>
                                                         </span>
                                                     </span>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bolder fs-6">Firebase</span>
                                                         <span class="fs-7 text-muted">Google based app data
                                                             management</span>
                                                     </span>
-                                                    <!--end::Info-->
                                                 </span>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
                                                 <span class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" name="dbengine"
                                                         value="2" />
                                                 </span>
-                                                <!--end::Input-->
                                             </label>
-                                            <!--end::Option-->
-                                            <!--begin:Option-->
                                             <label class="d-flex flex-stack cursor-pointer">
-                                                <!--begin::Label-->
                                                 <span class="d-flex align-items-center me-2">
-                                                    <!--begin::Icon-->
                                                     <span class="symbol symbol-50px me-6">
                                                         <span class="symbol-label bg-light-warning">
                                                             <i class="fab fa-amazon text-warning fs-2x"></i>
                                                         </span>
                                                     </span>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bolder fs-6">DynamoDB</span>
                                                         <span class="fs-7 text-muted">Amazon Fast NoSQL
                                                             Database</span>
                                                     </span>
-                                                    <!--end::Info-->
                                                 </span>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
                                                 <span class="form-check form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="radio" name="dbengine"
                                                         value="3" />
                                                 </span>
-                                                <!--end::Input-->
                                             </label>
-                                            <!--end::Option-->
                                         </div>
-                                        <!--end::Input group-->
                                     </div>
                                 </div>
-                                <!--end::Step 3-->
-                                <!--begin::Step 4-->
                                 <div data-kt-stepper-element="content">
                                     <div class="w-100">
-                                        <!--begin::Input group-->
                                         <div class="d-flex flex-column mb-7 fv-row">
-                                            <!--begin::Label-->
                                             <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                                 <span class="required">Name On Card</span>
                                                 <i class="fas fa-exclamation-circle ms-2 fs-7"
-                                                    data-bs-toggle="tooltip"
-                                                    title="Specify a card holder's name"></i>
+                                                    data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
                                             </label>
-                                            <!--end::Label-->
                                             <input type="text" class="form-control form-control-solid"
                                                 placeholder="" name="card_name" value="Max Doe" />
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
                                         <div class="d-flex flex-column mb-7 fv-row">
-                                            <!--begin::Label-->
                                             <label class="required fs-6 fw-bold form-label mb-2">Card Number</label>
-                                            <!--end::Label-->
-                                            <!--begin::Input wrapper-->
                                             <div class="position-relative">
-                                                <!--begin::Input-->
                                                 <input type="text" class="form-control form-control-solid"
                                                     placeholder="Enter card number" name="card_number"
                                                     value="4111 1111 1111 1111" />
-                                                <!--end::Input-->
-                                                <!--begin::Card logos-->
                                                 <div class="position-absolute translate-middle-y top-50 end-0 me-5">
                                                     <img src="assets/media/svg/card-logos/visa.svg" alt=""
                                                         class="h-25px" />
@@ -1884,22 +1490,13 @@
                                                     <img src="assets/media/svg/card-logos/american-express.svg"
                                                         alt="" class="h-25px" />
                                                 </div>
-                                                <!--end::Card logos-->
                                             </div>
-                                            <!--end::Input wrapper-->
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
                                         <div class="row mb-10">
-                                            <!--begin::Col-->
                                             <div class="col-md-8 fv-row">
-                                                <!--begin::Label-->
                                                 <label class="required fs-6 fw-bold form-label mb-2">Expiration
                                                     Date</label>
-                                                <!--end::Label-->
-                                                <!--begin::Row-->
                                                 <div class="row fv-row">
-                                                    <!--begin::Col-->
                                                     <div class="col-6">
                                                         <select name="card_expiry_month"
                                                             class="form-select form-select-solid"
@@ -1920,8 +1517,6 @@
                                                             <option value="12">12</option>
                                                         </select>
                                                     </div>
-                                                    <!--end::Col-->
-                                                    <!--begin::Col-->
                                                     <div class="col-6">
                                                         <select name="card_expiry_year"
                                                             class="form-select form-select-solid"
@@ -1941,31 +1536,20 @@
                                                             <option value="2031">2031</option>
                                                         </select>
                                                     </div>
-                                                    <!--end::Col-->
                                                 </div>
-                                                <!--end::Row-->
                                             </div>
-                                            <!--end::Col-->
-                                            <!--begin::Col-->
                                             <div class="col-md-4 fv-row">
-                                                <!--begin::Label-->
                                                 <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
                                                     <span class="required">CVV</span>
                                                     <i class="fas fa-exclamation-circle ms-2 fs-7"
                                                         data-bs-toggle="tooltip" title="Enter a card CVV code"></i>
                                                 </label>
-                                                <!--end::Label-->
-                                                <!--begin::Input wrapper-->
                                                 <div class="position-relative">
-                                                    <!--begin::Input-->
                                                     <input type="text" class="form-control form-control-solid"
                                                         minlength="3" maxlength="4" placeholder="CVV"
                                                         name="card_cvv" />
-                                                    <!--end::Input-->
-                                                    <!--begin::CVV icon-->
                                                     <div
                                                         class="position-absolute translate-middle-y top-50 end-0 me-3">
-                                                        <!--begin::Svg Icon | path: icons/duotone/Shopping/Credit-card.svg-->
                                                         <span class="svg-icon svg-icon-2hx">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1986,63 +1570,40 @@
                                                                 </g>
                                                             </svg>
                                                         </span>
-                                                        <!--end::Svg Icon-->
                                                     </div>
-                                                    <!--end::CVV icon-->
                                                 </div>
-                                                <!--end::Input wrapper-->
                                             </div>
-                                            <!--end::Col-->
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
                                         <div class="d-flex flex-stack">
-                                            <!--begin::Label-->
                                             <div class="me-5">
                                                 <label class="fs-6 fw-bold form-label">Save Card for further
                                                     billing?</label>
                                                 <div class="fs-7 fw-bold text-gray-400">If you need more info, please
                                                     check budget planning</div>
                                             </div>
-                                            <!--end::Label-->
-                                            <!--begin::Switch-->
                                             <label class="form-check form-switch form-check-custom form-check-solid">
                                                 <input class="form-check-input" type="checkbox" value="1"
                                                     checked="checked" />
                                                 <span class="form-check-label fw-bold text-gray-400">Save Card</span>
                                             </label>
-                                            <!--end::Switch-->
                                         </div>
-                                        <!--end::Input group-->
                                     </div>
                                 </div>
-                                <!--end::Step 4-->
-                                <!--begin::Step 5-->
                                 <div data-kt-stepper-element="content">
                                     <div class="w-100 text-center">
-                                        <!--begin::Heading-->
                                         <h1 class="fw-bolder text-dark mb-3">Release!</h1>
-                                        <!--end::Heading-->
-                                        <!--begin::Description-->
                                         <div class="text-muted fw-bold fs-3">Submit your app to kickstart your
                                             project.</div>
-                                        <!--end::Description-->
-                                        <!--begin::Illustration-->
                                         <div class="text-center px-4 py-15">
                                             <img src="assets/media/illustrations/todo.png" alt=""
                                                 class="mw-100 mh-150px" />
                                         </div>
-                                        <!--end::Illustration-->
                                     </div>
                                 </div>
-                                <!--end::Step 5-->
-                                <!--begin::Actions-->
                                 <div class="d-flex flex-stack pt-10">
-                                    <!--begin::Wrapper-->
                                     <div class="me-2">
                                         <button type="button" class="btn btn-lg btn-light-primary me-3"
                                             data-kt-stepper-action="previous">
-                                            <!--begin::Svg Icon | path: icons/duotone/Navigation/Left-2.svg-->
                                             <span class="svg-icon svg-icon-3 me-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -2060,16 +1621,12 @@
                                                             transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997)" />
                                                     </g>
                                                 </svg>
-                                            </span>
-                                            <!--end::Svg Icon-->Back</button>
+                                            </span>Back</button>
                                     </div>
-                                    <!--end::Wrapper-->
-                                    <!--begin::Wrapper-->
                                     <div>
                                         <button type="button" class="btn btn-lg btn-primary"
                                             data-kt-stepper-action="submit">
                                             <span class="indicator-label">Submit
-                                                <!--begin::Svg Icon | path: icons/duotone/Navigation/Right-2.svg-->
                                                 <span class="svg-icon svg-icon-3 ms-2 me-0">
                                                     <svg xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -2087,15 +1644,13 @@
                                                                 transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
                                                         </g>
                                                     </svg>
-                                                </span>
-                                                <!--end::Svg Icon--></span>
+                                                </span></span>
                                             <span class="indicator-progress">Please wait...
                                                 <span
                                                     class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                         </button>
                                         <button type="button" class="btn btn-lg btn-primary"
                                             data-kt-stepper-action="next">Continue
-                                            <!--begin::Svg Icon | path: icons/duotone/Navigation/Right-2.svg-->
                                             <span class="svg-icon svg-icon-3 ms-1 me-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -2113,30 +1668,17 @@
                                                             transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
                                                     </g>
                                                 </svg>
-                                            </span>
-                                            <!--end::Svg Icon--></button>
+                                            </span></button>
                                     </div>
-                                    <!--end::Wrapper-->
                                 </div>
-                                <!--end::Actions-->
                             </form>
-                            <!--end::Form-->
                         </div>
-                        <!--end::Content-->
                     </div>
-                    <!--end::Stepper-->
                 </div>
-                <!--end::Modal body-->
             </div>
-            <!--end::Modal content-->
         </div>
-        <!--end::Modal dialog-->
     </div>
-    <!--end::Modal - Create App-->
-    <!--end::Modals-->
-    <!--begin::Scrolltop-->
     <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-        <!--begin::Svg Icon | path: icons/duotone/Navigation/Up-2.svg-->
         <span class="svg-icon">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                 height="24px" viewBox="0 0 24 24" version="1.1">
@@ -2150,11 +1692,7 @@
                 </g>
             </svg>
         </span>
-        <!--end::Svg Icon-->
     </div>
-    <!--end::Scrolltop-->
-    <!--end::Main-->
-    <!--begin::Javascript-->
 
     <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
@@ -2162,7 +1700,6 @@
     <script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>
     <script src="{{ asset('assets/js/custom/modals/create-app.js') }}"></script>
     <script src="{{ asset('assets/js/custom/modals/upgrade-plan.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
@@ -2181,305 +1718,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
     <!-- include the library -->
     <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
 
-    <script>
-        /*!
-         * AdminLTE v3.0.0-alpha.2 (https://adminlte.io)
-         * Copyright 2014-2018 Abdullah Almsaeed <abdullah@almsaeedstudio.com>
-         * Licensed under MIT (https://github.com/almasaeed2010/AdminLTE/blob/master/LICENSE)
-         */
-        ! function(e, t) {
-            "object" == typeof exports && "undefined" != typeof module ? t(exports) : "function" == typeof define && define
-                .amd ? define(["exports"], t) : t(e.adminlte = {})
-        }(this, function(e) {
-            "use strict";
-            var i, t, o, n, r, a, s, c, f, l, u, d, h, p, _, g, y, m, v, C, D, E, A, O, w, b, L, S, j, T, I, Q, R, P, x,
-                B, M, k, H, N, Y, U, V, G, W, X, z, F, q, J, K, Z, $, ee, te, ne = "function" == typeof Symbol &&
-                "symbol" == typeof Symbol.iterator ? function(e) {
-                    return typeof e
-                } : function(e) {
-                    return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ?
-                        "symbol" : typeof e
-                },
-                ie = function(e, t) {
-                    if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function")
-                },
-                oe = (i = jQuery, t = "ControlSidebar", o = "lte.control.sidebar", n = i.fn[t], r = ".control-sidebar",
-                    a = '[data-widget="control-sidebar"]', s = ".main-header", c = "control-sidebar-open", f =
-                    "control-sidebar-slide-open", l = {
-                        slide: !0
-                    }, u = function() {
-                        function n(e, t) {
-                            ie(this, n), this._element = e, this._config = this._getConfig(t)
-                        }
-                        return n.prototype.show = function() {
-                            this._config.slide ? i("body").removeClass(f) : i("body").removeClass(c)
-                        }, n.prototype.collapse = function() {
-                            this._config.slide ? i("body").addClass(f) : i("body").addClass(c)
-                        }, n.prototype.toggle = function() {
-                            this._setMargin(), i("body").hasClass(c) || i("body").hasClass(f) ? this.show() : this
-                                .collapse()
-                        }, n.prototype._getConfig = function(e) {
-                            return i.extend({}, l, e)
-                        }, n.prototype._setMargin = function() {
-                            i(r).css({
-                                top: i(s).outerHeight()
-                            })
-                        }, n._jQueryInterface = function(t) {
-                            return this.each(function() {
-                                var e = i(this).data(o);
-                                if (e || (e = new n(this, i(this).data()), i(this).data(o, e)),
-                                    "undefined" === e[t]) throw new Error(t + " is not a function");
-                                e[t]()
-                            })
-                        }, n
-                    }(), i(document).on("click", a, function(e) {
-                        e.preventDefault(), u._jQueryInterface.call(i(this), "toggle")
-                    }), i.fn[t] = u._jQueryInterface, i.fn[t].Constructor = u, i.fn[t].noConflict = function() {
-                        return i.fn[t] = n, u._jQueryInterface
-                    }, u),
-                re = (d = jQuery, h = "Layout", p = "lte.layout", _ = d.fn[h], g = ".main-sidebar", y = ".main-header",
-                    m = ".content-wrapper", v = ".main-footer", C = "hold-transition", D = function() {
-                        function n(e) {
-                            ie(this, n), this._element = e, this._init()
-                        }
-                        return n.prototype.fixLayoutHeight = function() {
-                            var e = {
-                                    window: d(window).height(),
-                                    header: d(y).outerHeight(),
-                                    footer: d(v).outerHeight(),
-                                    sidebar: d(g).height()
-                                },
-                                t = this._max(e);
-                            d(m).css("min-height", e.window - e.header - e.footer), d(g).css("min-height", e
-                                .window - e.header)
-                        }, n.prototype._init = function() {
-                            var e = this;
-                            d("body").removeClass(C), this.fixLayoutHeight(), d(g).on(
-                                "collapsed.lte.treeview expanded.lte.treeview collapsed.lte.pushmenu expanded.lte.pushmenu",
-                                function() {
-                                    e.fixLayoutHeight()
-                                }), d(window).resize(function() {
-                                e.fixLayoutHeight()
-                            }), d("body, html").css("height", "auto")
-                        }, n.prototype._max = function(t) {
-                            var n = 0;
-                            return Object.keys(t).forEach(function(e) {
-                                t[e] > n && (n = t[e])
-                            }), n
-                        }, n._jQueryInterface = function(t) {
-                            return this.each(function() {
-                                var e = d(this).data(p);
-                                e || (e = new n(this), d(this).data(p, e)), t && e[t]()
-                            })
-                        }, n
-                    }(), d(window).on("load", function() {
-                        D._jQueryInterface.call(d("body"))
-                    }), d.fn[h] = D._jQueryInterface, d.fn[h].Constructor = D, d.fn[h].noConflict = function() {
-                        return d.fn[h] = _, D._jQueryInterface
-                    }, D),
-                ae = (E = jQuery, A = "PushMenu", w = "." + (O = "lte.pushmenu"), b = E.fn[A], L = {
-                    COLLAPSED: "collapsed" + w,
-                    SHOWN: "shown" + w
-                }, S = {
-                    screenCollapseSize: 768
-                }, j = {
-                    TOGGLE_BUTTON: '[data-widget="pushmenu"]',
-                    SIDEBAR_MINI: ".sidebar-mini",
-                    SIDEBAR_COLLAPSED: ".sidebar-collapse",
-                    BODY: "body",
-                    OVERLAY: "#sidebar-overlay",
-                    WRAPPER: ".wrapper"
-                }, T = "sidebar-collapse", I = "sidebar-open", Q = function() {
-                    function n(e, t) {
-                        ie(this, n), this._element = e, this._options = E.extend({}, S, t), E(j.OVERLAY).length ||
-                            this._addOverlay()
-                    }
-                    return n.prototype.show = function() {
-                        E(j.BODY).addClass(I).removeClass(T);
-                        var e = E.Event(L.SHOWN);
-                        E(this._element).trigger(e)
-                    }, n.prototype.collapse = function() {
-                        E(j.BODY).removeClass(I).addClass(T);
-                        var e = E.Event(L.COLLAPSED);
-                        E(this._element).trigger(e)
-                    }, n.prototype.toggle = function() {
-                        (E(window).width() >= this._options.screenCollapseSize ? !E(j.BODY).hasClass(T) : E(j
-                            .BODY).hasClass(I)) ? this.collapse(): this.show()
-                    }, n.prototype._addOverlay = function() {
-                        var e = this,
-                            t = E("<div />", {
-                                id: "sidebar-overlay"
-                            });
-                        t.on("click", function() {
-                            e.collapse()
-                        }), E(j.WRAPPER).append(t)
-                    }, n._jQueryInterface = function(t) {
-                        return this.each(function() {
-                            var e = E(this).data(O);
-                            e || (e = new n(this), E(this).data(O, e)), t && e[t]()
-                        })
-                    }, n
-                }(), E(document).on("click", j.TOGGLE_BUTTON, function(e) {
-                    e.preventDefault();
-                    var t = e.currentTarget;
-                    "pushmenu" !== E(t).data("widget") && (t = E(t).closest(j.TOGGLE_BUTTON)), Q
-                        ._jQueryInterface.call(E(t), "toggle")
-                }), E.fn[A] = Q._jQueryInterface, E.fn[A].Constructor = Q, E.fn[A].noConflict = function() {
-                    return E.fn[A] = b, Q._jQueryInterface
-                }, Q),
-                se = (R = jQuery, P = "Treeview", B = "." + (x = "lte.treeview"), M = R.fn[P], k = {
-                    SELECTED: "selected" + B,
-                    EXPANDED: "expanded" + B,
-                    COLLAPSED: "collapsed" + B,
-                    LOAD_DATA_API: "load" + B
-                }, H = ".nav-item", N = ".nav-treeview", Y = ".menu-open", V = "menu-open", G = {
-                    trigger: (U = '[data-widget="treeview"]') + " " + ".nav-link",
-                    animationSpeed: 300,
-                    accordion: !0
-                }, W = function() {
-                    function i(e, t) {
-                        ie(this, i), this._config = t, this._element = e
-                    }
-                    return i.prototype.init = function() {
-                        this._setupListeners()
-                    }, i.prototype.expand = function(e, t) {
-                        var n = this,
-                            i = R.Event(k.EXPANDED);
-                        if (this._config.accordion) {
-                            var o = t.siblings(Y).first(),
-                                r = o.find(N).first();
-                            this.collapse(r, o)
-                        }
-                        e.slideDown(this._config.animationSpeed, function() {
-                            t.addClass(V), R(n._element).trigger(i)
-                        })
-                    }, i.prototype.collapse = function(e, t) {
-                        var n = this,
-                            i = R.Event(k.COLLAPSED);
-                        e.slideUp(this._config.animationSpeed, function() {
-                            t.removeClass(V), R(n._element).trigger(i), e.find(Y + " > " + N).slideUp(),
-                                e.find(Y).removeClass(V)
-                        })
-                    }, i.prototype.toggle = function(e) {
-                        var t = R(e.currentTarget),
-                            n = t.next();
-                        if (n.is(N)) {
-                            e.preventDefault();
-                            var i = t.parents(H).first();
-                            i.hasClass(V) ? this.collapse(R(n), i) : this.expand(R(n), i)
-                        }
-                    }, i.prototype._setupListeners = function() {
-                        var t = this;
-                        R(document).on("click", this._config.trigger, function(e) {
-                            t.toggle(e)
-                        })
-                    }, i._jQueryInterface = function(n) {
-                        return this.each(function() {
-                            var e = R(this).data(x),
-                                t = R.extend({}, G, R(this).data());
-                            e || (e = new i(R(this), t), R(this).data(x, e)), "init" === n && e[n]()
-                        })
-                    }, i
-                }(), R(window).on(k.LOAD_DATA_API, function() {
-                    R(U).each(function() {
-                        W._jQueryInterface.call(R(this), "init")
-                    })
-                }), R.fn[P] = W._jQueryInterface, R.fn[P].Constructor = W, R.fn[P].noConflict = function() {
-                    return R.fn[P] = M, W._jQueryInterface
-                }, W),
-                ce = (X = jQuery, z = "Widget", q = "." + (F = "lte.widget"), J = X.fn[z], K = {
-                    EXPANDED: "expanded" + q,
-                    COLLAPSED: "collapsed" + q,
-                    REMOVED: "removed" + q
-                }, $ = "collapsed-card", ee = {
-                    animationSpeed: "normal",
-                    collapseTrigger: (Z = {
-                        DATA_REMOVE: '[data-widget="remove"]',
-                        DATA_COLLAPSE: '[data-widget="collapse"]',
-                        CARD: ".card",
-                        CARD_HEADER: ".card-header",
-                        CARD_BODY: ".card-body",
-                        CARD_FOOTER: ".card-footer",
-                        COLLAPSED: ".collapsed-card"
-                    }).DATA_COLLAPSE,
-                    removeTrigger: Z.DATA_REMOVE
-                }, te = function() {
-                    function n(e, t) {
-                        ie(this, n), this._element = e, this._parent = e.parents(Z.CARD).first(), this._settings = X
-                            .extend({}, ee, t)
-                    }
-                    return n.prototype.collapse = function() {
-                        var e = this;
-                        this._parent.children(Z.CARD_BODY + ", " + Z.CARD_FOOTER).slideUp(this._settings
-                            .animationSpeed,
-                            function() {
-                                e._parent.addClass($)
-                            });
-                        var t = X.Event(K.COLLAPSED);
-                        this._element.trigger(t, this._parent)
-                    }, n.prototype.expand = function() {
-                        var e = this;
-                        this._parent.children(Z.CARD_BODY + ", " + Z.CARD_FOOTER).slideDown(this._settings
-                            .animationSpeed,
-                            function() {
-                                e._parent.removeClass($)
-                            });
-                        var t = X.Event(K.EXPANDED);
-                        this._element.trigger(t, this._parent)
-                    }, n.prototype.remove = function() {
-                        this._parent.slideUp();
-                        var e = X.Event(K.REMOVED);
-                        this._element.trigger(e, this._parent)
-                    }, n.prototype.toggle = function() {
-                        this._parent.hasClass($) ? this.expand() : this.collapse()
-                    }, n.prototype._init = function(e) {
-                        var t = this;
-                        this._parent = e, X(this).find(this._settings.collapseTrigger).click(function() {
-                            t.toggle()
-                        }), X(this).find(this._settings.removeTrigger).click(function() {
-                            t.remove()
-                        })
-                    }, n._jQueryInterface = function(t) {
-                        return this.each(function() {
-                            var e = X(this).data(F);
-                            e || (e = new n(X(this), e), X(this).data(F, "string" == typeof t ? e : t)),
-                                "string" == typeof t && t.match(/remove|toggle/) ? e[t]() : "object" ===
-                                ("undefined" == typeof t ? "undefined" : ne(t)) && e._init(X(this))
-                        })
-                    }, n
-                }(), X(document).on("click", Z.DATA_COLLAPSE, function(e) {
-                    e && e.preventDefault(), te._jQueryInterface.call(X(this), "toggle")
-                }), X(document).on("click", Z.DATA_REMOVE, function(e) {
-                    e && e.preventDefault(), te._jQueryInterface.call(X(this), "remove")
-                }), X.fn[z] = te._jQueryInterface, X.fn[z].Constructor = te, X.fn[z].noConflict = function() {
-                    return X.fn[z] = J, te._jQueryInterface
-                }, te);
-            e.ControlSidebar = oe, e.Layout = re, e.PushMenu = ae, e.Treeview = se, e.Widget = ce, Object
-                .defineProperty(e, "__esModule", {
-                    value: !0
-                })
-        });
-        //# sourceMappingURL=adminlte.min.js.map
-
-        // Function to add comma separators (you can modify this if needed)
-        function formatNumberWithCommas(numberString) {
-            // Separate integer and decimal parts
-            const [integerPart, decimalPart = ""] = numberString.split(".");
-
-            // Add comma separators to the integer part (reverse for efficient insertion)
-            const formattedInteger = integerPart.split("").reverse().join("").match(/.{1,3}/g).join(",");
-            const reversedFormattedInteger = formattedInteger.split("").reverse().join("");
-
-            // Combine formatted parts and add decimal
-            const formattedValue = reversedFormattedInteger + '.' + decimalPart.padEnd(2,
-                '0'); // Limit to two decimal places
-
-            return formattedValue;
-        }
-    </script>
     <script>
         @if (session('success'))
             toastr.success('{{ session('success') }}');
