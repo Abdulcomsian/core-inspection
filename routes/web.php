@@ -54,82 +54,162 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth']], function () {
 
     // Job Forcast
     Route::group(['prefix' => 'report', 'as' => 'report.'], function () {
-        Route::group(['prefix' => 'forcast', 'as' => 'forcast.'], function () {
-            Route::get('index', [JobForcastController::class, 'index'])->name('index');
-            Route::get('create', [JobForcastController::class, 'create'])->name('create');
+        Route::group([
+            'prefix' => 'forcast',
+            'as' => 'forcast.',
+            'controller' => JobForcastController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
         });
 
-        Route::group(['prefix' => 'overdue_client', 'as' => 'overdue_client.'], function () {
-            Route::get('index', [OverdueClientController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'overdue_client',
+            'as' => 'overdue_client.',
+            'controller' => OverdueClientController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
 
-        Route::group(['prefix' => 'inspection', 'as' => 'inspection.'], function () {
-            Route::get('index', [InspectionController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'inspection',
+            'as' => 'inspection.',
+            'controller' => InspectionController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
 
-        Route::group(['prefix' => 'schedule', 'as' => 'schedule.'], function () {
-            Route::get('index', [ScheduleController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'schedule',
+            'as' => 'schedule.',
+            'controller' => ScheduleController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
     });
 
-    Route::group(['prefix' => 'job', 'as' => 'job.'], function () {
-        Route::get('index', [JobController::class,'index'])->name('index');
-        Route::get('create', [JobController::class,'create'])->name('create');
+    Route::group([
+        'prefix' => 'job',
+        'as' => 'job.',
+        'controller' => JobController::class
+    ], function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
     });
 
-    Route::group(['prefix' => 'equipment', 'as' => 'equipment.'], function () {
-        Route::get('index', [EquipmentsController::class,'index'])->name('index');
-        Route::get('create', [EquipmentsController::class,'create'])->name('create');
+    Route::group([
+        'prefix' => 'equipment',
+        'as' => 'equipment.',
+        'controller' => EquipmentsController::class
+    ], function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
     });
 
-    Route::group(['prefix' => 'client', 'as' => 'client.'], function () {
-        Route::get('index', [ClientController::class,'index'])->name('index');
-        Route::get('create', [ClientController::class,'create'])->name('create');
+    Route::group([
+        'prefix' => 'client',
+        'as' => 'client.',
+        'controller' => ClientController::class
+    ], function (): void {
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
     });
 
-    Route::group(['prefix' => 'configuration', 'as' => 'configuration.'], function () {
-        Route::group(['prefix' => 'branch', 'as' => 'branch.'], function () {
-            Route::get('index', [BranchController::class, 'index'])->name('index');
+    Route::group(['prefix' => 'configuration', 'as' => 'configuration.',], function () {
+        Route::group([
+            'prefix' => 'branch',
+            'as' => 'branch.',
+            'controller' => BranchController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'equipment_type', 'as' => 'equipment_type.'], function () {
-            Route::get('index', [EquipmentTypeController::class, 'index'])->name('index');
-            Route::get('create', [EquipmentTypeController::class, 'create'])->name('create');
+        Route::group([
+            'prefix' => 'equipment_type',
+            'as' => 'equipment_type.',
+            'controller' => EquipmentTypeController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
         });
-        Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
-            Route::get('index', [UserController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'users',
+            'as' => 'users.',
+            'controller' => UserController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'part_maintenance', 'as' => 'part_maintenance.'], function () {
-            Route::get('index', [PartMaintenanceController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'part_maintenance',
+            'as' => 'part_maintenance.',
+            'controller' => PartMaintenanceController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'competencies_maintenance', 'as' => 'competencies_maintenance.'], function () {
-            Route::get('index', [CompetenciesMaintenanceController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'competencies_maintenance',
+            'as' => 'competencies_maintenance.',
+            'controller' => CompetenciesMaintenanceController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'zone_maintenance', 'as' => 'zone_maintenance.'], function () {
-            Route::get('index', [ZoneMaintenanceController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'zone_maintenance',
+            'as' => 'zone_maintenance.',
+            'controller' => ZoneMaintenanceController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'predefined_comment', 'as' => 'predefined_comment.'], function () {
-            Route::get('index', [CommentController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'predefined_comment',
+            'as' => 'predefined_comment.',
+            'controller' => CommentController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'general_setting', 'as' => 'general_setting.'], function () {
-            Route::get('index', [GeneralSettingController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'general_setting',
+            'as' => 'general_setting.',
+            'controller' => GeneralSettingController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
     });
 
     Route::group(['prefix' => 'setup', 'as' => 'setup.'], function () {
-        Route::group(['prefix' => 'inspection_template', 'as' => 'inspection_template.'], function () {
-            Route::get('index', [InspectionTemplateController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'inspection_template',
+            'as' => 'inspection_template.',
+            'controller' => InspectionTemplateController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'job_template', 'as' => 'job_template.'], function () {
-            Route::get('index', [JobTemplateController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'job_template',
+            'as' => 'job_template.',
+            'controller' => JobTemplateController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'register_template', 'as' => 'register_template.'], function () {
-            Route::get('index', [RegisterTemplateController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'register_template',
+            'as' => 'register_template.',
+            'controller' => RegisterTemplateController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'service_template', 'as' => 'service_template.'], function () {
-            Route::get('index', [ServiceTemplateController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'service_template',
+            'as' => 'service_template.',
+            'controller' => ServiceTemplateController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
-        Route::group(['prefix' => 'summary_template', 'as' => 'summary_template.'], function () {
-            Route::get('index', [SummaryTemplateController::class, 'index'])->name('index');
+        Route::group([
+            'prefix' => 'summary_template',
+            'as' => 'summary_template.',
+            'controller' => SummaryTemplateController::class
+        ], function () {
+            Route::get('index', 'index')->name('index');
         });
     });
 });

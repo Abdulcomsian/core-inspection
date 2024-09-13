@@ -261,7 +261,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('configuration.users.index') }}"
+                                        <a href="{{ route('client.index') }}"
                                             class="menu-link {{ request()->is('configuration/users/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
@@ -326,8 +326,7 @@
 
                             <!-- Signout Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link"
-                                    href="{{ route('logout') }}"
+                                <a class="menu-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <span class="menu-icon">
                                         <i class="fas fa-sign-out-alt"></i>
