@@ -1,5 +1,5 @@
-.card.bgg-light-primary {
-    background-color: #4f8edc !important;
+.card.bgg-light-orange {
+    background-color: #FB990A !important;
 }
 
 .card.bgg-light-primary .card-body {
@@ -74,7 +74,7 @@ table th {
 }
 
 .container-fluid {
-    padding: 20px;
+    padding: 20px 10px;
 }
 
 .card {
@@ -92,12 +92,32 @@ table th {
 }
 
 .form-header {
-    background-color: #4f8edc;
+    background-color: #FB990A;
+    ;
     color: white;
-    padding: 10px;
+    padding: 3px;
     margin-bottom: 20px;
     text-align: center;
     border-radius: 0.25rem;
+}
+
+.icon {
+    color: #FFFFFF;
+}
+
+.save-btn {
+    background-color: #E67E22;
+    color: #FFFFFF;
+}
+
+.delete-btn {
+    background-color: #7F8C8D;
+    color: #FFFFFF;
+}
+
+.add-section {
+    background-color: #D35400;
+    color: #FFFFFF;
 }
 
 .form-group {
@@ -137,7 +157,7 @@ table th {
 }
 
 .tab-content {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .main-card {
@@ -174,6 +194,7 @@ table th {
         margin-bottom: 20px;
     }
 }
+
 .dz-message {
     text-align: center;
     font-size: 1.2em;
@@ -198,3 +219,63 @@ table th {
     color: #0056b3;
 }
 
+.row>* {
+    padding-left: 0 !important;
+    /* Remove left padding */
+}
+
+.btn-sm {
+    padding: 6px 8px !important;
+    /* Adjust padding for smaller buttons */
+    font-size: 12px !important;
+    /* Smaller font size */
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+
+table.dataTable {
+    table-layout: auto;
+    width: 100%;
+}
+
+td {
+    white-space: nowrap;
+}
+
+.color-white {
+    color: white;
+}
+
+.btn-add-field {
+    background-color: #FFA500;
+    /* Orange */
+    color: #FFFFFF;
+    /* White */
+}
+
+.btn-duplicate-section {
+    background-color: #A9A9A9;
+    /* Dark Gray */
+    color: #FFFFFF;
+    /* White */
+}
+
+.btn-delete-section {
+    background-color: #C0C0C0;
+    /* Light Silver */
+    color: #FFFFFF;
+    /* White */
+}
+
+.page-item.active .page-link {
+    background-color: #E67E22 !important;
+}
+
+.aside-dark .menu .menu-item .menu-link:hover:not(.disabled):not(.active) .menu-bullet .bullet,
+.aside-dark .menu .menu-item.hover>.menu-link:not(.disabled):not(.active) .menu-bullet .bullet {
+    background-color: #E67E22 !important;
+}

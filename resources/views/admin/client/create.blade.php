@@ -3,7 +3,6 @@
 @section('header', 'Client - Client Details')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-
         <div class="container-fluid">
             <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
                 <div class="main-card card">
@@ -101,20 +100,24 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-success btn-sm"><i
-                                    class="fas fa-save"></i>Save</button>
-                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-ban"></i>Cancel</button>
-
-                            <div class="col-md-12 mt-5">
-                                <div class="card">
-
-                                    <div class="card bgg-light-primary">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-sm save-btn"><i
+                                            class="fas fa-save icon"></i>Save</button>
+                                    <button type="button" class="btn btn-sm delete-btn"><i
+                                            class="fa fa-ban icon"></i>Cancel</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 mt-5">
+                                    <div class="card bgg-light-orange">
                                         <div class="card-body pt-0">
                                             <div class="form-section">
                                                 <div class="row mt-5">
                                                     <div class="col-md-8 col-8">
                                                         <div class="custom-grid-layout">
-                                                            <label for="branchSelect1" class="small-label">Search</label>
+                                                            <label for="branchSelect1"
+                                                                class="small-label color-white">Search</label>
                                                             <div class="d-flex flex-column flex-md-row gap-2 mb-3">
                                                                 <select id="geographicZoneSelect"
                                                                     class="form-select mb-3">
@@ -126,7 +129,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4 col-4">
-                                                        <button class="btn btn-primary"><i class="fa fa-search"></i>
+                                                        <button class="btn btn-sm delete-btn"><i class="fa fa-search"></i>
                                                             Search</button>
                                                     </div>
                                                 </div>
@@ -134,61 +137,46 @@
                                         </div>
                                     </div>
 
-                                    <div class="card mt-5">
-                                        <div class="container-fluid">
-                                            <div class="mt-3">
-                                                <div class="d-flex mb-3">
-                                                    <button type="button" class="btn btn-primary me-3">
-                                                        <span class="svg-icon svg-icon-2">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                                height="24px" viewBox="0 0 24 24" version="1.1">
-                                                                <rect fill="#000000" x="4" y="11" width="16"
-                                                                    height="2" rx="1" />
-                                                                <rect fill="#000000" opacity="0.5"
-                                                                    transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000)"
-                                                                    x="4" y="11" width="16" height="2"
-                                                                    rx="1" />
-                                                            </svg>
-                                                        </span>
-                                                        Add New
-                                                    </button>
-                                                </div>
-                                                <div class="table-responsive">
-                                                    <table id="mytable"
-                                                        class="table table-bordered table-striped table-hover datatable datatable-Role"
-                                                        data-ordering="false">
-                                                        <thead>
-                                                            <tr style="text-wrap: nowrap;">
-                                                                <th></th>
-                                                                <th>Name</th>
-                                                                <th>Phone</th>
-                                                                <th>Contact</th>
-                                                                <th>Mobile</th>
-                                                                <th>Email</th>
-                                                                <th>Address</th>
-                                                                <th>City</th>
-                                                                <th></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td><a class="btn btn-success btn-sm"
-                                                                        href="javascript:void(0)">Open</a></td>
-                                                                <td>Alex</td>
-                                                                <td>195</td>
-                                                                <td>2434</td>
-                                                                <td>24334</td>
-                                                                <td>test@gmail.com</td>
-                                                                <td>Test Address</td>
-                                                                <td>Islamabad</td>
-                                                                <td><button class="btn btn-danger btn-sm">Delete</button>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                    <div class="mt-3">
+                                        <div class="d-flex mb-3">
+                                            <button type="button" class="btn btn-sm me-3 add-section">
+                                                <i class="fas fa-plus icon icon"></i>
+                                                Add New
+                                            </button>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table id="mytable"
+                                                class="table table-bordered table-striped table-hover datatable datatable-Role cell-border"
+                                                data-ordering="false">
+                                                <thead>
+                                                    <tr style="text-wrap: nowrap;">
+                                                        <th></th>
+                                                        <th>Name</th>
+                                                        <th>Phone</th>
+                                                        <th>Contact</th>
+                                                        <th>Mobile</th>
+                                                        <th>Email</th>
+                                                        <th>Address</th>
+                                                        <th>City</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center"><a class="btn btn-sm save-btn"
+                                                                href="javascript:void(0)">Open</a></td>
+                                                        <td>Alex</td>
+                                                        <td>195</td>
+                                                        <td>2434</td>
+                                                        <td>24334</td>
+                                                        <td>test@gmail.com</td>
+                                                        <td>Test Address</td>
+                                                        <td>Islamabad</td>
+                                                        <td><button class="btn btn-sm delete-btn">Delete</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +186,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     </div>
 
@@ -247,17 +234,29 @@
             @endcan
 
             $.extend(true, $.fn.dataTable.defaults, {
+                autoWidth: false, // Allow table columns to auto adjust
                 orderCellsTop: true,
                 order: [
                     [1, 'desc']
                 ],
                 pageLength: 100,
                 responsive: true,
-                scrollX: true,
+                scrollX: true, // Enable horizontal scroll
+                scrollY: 300, // Enable vertical scroll
+                scrollCollapse: true,
                 columnDefs: [{
-                    orderable: false,
-                    targets: '_all'
-                }]
+                        width: '10%',
+                        targets: 0
+                    }, // Set width for the first column
+                    {
+                        orderable: false,
+                        targets: '_all'
+                    } // Disable ordering for all columns
+                ],
+                fixedColumns: {
+                    leftColumns: 1,
+                    rightColumns: 1
+                }
             });
 
             let table = $('.datatable-Role:not(.ajaxTable)').DataTable({

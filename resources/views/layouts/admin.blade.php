@@ -20,6 +20,7 @@
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.6/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -35,6 +36,57 @@
 
     .menu-item.active>.menu-sub {
         display: block !important;
+    }
+
+    @media (min-width: 992px) {
+        .header-fixed.toolbar-fixed .wrapper {
+            padding-top: 0 !important;
+        }
+    }
+
+    .aside.aside-dark .aside-logo {
+        background-color: #2D2D2D !important;
+    }
+
+    .aside.aside-dark {
+        background-color: #F0F0F0 !important;
+    }
+
+    .aside-dark .menu .menu-item .menu-link:hover:not(.disabled):not(.active) .menu-icon i,
+    .aside-dark .menu .menu-item.hover>.menu-link:not(.disabled):not(.active) .menu-icon i {
+        color: #E67E22 !important;
+    }
+
+    .aside-dark .menu .menu-item .menu-link.active .menu-icon i {
+        color: #E67E22 !important;
+    }
+
+    .aside-dark .menu .menu-item .menu-link:hover:not(.disabled):not(.active),
+    .aside-dark .menu .menu-item.hover>.menu-link:not(.disabled):not(.active) {
+        background-color: #5A5A5A !important;
+    }
+
+    .aside-dark .menu .menu-item .menu-link.active {
+        background-color: #5A5A5A !important;
+    }
+
+    .header-fixed .header {
+        background-color: #F0F0F0 !important;
+    }
+
+    .btn-check:active+.btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn-check:checked+.btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary.active .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary.show .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary:active:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary:focus:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary:hover:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),
+    .show>.btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g) {
+        fill: #E67E22 !important;
+    }
+
+    .content {
+        background-color: #fff !important;
     }
 </style>
 
@@ -152,8 +204,7 @@
                                 </span>
                                 <div class="menu-sub menu-sub-accordion" style="display: none;">
                                     <div class="menu-item">
-                                        <a href="{{ route('report.forcast.index') }}"
-                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                        <a href="#" class="menu-link">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -162,7 +213,7 @@
                                     </div>
                                     <div class="menu-item">
                                         <a href="{{ route('report.inspection.index') }}"
-                                            class="menu-link {{ request()->is('report/inspection/index') ? 'active' : '' }}">
+                                            class="menu-link {{ request()->is('report/inspection/index') || request()->is('report/inspection/create') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -170,8 +221,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('report/inspection/index') ? 'active' : '' }}">
+                                        <a href="#" class="menu-link">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -213,7 +263,7 @@
                                 <div class="menu-sub menu-sub-accordion" style="display: none;">
                                     <div class="menu-item">
                                         <a href="{{ route('configuration.equipment_type.index') }}"
-                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                            class="menu-link {{ request()->is('configuration/equipment_type/index') || request()->is('configuration/equipment_type/create') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -221,8 +271,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('report.schedule.index') }}"
-                                            class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
+                                        <a href="#" class="menu-link">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -243,8 +292,7 @@
                                 </span>
                                 <div class="menu-sub menu-sub-accordion" style="display: none;">
                                     <div class="menu-item">
-                                        <a href="{{ route('configuration.equipment_type.index') }}"
-                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                        <a href="#" class="menu-link">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -252,8 +300,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('report.schedule.index') }}"
-                                            class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
+                                        <a href="#" class="menu-link">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -262,7 +309,7 @@
                                     </div>
                                     <div class="menu-item">
                                         <a href="{{ route('client.index') }}"
-                                            class="menu-link {{ request()->is('configuration/users/index') ? 'active' : '' }}">
+                                            class="menu-link {{ request()->is('client/index') || request()->is('client/create') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -316,7 +363,7 @@
 
                             <!-- Billing Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('/billing') ? 'active' : '' }}" href="/">
+                                <a class="menu-link" href="#">
                                     <span class="menu-icon">
                                         <i class="fas fa-tachometer-alt"></i>
                                     </span>

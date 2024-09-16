@@ -44,8 +44,8 @@
                                     <div id="section-container"></div>
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <button class="btn btn-primary btn-sm mt-3" id="add-section-btn"><i
-                                                    class="fas fa-plus"></i>Add
+                                            <button class="btn btn-sm mt-3 add-section" id="add-section-btn"><i
+                                                    class="fas fa-plus icon"></i>Add
                                                 Section</button>
                                         </div>
                                     </div>
@@ -64,9 +64,10 @@
                                     </form>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-success btn-sm"><i class="far fa-save"></i>Save
+                            <button type="button" class="btn btn-sm save-btn"><i class="far fa-save icon"></i>Save
                                 Definition</button>
-                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-ban"></i>Cancel</button>
+                            <button type="button" class="btn btn-sm delete-btn"><i
+                                    class="fa fa-ban icon"></i>Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -155,15 +156,15 @@
                 buttonRow.classList.add('d-flex', 'align-items-center', 'mb-3');
 
                 const addFieldBtn = document.createElement('button');
-                addFieldBtn.classList.add('btn', 'btn-success', 'btn-sm', 'me-2');
-                addFieldBtn.innerHTML = '<i class="fas fa-plus"></i> Add Field';
+                addFieldBtn.classList.add('btn', 'btn-add-field', 'btn-sm', 'me-2');
+                addFieldBtn.innerHTML = '<i class="fas fa-plus icon"></i> Add Field';
                 addFieldBtn.addEventListener('click', function() {
                     addField(section);
                 });
 
                 const duplicateSectionBtn = document.createElement('button');
-                duplicateSectionBtn.classList.add('btn', 'btn-info', 'btn-sm', 'me-2');
-                duplicateSectionBtn.innerHTML = '<i class="fas fa-copy"></i> Duplicate Section';
+                duplicateSectionBtn.classList.add('btn', 'btn-duplicate-section', 'btn-sm', 'me-2');
+                duplicateSectionBtn.innerHTML = '<i class="fas fa-copy icon"></i> Duplicate Section';
                 duplicateSectionBtn.addEventListener('click', function() {
                     const duplicateSection = section.cloneNode(true);
                     sectionContainer.appendChild(duplicateSection);
@@ -174,11 +175,12 @@
                 });
 
                 const deleteSectionBtn = document.createElement('button');
-                deleteSectionBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'me-2');
-                deleteSectionBtn.innerHTML = '<i class="fas fa-trash-alt"></i> Delete Section';
+                deleteSectionBtn.classList.add('btn', 'btn-delete-section', 'btn-sm', 'me-2');
+                deleteSectionBtn.innerHTML = '<i class="fas fa-trash-alt icon"></i> Delete Section';
                 deleteSectionBtn.addEventListener('click', function() {
                     sectionContainer.removeChild(section);
                 });
+
 
                 buttonRow.appendChild(addFieldBtn);
                 buttonRow.appendChild(duplicateSectionBtn);
@@ -194,6 +196,7 @@
                 const fieldRow = document.createElement('div');
                 fieldRow.classList.add('row', 'mb-2', 'field-row');
 
+                // Field Name Column
                 const fieldNameCol = document.createElement('div');
                 fieldNameCol.classList.add('col-md-3');
                 const fieldNameInput = document.createElement('input');
@@ -202,6 +205,7 @@
                 fieldNameInput.classList.add('form-control');
                 fieldNameCol.appendChild(fieldNameInput);
 
+                // Select Column
                 const selectCol = document.createElement('div');
                 selectCol.classList.add('col-md-3');
                 const selectInput = document.createElement('select');
@@ -216,34 +220,51 @@
                 selectInput.appendChild(option2);
                 selectCol.appendChild(selectInput);
 
-                const visibilityCol = document.createElement('div');
-                visibilityCol.classList.add('col-md-3');
+                // Action Buttons Column
+                const actionCol = document.createElement('div');
+                actionCol.classList.add('col-md-6'); // Adjust width as needed
+                actionCol.style.display = 'flex'; // Use flexbox for horizontal alignment
+                actionCol.style.gap = '10px'; // Space between buttons
+                actionCol.style.alignItems = 'center'; // Vertically center buttons
+
+                // Visibility Button
                 const visibilityBtn = document.createElement('button');
-                visibilityBtn.classList.add('btn', 'btn-warning', 'btn-sm', 'me-2');
-                visibilityBtn.innerHTML = '<i class="fas fa-eye"></i> Visibility';
+                visibilityBtn.classList.add('btn', 'btn-sm'); // Ensure small button size
+                visibilityBtn.style.backgroundColor = '#FFA500'; // Orange
+                visibilityBtn.style.color = '#FFFFFF'; // White
+                visibilityBtn.style.fontSize = '0.75rem'; // Adjust font size for small buttons
+                visibilityBtn.style.padding = '0.25rem 0.5rem'; // Adjust padding for small size
+                visibilityBtn.innerHTML = '<i class="fas fa-eye icon"></i> Visibility';
                 visibilityBtn.addEventListener('click', function() {
                     // Code to show the modal (you can use Bootstrap's modal)
                     alert('Visibility options modal would appear here.');
                 });
-                visibilityCol.appendChild(visibilityBtn);
 
-                const deleteFieldBtnCol = document.createElement('div');
-                deleteFieldBtnCol.classList.add('col-md-3');
+                // Delete Button
                 const deleteFieldBtn = document.createElement('button');
-                deleteFieldBtn.classList.add('btn', 'btn-danger', 'btn-sm');
-                deleteFieldBtn.innerHTML = '<i class="fas fa-trash-alt"></i> Delete';
+                deleteFieldBtn.classList.add('btn', 'btn-sm'); // Ensure small button size
+                deleteFieldBtn.style.backgroundColor = '#C0C0C0'; // Light Silver
+                deleteFieldBtn.style.color = '#FFFFFF'; // White
+                deleteFieldBtn.style.fontSize = '0.75rem'; // Adjust font size for small buttons
+                deleteFieldBtn.style.padding = '0.25rem 0.5rem'; // Adjust padding for small size
+                deleteFieldBtn.innerHTML = '<i class="fas fa-trash-alt icon"></i> Delete';
                 deleteFieldBtn.addEventListener('click', function() {
                     section.removeChild(fieldRow);
                 });
-                deleteFieldBtnCol.appendChild(deleteFieldBtn);
 
+                // Append buttons to action column
+                actionCol.appendChild(visibilityBtn);
+                actionCol.appendChild(deleteFieldBtn);
+
+                // Append columns to row
                 fieldRow.appendChild(fieldNameCol);
                 fieldRow.appendChild(selectCol);
-                fieldRow.appendChild(visibilityCol);
-                fieldRow.appendChild(deleteFieldBtnCol);
+                fieldRow.appendChild(actionCol);
 
+                // Append row to section
                 section.appendChild(fieldRow);
             }
+
 
             // Function to assign event listeners to a section
             function assignEventListeners(section) {

@@ -172,7 +172,7 @@
                 order: [
                     [1, 'desc']
                 ],
-                pageLength: 100,
+                pageLength: 10,
                 responsive: true,
                 scrollX: true,
                 columnDefs: [{
