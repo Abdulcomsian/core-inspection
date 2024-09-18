@@ -35,11 +35,12 @@ class PermissionsController extends Controller
         return redirect()->route('permissions.index');
     }
 
-    public function edit(Permission $permission)
+    public function edit($permission)
     {
         abort_if(Gate::denies('permission_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.permissions.edit', compact('permission'));
+        $permission = Permission::findOrFail($permission);
+        return response()->json($permission);
     }
 
     public function update(UpdatePermissionRequest $request, Permission $permission)

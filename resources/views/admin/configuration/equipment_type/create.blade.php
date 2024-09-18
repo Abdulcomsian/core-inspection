@@ -4,30 +4,31 @@
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 
-        <div class="container-fluid">
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="form-header">
-                                    <h3>Equipment Type Description</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div class="form-group input-spacing">
-                                        <label for="description">Description</label>
-                                        <input class="form-control" type="text" name="description" id="description"
-                                            placeholder="Description">
-                                    </div>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-12 mt-5">
+                    <div class="card mt-5">
+                        <div class="card-body">
+                            <!-- Equipment Type Description Section -->
+                            <h3 class="mb-4">Equipment Type Description</h3>
+                            <div class="form-group mb-3">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" name="description" id="description" rows="3" placeholder="Enter description"></textarea>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
                                     <div class="form-group input-spacing">
                                         <label for="descriptionFormula">Description Formula</label>
-                                        <input class="form-control" type="text" name="sale_order_no"
+                                        <input class="form-control" type="text" name="description_formula"
                                             id="descriptionFormula"
                                             placeholder="Description Formula eg <<Height of Lift>>m">
                                     </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group input-spacing">
-                                        <label for="salesOrderNo">Inspection Interval</label>
-                                        <select id="inspectionInterval" class="form-control mb-3">
+                                        <label for="inspectionInterval">Inspection Interval</label>
+                                        <select id="inspectionInterval" class="form-control">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -36,44 +37,43 @@
                                 </div>
                             </div>
 
-                            <div class="card">
-                                <div class="form-header">
-                                    <h3>Equipment Type Attributes</h3>
-                                </div>
-                                <div class="card-body">
-                                    <div id="section-container"></div>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <button class="btn btn-sm mt-3 add-section" id="add-section-btn"><i
-                                                    class="fas fa-plus icon"></i>Add
-                                                Section</button>
-                                        </div>
-                                    </div>
+                            <hr>
+
+                            <!-- Equipment Type Attributes Section -->
+                            <h3 class="mb-4">Equipment Type Attributes</h3>
+                            <div id="section-container"></div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <button class="btn btn-sm mt-3 add-section" id="add-section-btn">
+                                        <i class="fas fa-plus icon"></i>Add Section
+                                    </button>
                                 </div>
                             </div>
 
-                            <div class="card">
-                                <div class="form-header">
-                                    <h3>Reference Documents</h3>
+                            <hr>
+
+                            <!-- Reference Documents Section -->
+                            <h3 class="mb-4">Reference Documents</h3>
+                            <form action="#" class="dropzone" id="my-dropzone">
+                                <div class="dz-message">
+                                    <h4>Drag and drop files here or click to upload</h4>
                                 </div>
-                                <div class="card-body">
-                                    <form action="#" class="dropzone" id="my-dropzone">
-                                        <div class="dz-message">
-                                            <h4>Drag and drop files here or click to upload</h4>
-                                        </div>
-                                    </form>
-                                </div>
+                            </form>
+
+                            <!-- Save and Cancel Buttons -->
+                            <div class="mt-4">
+                                <button type="button" class="btn btn-sm save-btn">
+                                    <i class="far fa-save icon"></i>Save Definition
+                                </button>
+                                <button type="button" class="btn btn-sm delete-btn">
+                                    <i class="fa fa-ban icon"></i>Cancel
+                                </button>
                             </div>
-                            <button type="button" class="btn btn-sm save-btn"><i class="far fa-save icon"></i>Save
-                                Definition</button>
-                            <button type="button" class="btn btn-sm delete-btn"><i
-                                    class="fa fa-ban icon"></i>Cancel</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
     </div>
 

@@ -122,7 +122,6 @@ table th {
 
 .form-group {
     margin-bottom: 20px;
-    display: flex;
     align-items: center;
 }
 
@@ -279,3 +278,21 @@ td {
 .aside-dark .menu .menu-item.hover>.menu-link:not(.disabled):not(.active) .menu-bullet .bullet {
     background-color: #E67E22 !important;
 }
+
+div.dt-container .dt-paging .dt-paging-button:hover {
+    background: linear-gradient(to bottom, #D35400 0%, #D35400 150%) !important;
+    border-radius: 0.6rem !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button {
+    padding: 0;
+}
+
+.select2-container--default {
+    margin-top: 5px;
+}
+
+.page-link:hover {
+    color: #fff !important;
+    background-color: transparent !important;
+  }

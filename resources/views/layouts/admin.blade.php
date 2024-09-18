@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/home_page.css') }}">
 </head>
 
 <style>
@@ -88,6 +89,10 @@
     .content {
         background-color: #fff !important;
     }
+
+    .aside-dark .menu .menu-item .menu-link.active .menu-bullet .bullet {
+  background-color: #E67E22 !important;
+}
 </style>
 
 <body id="kt_body"
@@ -134,7 +139,7 @@
                             id="kt_aside_menu" data-kt-menu="true">
 
                             <div class="menu-item">
-                                <a class="menu-link {{ request()->is('/') ? 'active' : '' }}" href="/">
+                                <a class="menu-link {{ request()->is('/') ? 'show' : '' }}" href="/">
                                     <span class="menu-icon">
                                         <i class="fas fa-tachometer-alt"></i>
                                     </span>

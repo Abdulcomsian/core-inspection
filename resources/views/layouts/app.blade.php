@@ -37,6 +37,31 @@
     .custom-flex {
         height: 100%;
     }
+
+    .light-orange {
+        color: #E67E22;
+    }
+
+    .orange-btn {
+        background-color: #D35400;
+        color: #FFFFFF;
+    }
+
+    @media (min-width: 992px) {
+        .w-lg-500px {
+            width: 500px !important;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .w-lg-600px {
+            width: 500px !important;
+        }
+    }
+
+    a:hover {
+        color: #D35400 !important;
+    }
 </style>
 
 <body>

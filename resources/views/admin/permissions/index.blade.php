@@ -7,10 +7,12 @@
 
         </div>
         <div class="container-fluid">
-            <button type="button" class="btn btn-sm add-section" data-toggle="modal" data-target="#addPermissionModal">
-                <i class="fas fa-plus icon"></i>
-                Add Permission
-            </button>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#permissionModal">
+                <button type="button" class="btn btn-sm add-section">
+                    <i class="fas fa-plus icon"></i>
+                    Add Permission
+                </button>
+            </a>
             <div class="mt-3">
                 <div class="table-responsive">
                     <table class=" table table-bordered table-striped table-hover datatable datatable-Role cell-border">
@@ -29,10 +31,8 @@
                         </thead>
                         <tbody>
                             @foreach ($permissions as $key => $permission)
-                                <tr data-entry-id="{{ $permission->id }}">
-                                    <td>
-                                        {{ $permission->id ?? '' }}
-                                    </td>
+                                <tr>
+                                        <td>{{ $key + 1 }}</td>
                                     <td>
                                         {{ $permission->title ?? '' }}
                                     </td>
@@ -44,8 +44,8 @@
                                         @endcan --}}
 
                                         @can('permission_edit')
-                                            <a class="btn btn-sm save-btn"
-                                                href="{{ route('permissions.edit', $permission->id) }}">
+                                            <a class="btn btn-sm save-btn" href="javascript:void(0)"
+                                                onclick="openEditModal({{ $permission->id }})">
                                                 {{ trans('global.edit') }}
                                             </a>
                                         @endcan
@@ -65,6 +65,68 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="permissionModal" tabindex="-1" aria-labelledby="permissionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="permissionModalLabel">Create Permission</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="{{ route('permissions.store') }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="title"
+                                class="form-label required">{{ trans('cruds.permission.fields.title') }}</label>
+                            <input class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" type="text"
+                                name="title" id="title" value="{{ old('title', '') }}" required>
+                            @if ($errors->has('title'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('title') }}
+                                </div>
+                            @endif
+                            <small class="form-text text-muted">{{ trans('cruds.permission.fields.title_helper') }}</small>
+                        </div>
+                        <button type="submit" class="btn save-btn btn-sm">
+                            <i class="far fa-save icon"></i> Save
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Permission Modal -->
+    <div class="modal fade" id="editPermissionModal" tabindex="-1" aria-labelledby="editPermissionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPermissionModalLabel">{{ trans('global.edit') }} Permission</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Edit Form -->
+                    <form method="POST" action="" id="editPermissionForm">
+                        @method('PUT')
+                        @csrf
+                        <div class="mb-3">
+                            <label class="required" for="edit_title">{{ trans('cruds.permission.fields.title') }}</label>
+                            <input class="form-control" type="text" name="title" id="edit_title" required>
+                            <span class="help-block">{{ trans('cruds.permission.fields.title_helper') }}</span>
+                        </div>
+                        <div class="mb-3 text-end">
+                            <button class="btn btn-sm save-btn" type="submit">
+                                <i class="far fa-save icon"></i>{{ trans('global.save') }}
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -151,6 +213,27 @@
             $('#geographicZoneSelect').select2();
             $('#salesPersonSelect').select2();
         });
+
+        function openEditModal(permissionId) {
+            // Fetch the permission data using AJAX
+            $.ajax({
+                url: `/permissions/${permissionId}/edit`, // Adjust to your route
+                type: 'GET',
+                success: function(data) {
+                    // Populate the modal form fields with the fetched data
+                    $('#edit_title').val(data.title);
+
+                    // Update the form action URL
+                    $('#editPermissionForm').attr('action', `/permissions/${permissionId}`);
+
+                    // Open the modal
+                    $('#editPermissionModal').modal('show');
+                },
+                error: function(error) {
+                    console.log("Error fetching permission data:", error);
+                }
+            });
+        }
     </script>
 @endsection
 @endsection

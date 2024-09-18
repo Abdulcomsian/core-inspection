@@ -40,7 +40,9 @@
                         </thead>
                         <tbody>
                             <tr class="rgRow">
-                                <td><a class="btn btn-sm save-btn" href="javascript:void(0)">View Job</a></td>
+                                <td style="padding-left: 5px;">
+                                    <a class="btn btn-sm save-btn" href="javascript:void(0)">View Job</a>
+                                </td>
                                 <td><a class="btn btn-sm save-btn" href="javascript:void(0)">View Equipment</a></td>
                                 <td>28/08/2024</td>
                                 <td>221</td>
@@ -75,44 +77,56 @@
                 </div>
                 <div class="modal-body">
                     <form action="">
-                        <label for="roles">All users in a role</label>
-                        <select name="roles" class="form-control" id="roles">
-                            <option value="">All Roles</option>
-                            <option value="">Admin</option>
-                            <option value="">Worker</option>
-                        </select>
-                        <label for="individualUser">Individual users</label>
-                        <select name="individual_user" class="form-control" id="individualUser">
-                            <option value="">All Roles</option>
-                            <option value="">Admin</option>
-                            <option value="">Worker</option>
-                        </select>
-                        <label for="individualUser">Email Text</label>
-                        <textarea name="email_text" class="form-control" id="emailText" cols="30" rows="5"></textarea>
-                        <label for="roles">How often should we send this email?</label>
-                        <select name="roles" class="form-control" id="roles">
-                            <option value="">Weekly</option>
-                            <option value="">Monthly</option>
-                        </select>
-                        <label for="roles">Send on a</label>
-                        <select name="roles" class="form-control" id="roles">
-                            <option value="">Monday</option>
-                            <option value="">Tuesday</option>
-                            <option value="">Wednesday</option>
-                            <option value="">Thursday</option>
-                            <option value="">Friday</option>
-                            <option value="">Saturday</option>
-                            <option value="">Sunday</option>
-                        </select>
-
-                        <button type="button" class="btn btn-sm me-3 mt-3 save-btn">
-                        <i class="far fa-save icon"></i>Save
-                    </button>
+                        <div class="mb-3">
+                            <input type="radio" name="user_select" id="userRolesSelect" checked>
+                            <label for="userRolesSelect" class="ms-2">All users in a role</label>
+                            <select name="roles" class="form-control mt-2" id="roles">
+                                <option value="">All Roles</option>
+                                <option value="">Admin</option>
+                                <option value="">Worker</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="radio" name="user_select" id="userIndividualSelect">
+                            <label for="userIndividualSelect" class="ms-2">Individual users</label>
+                            <select name="individual_user" class="form-control mt-2" id="individualUser">
+                                <option value=""></option>
+                                <option value="">Admin</option>
+                                <option value="">Worker</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailText">Email Text</label>
+                            <textarea name="email_text" class="form-control" id="emailText" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="frequency">How often should we send this email?</label>
+                            <select name="weekly_schedule" class="form-control" id="weeklySchedule">
+                                <option value="">Weekly</option>
+                                <option value="">Monthly</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="day">Send on a</label>
+                            <select name="daily_schedule" class="form-control" id="dailySchedule">
+                                <option value="">Monday</option>
+                                <option value="">Tuesday</option>
+                                <option value="">Wednesday</option>
+                                <option value="">Thursday</option>
+                                <option value="">Friday</option>
+                                <option value="">Saturday</option>
+                                <option value="">Sunday</option>
+                            </select>
+                        </div>
+                            <button type="button" class="btn btn-sm mt-3 save-btn">
+                                <i class="far fa-save icon"></i>Save
+                            </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
 
 @section('scripts')
     @parent
@@ -159,24 +173,24 @@
             @endcan
 
             $.extend(true, $.fn.dataTable.defaults, {
-                autoWidth: false, // Allow table columns to auto adjust
+                autoWidth: false,
                 orderCellsTop: true,
                 order: [
                     [1, 'desc']
                 ],
                 pageLength: 10,
                 responsive: true,
-                scrollX: true, // Enable horizontal scroll
-                scrollY: 300, // Enable vertical scroll
+                scrollX: true,
+                scrollY: 300,
                 scrollCollapse: true,
                 columnDefs: [{
                         width: '10%',
                         targets: 0
-                    }, // Set width for the first column
+                    },
                     {
                         orderable: false,
                         targets: '_all'
-                    } // Disable ordering for all columns
+                    }
                 ],
                 fixedColumns: {
                     leftColumns: 1,
@@ -192,7 +206,47 @@
                 $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
             });
 
-            $('#inspectionInterval').select2();
+            $('#roles').select2({
+                dropdownParent: $('#kt_modal_add_user'),
+                width: '100%'
+            });
+
+            $('#individualUser').select2({
+                dropdownParent: $('#kt_modal_add_user'),
+                width: '100%'
+            });
+
+            $('#weeklySchedule').select2({
+                dropdownParent: $('#kt_modal_add_user'),
+                width: '100%'
+            });
+            $('#dailySchedule').select2({
+                dropdownParent: $('#kt_modal_add_user'),
+                width: '100%'
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to toggle read-only state
+            function toggleReadOnly() {
+                const rolesSelect = document.getElementById('roles');
+                const individualUserSelect = document.getElementById('individualUser');
+
+                if (document.getElementById('userRolesSelect').checked) {
+                    rolesSelect.disabled = false;
+                    individualUserSelect.disabled = true;
+                } else if (document.getElementById('userIndividualSelect').checked) {
+                    rolesSelect.disabled = true;
+                    individualUserSelect.disabled = false;
+                }
+            }
+
+            // Initial check on page load
+            toggleReadOnly();
+
+            // Add event listeners to radio buttons
+            document.getElementById('userRolesSelect').addEventListener('change', toggleReadOnly);
+            document.getElementById('userIndividualSelect').addEventListener('change', toggleReadOnly);
         });
     </script>
 @endsection
