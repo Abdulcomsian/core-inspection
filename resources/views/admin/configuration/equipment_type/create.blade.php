@@ -2,79 +2,71 @@
 @section('title', 'Software')
 @section('header', 'Equipment Type Details')
 @section('content')
-    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <div class="row mt-5">
+        <div class="col-md-12 mt-5">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <!-- Equipment Type Description Section -->
+                    <h5 class="mb-4">Equipment Type Description</h5>
+                    <div class="form-group mb-3">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" name="description" id="description" rows="3" placeholder="Enter description"></textarea>
+                    </div>
 
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-12 mt-5">
-                    <div class="card mt-5">
-                        <div class="card-body">
-                            <!-- Equipment Type Description Section -->
-                            <h3 class="mb-4">Equipment Type Description</h3>
+                    <div class="row">
+                        <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="description">Description</label>
-                                <textarea class="form-control" name="description" id="description" rows="3" placeholder="Enter description"></textarea>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group input-spacing">
-                                        <label for="descriptionFormula">Description Formula</label>
-                                        <input class="form-control" type="text" name="description_formula"
-                                            id="descriptionFormula"
-                                            placeholder="Description Formula eg <<Height of Lift>>m">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group input-spacing">
-                                        <label for="inspectionInterval">Inspection Interval</label>
-                                        <select id="inspectionInterval" class="form-control">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <!-- Equipment Type Attributes Section -->
-                            <h3 class="mb-4">Equipment Type Attributes</h3>
-                            <div id="section-container"></div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <button class="btn btn-sm mt-3 add-section" id="add-section-btn">
-                                        <i class="fas fa-plus icon"></i>Add Section
-                                    </button>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <!-- Reference Documents Section -->
-                            <h3 class="mb-4">Reference Documents</h3>
-                            <form action="#" class="dropzone" id="my-dropzone">
-                                <div class="dz-message">
-                                    <h4>Drag and drop files here or click to upload</h4>
-                                </div>
-                            </form>
-
-                            <!-- Save and Cancel Buttons -->
-                            <div class="mt-4">
-                                <button type="button" class="btn btn-sm save-btn">
-                                    <i class="far fa-save icon"></i>Save Definition
-                                </button>
-                                <button type="button" class="btn btn-sm delete-btn">
-                                    <i class="fa fa-ban icon"></i>Cancel
-                                </button>
+                                <label for="descriptionFormula">Description Formula</label>
+                                <input class="form-control" type="text" name="description_formula"
+                                    id="descriptionFormula" placeholder="Description Formula eg <<Height of Lift>>m">
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="inspectionInterval">Inspection Interval</label>
+                                <select id="inspectionInterval" class="form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Equipment Type Attributes Section -->
+                    <h5 class="mb-4">Equipment Type Attributes</h5>
+                    <div id="section-container"></div>
+                    <div class="form-group mb-3">
+                        <button class="btn btn-sm add-section" id="add-section-btn">
+                            <i class="fas fa-plus icon"></i> Add Section
+                        </button>
+                    </div>
+
+                    <hr>
+
+                    <!-- Reference Documents Section -->
+                    <h5 class="mb-4">Reference Documents</h5>
+                    <form action="#" class="dropzone" id="my-dropzone">
+                        <div class="dz-message">
+                            <h4>Drag and drop files here or click to upload</h4>
+                        </div>
+                    </form>
+
+                    <!-- Save and Cancel Buttons -->
+                    <div class="form-group mt-4">
+                        <button type="button" class="btn btn-sm save-btn">
+                            <i class="far fa-save icon"></i> Save Definition
+                        </button>
+                        <button type="button" class="btn btn-sm delete-btn">
+                            <i class="fa fa-ban icon"></i> Cancel
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 @section('scripts')
@@ -91,6 +83,7 @@
                     dictRemoveFile: "Remove",
                     dictMaxFilesExceeded: "You can only upload up to 5 images.",
                     autoProcessQueue: false,
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                     init: function() {
                         this.on("success", function(file, response) {
                             fileMappings[file.name] = response.path;
@@ -118,12 +111,10 @@
         document.getElementById('add-section-btn').addEventListener('click', function() {
             const sectionContainer = document.getElementById('section-container');
 
-            // Function to add a section
             function addSection() {
                 const section = document.createElement('div');
                 section.classList.add('section', 'mb-4', 'p-3', 'border');
 
-                // Create input fields
                 const inputRow = document.createElement('div');
                 inputRow.classList.add('row', 'mb-3');
 
@@ -135,23 +126,24 @@
                 sectionNameInput.classList.add('form-control');
                 sectionNameCol.appendChild(sectionNameInput);
 
-                const radioButtonCol = document.createElement('div');
-                radioButtonCol.classList.add('col-md-6');
-                const radioInput = document.createElement('input');
-                radioInput.type = 'radio';
-                radioInput.name = `sectionRadio${sectionContainer.children.length + 1}`;
-                radioInput.classList.add('form-check-input', 'me-2', 'mt-2');
-                const radioLabel = document.createElement('label');
-                radioLabel.textContent = 'Radio Button';
-                radioLabel.classList.add('form-check-label', 'mt-3');
-                radioButtonCol.appendChild(radioInput);
-                radioButtonCol.appendChild(radioLabel);
+                const checkBoxCol = document.createElement('div');
+                checkBoxCol.classList.add('col-md-6');
+                const checkBoxInput = document.createElement('input');
+                checkBoxInput.type = 'checkbox';
+                checkBoxInput.name = `sectionCheckBox${sectionContainer.children.length + 1}`;
+                checkBoxInput.classList.add('form-check-input', 'me-2');
+                checkBoxInput.style.marginTop = '14px';
+                const checkBoxLabel = document.createElement('label');
+                checkBoxLabel.style.marginTop = '14px';
+                checkBoxLabel.textContent = 'Section can repeat';
+                checkBoxLabel.classList.add('form-check-label', 'mt-1');
+                checkBoxCol.appendChild(checkBoxInput);
+                checkBoxCol.appendChild(checkBoxLabel);
 
                 inputRow.appendChild(sectionNameCol);
-                inputRow.appendChild(radioButtonCol);
+                inputRow.appendChild(checkBoxCol);
                 section.appendChild(inputRow);
 
-                // Create buttons
                 const buttonRow = document.createElement('div');
                 buttonRow.classList.add('d-flex', 'align-items-center', 'mb-3');
 
@@ -181,7 +173,6 @@
                     sectionContainer.removeChild(section);
                 });
 
-
                 buttonRow.appendChild(addFieldBtn);
                 buttonRow.appendChild(duplicateSectionBtn);
                 buttonRow.appendChild(deleteSectionBtn);
@@ -191,12 +182,10 @@
                 sectionContainer.appendChild(section);
             }
 
-            // Function to add a field row
             function addField(section) {
                 const fieldRow = document.createElement('div');
                 fieldRow.classList.add('row', 'mb-2', 'field-row');
 
-                // Field Name Column
                 const fieldNameCol = document.createElement('div');
                 fieldNameCol.classList.add('col-md-3');
                 const fieldNameInput = document.createElement('input');
@@ -205,7 +194,6 @@
                 fieldNameInput.classList.add('form-control');
                 fieldNameCol.appendChild(fieldNameInput);
 
-                // Select Column
                 const selectCol = document.createElement('div');
                 selectCol.classList.add('col-md-3');
                 const selectInput = document.createElement('select');
@@ -220,59 +208,51 @@
                 selectInput.appendChild(option2);
                 selectCol.appendChild(selectInput);
 
-                // Action Buttons Column
                 const actionCol = document.createElement('div');
-                actionCol.classList.add('col-md-6'); // Adjust width as needed
-                actionCol.style.display = 'flex'; // Use flexbox for horizontal alignment
-                actionCol.style.gap = '10px'; // Space between buttons
-                actionCol.style.alignItems = 'center'; // Vertically center buttons
+                actionCol.classList.add('col-md-6');
+                actionCol.style.display = 'flex';
+                actionCol.style.gap = '10px';
+                actionCol.style.alignItems = 'center';
 
                 // Visibility Button
                 const visibilityBtn = document.createElement('button');
-                visibilityBtn.classList.add('btn', 'btn-sm'); // Ensure small button size
-                visibilityBtn.style.backgroundColor = '#FFA500'; // Orange
-                visibilityBtn.style.color = '#FFFFFF'; // White
-                visibilityBtn.style.fontSize = '0.75rem'; // Adjust font size for small buttons
-                visibilityBtn.style.padding = '0.25rem 0.5rem'; // Adjust padding for small size
+                visibilityBtn.classList.add('btn', 'btn-sm');
+                visibilityBtn.style.backgroundColor = '#FFA500';
+                visibilityBtn.style.color = '#FFFFFF';
+                visibilityBtn.style.fontSize = '0.75rem';
+                visibilityBtn.style.padding = '0.25rem 0.5rem';
                 visibilityBtn.innerHTML = '<i class="fas fa-eye icon"></i> Visibility';
                 visibilityBtn.addEventListener('click', function() {
-                    // Code to show the modal (you can use Bootstrap's modal)
                     alert('Visibility options modal would appear here.');
                 });
 
-                // Delete Button
                 const deleteFieldBtn = document.createElement('button');
-                deleteFieldBtn.classList.add('btn', 'btn-sm'); // Ensure small button size
-                deleteFieldBtn.style.backgroundColor = '#C0C0C0'; // Light Silver
-                deleteFieldBtn.style.color = '#FFFFFF'; // White
-                deleteFieldBtn.style.fontSize = '0.75rem'; // Adjust font size for small buttons
-                deleteFieldBtn.style.padding = '0.25rem 0.5rem'; // Adjust padding for small size
+                deleteFieldBtn.classList.add('btn', 'btn-sm');
+                deleteFieldBtn.style.backgroundColor = '#C0C0C0';
+                deleteFieldBtn.style.color = '#FFFFFF';
+                deleteFieldBtn.style.fontSize = '0.75rem';
+                deleteFieldBtn.style.padding = '0.25rem 0.5rem';
                 deleteFieldBtn.innerHTML = '<i class="fas fa-trash-alt icon"></i> Delete';
                 deleteFieldBtn.addEventListener('click', function() {
                     section.removeChild(fieldRow);
                 });
 
-                // Append buttons to action column
                 actionCol.appendChild(visibilityBtn);
                 actionCol.appendChild(deleteFieldBtn);
 
-                // Append columns to row
                 fieldRow.appendChild(fieldNameCol);
                 fieldRow.appendChild(selectCol);
                 fieldRow.appendChild(actionCol);
 
-                // Append row to section
                 section.appendChild(fieldRow);
             }
 
-
-            // Function to assign event listeners to a section
             function assignEventListeners(section) {
-                section.querySelector('.btn-success').addEventListener('click', function() {
+                section.querySelector('.btn-add-field').addEventListener('click', function() {
                     addField(section);
                 });
 
-                section.querySelector('.btn-info').addEventListener('click', function() {
+                section.querySelector('.btn-duplicate-section').addEventListener('click', function() {
                     const duplicateSection = section.cloneNode(true);
                     sectionContainer.appendChild(duplicateSection);
                     sectionContainer.lastElementChild.scrollIntoView({
@@ -281,11 +261,10 @@
                     assignEventListeners(duplicateSection);
                 });
 
-                section.querySelector('.btn-danger').addEventListener('click', function() {
+                section.querySelector('.btn-delete-section').addEventListener('click', function() {
                     sectionContainer.removeChild(section);
                 });
 
-                // Reassign delete listeners for each field row
                 section.querySelectorAll('.field-row .btn-danger').forEach(function(deleteBtn) {
                     deleteBtn.addEventListener('click', function() {
                         section.removeChild(deleteBtn.closest('.field-row'));
@@ -293,11 +272,14 @@
                 });
             }
 
-            // Add the first section
             addSection();
         });
 
-        $('#inspectionInterval').select2();
+
+        $("#inspectionInterval").select2({
+            width: '100%',
+            height: '100%',
+        });
     </script>
 @endsection
 @endsection

@@ -5,6 +5,7 @@
     <base href="">
     <meta charset="utf-8" />
     <title>Core Inspection - @yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description"
         content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
     <meta name="keywords"
@@ -91,8 +92,33 @@
     }
 
     .aside-dark .menu .menu-item .menu-link.active .menu-bullet .bullet {
-  background-color: #E67E22 !important;
-}
+        background-color: #E67E22 !important;
+    }
+
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .menu-state-bg-light-primary .menu-item .menu-link:hover:not(.disabled):not(.active),
+    .menu-state-bg-light-primary .menu-item.hover>.menu-link:not(.disabled):not(.active) {
+        color: #D35400 !important;
+        background-color: #E0E0E0 !important;
+    }
+
+    .menu-gray-600 .menu-item .menu-link {
+        color: #5A5A5A !important;
+    }
+
+    .dropdown-item:focus,
+    .dropdown-item:hover {
+        color: #D35400 !important;
+        background-color: #E0E0E0 !important;
+    }
+
+    .text-hover-primary:hover {
+        color: #E67E22 !important;
+    }
 </style>
 
 <body id="kt_body"
@@ -605,9 +631,7 @@
                             </div>
                             <div class="d-flex align-items-stretch flex-shrink-0">
                                 <div class="d-flex align-items-stretch flex-shrink-0">
-                                    <div class="d-flex align-items-stretch ms-1 ms-lg-3">
-                                    </div>
-                                    <div class="d-flex align-items-center ms-1 ms-lg-3">
+                                    {{-- <div class="d-flex align-items-center ms-1 ms-lg-3">
                                         <div class="btn btn-icon btn-active-light-primary position-relative w-30px h-30px w-md-40px h-md-40px"
                                             data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                             data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
@@ -1063,7 +1087,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="d-flex align-items-center ms-1 ms-lg-3"
                                         id="kt_header_user_menu_toggle">
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
@@ -1089,23 +1113,21 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="separator my-2"></div>
                                             <div class="menu-item px-5">
                                                 <a href="{{ route('profile.password.edit') }}"
                                                     class="menu-link px-5">
                                                     <i class="fas fa-user-circle"
-                                                        style="color: #3498db; margin-right: 8px;"></i>
+                                                        style="color: #E67E22; margin-right: 8px;"></i>
                                                     Account
                                                 </a>
                                             </div>
 
-                                            <div class="separator my-2"></div>
 
                                             <div class="menu-item px-5">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                     <i class="fas fa-sign-out-alt"
-                                                        style="color: #e74c3c; margin-right: 8px;"></i>
+                                                        style="color: #7F8C8D; margin-right: 8px;"></i>
                                                     {{ __('Sign out') }}
                                                 </a>
 
@@ -1608,15 +1630,14 @@
                                                                 version="1.1">
                                                                 <g stroke="none" stroke-width="1" fill="none"
                                                                     fill-rule="evenodd">
-                                                                    <rect x="0" y="0" width="24"
-                                                                        height="24" />
+                                                                    <rect x="0" y="0" width="24" height="24" />
                                                                     <rect fill="#000000" opacity="0.3" x="2" y="5"
                                                                         width="20" height="14"
                                                                         rx="2" />
                                                                     <rect fill="#000000" x="2" y="8" width="20"
                                                                         height="3" />
-                                                                    <rect fill="#000000" opacity="0.3" x="16"
-                                                                        y="14" width="4" height="2"
+                                                                    <rect fill="#000000" opacity="0.3" x="16" y="14"
+                                                                        width="4" height="2"
                                                                         rx="1" />
                                                                 </g>
                                                             </svg>

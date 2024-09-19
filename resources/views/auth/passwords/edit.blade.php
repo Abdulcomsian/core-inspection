@@ -2,107 +2,108 @@
 @section('title', 'Software')
 @section('header', 'Update Profile')
 @section('content')
-    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-
-        <div class="container-fluid">
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+<div class="row mt-5">
+    <div class="col-md-12 mt-5">
+        <div class="card mt-5">
+            <div class="card-body">
+                <h5>Profile Settings</h5>
+                <form id="profile-form" method="POST" action="{{ route('profile.password.updateProfile') }}">
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="card">
-                                <div class="form-header">
-                                    My Profile
-                                </div>
-                                <div class="card-body">
-                                    <form id="profile-form" method="POST"
-                                        action="{{ route('profile.password.updateProfile') }}">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input class="form-control" type="text" name="name" id="name"
-                                                value="{{ old('name', auth()->user()->name) }}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input class="form-control" type="text" name="email" id="email"
-                                                value="{{ old('email', auth()->user()->email) }}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="qualification">Qualification</label>
-                                            <input class="form-control" type="text" name="qualification"
-                                                id="qualification"
-                                                value="{{ old('qualification', auth()->user()->qualification) }}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="job_title">Job Title</label>
-                                            <input class="form-control" type="text" name="job_title" id="job_title"
-                                                value="{{ old('job_title', auth()->user()->job_title) }}" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="signature">Signature</label>
-                                            <div id="signature-dropzone" class="dropzone"></div>
-                                            @if (auth()->user()->signature)
-                                                <div id="signature-image" class="signature-image">
-                                                    <img src="{{ asset('/' . auth()->user()->signature) }}"
-                                                        alt="Signature Image">
-                                                </div>
-                                            @endif
-                                        </div>
-                                        <button class="btn btn-sm mt-2 save-btn" type="submit"><i
-                                                class="far fa-save icon"></i>Save</button>
-                                    </form>
-                                </div>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input class="form-control" type="text" name="name" id="name"
+                                    value="{{ old('name', auth()->user()->name) }}" required>
                             </div>
                         </div>
-
-                        <!-- Change Password Card -->
                         <div class="col-md-6">
-                            <div class="card">
-                                <div class="form-header">
-                                    Change Password
-                                </div>
-                                <div class="card-body">
-                                    <form method="POST" action="{{ route('profile.password.update') }}">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="password">New Password</label>
-                                            <input class="form-control" type="password" name="password" id="password"
-                                                required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password_confirmation">Repeat New Password</label>
-                                            <input class="form-control" type="password" name="password_confirmation"
-                                                id="password_confirmation" required>
-                                        </div>
-                                        <button class="btn btn-sm mt-2 save-btn" type="submit">
-                                            <i class="far fa-save icon"></i>Save</button>
-                                    </form>
-                                </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="text" name="email" id="email"
+                                    value="{{ old('email', auth()->user()->email) }}" required>
                             </div>
                         </div>
-
                         <div class="col-md-6">
-                            <div class="card">
-                                <div class="form-header">
-                                    Delete Account
-                                </div>
-                                <div class="card-body">
-                                    <form method="POST" action="{{ route('profile.password.destroyProfile') }}"
-                                        onsubmit="return prompt('{{ __('global.delete_account_warning') }}') == '{{ auth()->user()->email }}'">
-                                        @csrf
-                                        <button class="btn btn-sm save-btn" type="submit"><i
-                                                class="fa fa-ban icon"></i>Delete Account</button>
-                                    </form>
-                                </div>
+                            <div class="form-group">
+                                <label for="qualification">Qualification</label>
+                                <input class="form-control" type="text" name="qualification" id="qualification"
+                                    value="{{ old('qualification', auth()->user()->qualification) }}" required>
                             </div>
                         </div>
-                    </div> 
-                </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="qualification">Qualification</label>
+                                <input class="form-control" type="text" name="qualification" id="qualification"
+                                    value="{{ old('qualification', auth()->user()->qualification) }}" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="signature">Signature</label>
+                                <div id="signature-dropzone" class="dropzone"></div>
+                                @if (auth()->user()->signature)
+                                    <div id="signature-image" class="signature-image">
+                                        <img src="{{ asset('/' . auth()->user()->signature) }}" alt="Signature Image">
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="job_title">Job Title</label>
+                                <input class="form-control" type="text" name="job_title" id="job_title"
+                                    value="{{ old('job_title', auth()->user()->job_title) }}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm save-btn" type="submit">
+                        <i class="far fa-save icon"></i>Save
+                    </button>
+                </form>
+
+                <hr class="my-4">
+
+                <!-- Change Password Section -->
+                <h5>Change Password</h5>
+                <form method="POST" action="{{ route('profile.password.update') }}">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="password">New Password</label>
+                                <input class="form-control" type="password" name="password" id="password" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="password_confirmation">Repeat New Password</label>
+                                <input class="form-control" type="password" name="password_confirmation"
+                                    id="password_confirmation" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-sm save-btn" type="submit">
+                        <i class="far fa-save icon"></i>Save
+                    </button>
+                </form>
+
+                <hr class="my-4">
+
+                <!-- Delete Account Section -->
+                <h5>Delete Account</h5>
+                <form method="POST" action="{{ route('profile.password.destroyProfile') }}"
+                    onsubmit="return prompt('{{ __('global.delete_account_warning') }}') == '{{ auth()->user()->email }}'">
+                    @csrf
+                    <button class="btn btn-sm save-btn" type="submit">
+                        <i class="fa fa-ban icon"></i>Delete Account
+                    </button>
+                </form>
             </div>
         </div>
-
     </div>
-    </div>
+</div>
 
 @section('scripts')
     @parent
@@ -112,7 +113,7 @@
         var signatureFile = null;
 
         var signatureDropzone = new Dropzone("#signature-dropzone", {
-            url: "#", // Prevent automatic submission
+            url: "#",
             maxFiles: 1,
             autoProcessQueue: false,
             acceptedFiles: "image/*",
