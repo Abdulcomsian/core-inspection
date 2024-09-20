@@ -116,24 +116,23 @@
             @endcan
 
             $.extend(true, $.fn.dataTable.defaults, {
-                autoWidth: false, // Allow table columns to auto adjust
+                autoWidth: false,
                 orderCellsTop: true,
                 order: [
-                    [1, 'desc']
+                    [0, 'asc']
                 ],
                 pageLength: 10,
                 responsive: true,
-                scrollX: true, // Enable horizontal scroll
-                scrollY: 300, // Enable vertical scroll
+                scrollX: true,
                 scrollCollapse: true,
                 columnDefs: [{
                         width: '10%',
                         targets: 0
-                    }, // Set width for the first column
+                    },
                     {
                         orderable: false,
                         targets: '_all'
-                    } // Disable ordering for all columns
+                    }
                 ],
                 fixedColumns: {
                     leftColumns: 1,

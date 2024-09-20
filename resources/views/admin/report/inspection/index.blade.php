@@ -181,7 +181,6 @@
                 pageLength: 10,
                 responsive: true,
                 scrollX: true,
-                scrollY: 300,
                 scrollCollapse: true,
                 columnDefs: [{
                         width: '10%',

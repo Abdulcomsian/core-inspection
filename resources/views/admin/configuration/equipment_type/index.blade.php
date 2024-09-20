@@ -16,8 +16,7 @@
                             Add New
                         </button>
                     </a>
-                    <button type="button" class="btn btn-sm me-3 delete-btn" data-bs-toggle="modal"
-                        data-bs-target="#kt_modal_add_user"><i class="fas fa-search icon"></i>
+                    <button type="button" class="btn btn-sm me-3 delete-btn"><i class="fas fa-search icon"></i>
                         Search
                     </button>
                 </div>
@@ -146,24 +145,23 @@
             @endcan
 
             $.extend(true, $.fn.dataTable.defaults, {
-                autoWidth: false, // Allow table columns to auto adjust
+                autoWidth: false,
                 orderCellsTop: true,
                 order: [
                     [1, 'desc']
                 ],
                 pageLength: 100,
                 responsive: true,
-                scrollX: true, // Enable horizontal scroll
-                scrollY: 300, // Enable vertical scroll
+                scrollX: true,
                 scrollCollapse: true,
                 columnDefs: [{
                         width: '10%',
                         targets: 0
-                    }, // Set width for the first column
+                    },
                     {
                         orderable: false,
                         targets: '_all'
-                    } // Disable ordering for all columns
+                    }
                 ],
                 fixedColumns: {
                     leftColumns: 1,
@@ -175,12 +173,10 @@
                 buttons: dtButtons
             });
 
-            // Adjust columns when a tab is shown or clicked
             $('a[data-toggle="tab"]').on('shown.bs.tab click', function() {
                 $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
             });
 
-            // Initialize select2 on specific elements
             $('#client').select2();
             $('#geographicZoneSelect').select2();
             $('#salesPersonSelect').select2();

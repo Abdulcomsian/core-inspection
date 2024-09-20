@@ -12,7 +12,7 @@
                     <table class=" table table-bordered table-striped table-hover datatable datatable-Role cell-border">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th class="text-center">#</th>
                                 <th>User</th>
                                 <th>Role</th>
                                 <th>Joined Date</th>
@@ -22,7 +22,7 @@
                         <tbody>
                             @foreach ($data as $key => $user)
                                 <tr>
-                                    <td>{{ $key + 1 }}</td>
+                                    <td class="text-center">{{ $key + 1 }}</td>
                                     <td class="d-flex align-items-center">
                                         <div class="d-flex flex-column">
                                             <a href="#"
@@ -39,7 +39,7 @@
                                         {{ $user->created_at ? $user->created_at->format('d M Y, h:i a') : 'N/A' }}
                                     </td>
 
-                                    <td class="text-end">
+                                    <td>
                                         <a class="btn btn-sm me-2 save-btn" href="{{ route('users.edit', $user->id) }}">
                                             {{ trans('global.edit') }}
                                         </a>
@@ -107,24 +107,23 @@
             @endcan
 
             $.extend(true, $.fn.dataTable.defaults, {
-                autoWidth: false, // Allow table columns to auto adjust
+                autoWidth: false,
                 orderCellsTop: true,
                 order: [
                     [1, 'desc']
                 ],
                 pageLength: 10,
                 responsive: true,
-                scrollX: true, // Enable horizontal scroll
-                scrollY: 300, // Enable vertical scroll
+                scrollX: true,
                 scrollCollapse: true,
                 columnDefs: [{
                         width: '10%',
                         targets: 0
-                    }, // Set width for the first column
+                    },
                     {
                         orderable: false,
                         targets: '_all'
-                    } // Disable ordering for all columns
+                    } 
                 ],
                 fixedColumns: {
                     leftColumns: 1,

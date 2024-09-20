@@ -32,7 +32,7 @@
                         <tbody>
                             @foreach ($permissions as $key => $permission)
                                 <tr>
-                                        <td>{{ $key + 1 }}</td>
+                                    <td>{{ $key + 1 }}</td>
                                     <td>
                                         {{ $permission->title ?? '' }}
                                     </td>
@@ -177,24 +177,23 @@
             @endcan
 
             $.extend(true, $.fn.dataTable.defaults, {
-                autoWidth: false, // Allow table columns to auto adjust
+                autoWidth: false,
                 orderCellsTop: true,
                 order: [
-                    [1, 'desc']
+                    [0, 'asc'] // Updated: Order by first column (ID) in ascending order
                 ],
                 pageLength: 10,
                 responsive: true,
-                scrollX: true, // Enable horizontal scroll
-                scrollY: 300, // Enable vertical scroll
+                scrollX: true,
                 scrollCollapse: true,
                 columnDefs: [{
                         width: '10%',
                         targets: 0
-                    }, // Set width for the first column
+                    },
                     {
                         orderable: false,
-                        targets: '_all'
-                    } // Disable ordering for all columns
+                        targets: '_all' // Prevent ordering on other columns
+                    }
                 ],
                 fixedColumns: {
                     leftColumns: 1,
@@ -214,19 +213,16 @@
             $('#salesPersonSelect').select2();
         });
 
+
         function openEditModal(permissionId) {
-            // Fetch the permission data using AJAX
             $.ajax({
-                url: `/permissions/${permissionId}/edit`, // Adjust to your route
+                url: `/permissions/${permissionId}/edit`,
                 type: 'GET',
                 success: function(data) {
-                    // Populate the modal form fields with the fetched data
                     $('#edit_title').val(data.title);
 
-                    // Update the form action URL
                     $('#editPermissionForm').attr('action', `/permissions/${permissionId}`);
 
-                    // Open the modal
                     $('#editPermissionModal').modal('show');
                 },
                 error: function(error) {
