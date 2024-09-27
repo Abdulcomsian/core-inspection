@@ -119,6 +119,11 @@
     .text-hover-primary:hover {
         color: #E67E22 !important;
     }
+
+    body,
+    html {
+        font-weight: 450 !important;
+    }
 </style>
 
 <body id="kt_body"
@@ -225,7 +230,8 @@
                             @endcan --}}
 
                             <!-- Jobs Menu Item -->
-                            <div class="menu-item menu-accordion mb-1 {{ request()->is('report/inspection/index') || request()->is('report/inspection/create') ? 'hover show' : '' }}" data-kt-menu-trigger="click">
+                            <div class="menu-item menu-accordion mb-1 {{ request()->is('report/inspection/index') || request()->is('report/inspection/create') || request()->is('report/rental/index') ? 'hover show' : '' }}"
+                                data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <i class="fas fa-briefcase"></i>
@@ -233,9 +239,10 @@
                                     <span class="menu-title">Jobs</span>
                                     <span class="menu-arrow"></span>
                                 </span>
-                                <div class="menu-sub menu-sub-accordion" style="{{ request()->is('report/inspection/index') || request()->is('report/inspection/create') ? 'display: block;' : 'display: none;' }}">
+                                <div class="menu-sub menu-sub-accordion"
+                                    style="{{ request()->is('report/inspection/index') || request()->is('report/inspection/create') || request()->is('report/rental/index') ? 'display: block;' : 'display: none;' }}">
                                     <div class="menu-item">
-                                        <a href="#" class="menu-link">
+                                        <a href="{{ route('job.rental.index') }}" class="menu-link">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -243,7 +250,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('report.inspection.index') }}" class="menu-link {{ request()->is('report/inspection/index') || request()->is('report/inspection/create') ? 'active' : '' }}">
+                                        <a href="{{ route('job.inspection.index') }}"
+                                            class="menu-link {{ request()->is('job/inspection/index') || request()->is('job/inspection/create') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -259,7 +267,7 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
 
                             {{-- <div class="menu-item">
                                 <a class="menu-link {{ request()->is('job/index') ? 'active' : '' }}"
@@ -282,7 +290,8 @@
                             </div> --}}
 
                             <!-- Assets Menu Item -->
-                            <div class="menu-item menu-accordion mb-1 {{ request()->is('configuration/equipment_type/index') || request()->is('configuration/equipment_type/create') ? 'hover show' : '' }}" data-kt-menu-trigger="click">
+                            <div class="menu-item menu-accordion mb-1 {{ request()->is('asset/equipment_type/index') || request()->is('asset/equipment_type/create') ? 'hover show' : '' }}"
+                                data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <i class="fas fa-chart-line"></i>
@@ -290,10 +299,11 @@
                                     <span class="menu-title">Assets</span>
                                     <span class="menu-arrow"></span>
                                 </span>
-                                <div class="menu-sub menu-sub-accordion" style="{{ request()->is('configuration/equipment_type/index') || request()->is('configuration/equipment_type/create') ? 'display: block;' : 'display: none;' }}">
+                                <div class="menu-sub menu-sub-accordion"
+                                    style="{{ request()->is('asset/equipment_type/index') || request()->is('asset/equipment_type/create') ? 'display: block;' : 'display: none;' }}">
                                     <div class="menu-item">
-                                        <a href="{{ route('configuration.equipment_type.index') }}"
-                                            class="menu-link {{ request()->is('configuration/equipment_type/index') || request()->is('configuration/equipment_type/create') ? 'active' : '' }}">
+                                        <a href="{{ route('asset.equipment_type.index') }}"
+                                            class="menu-link {{ request()->is('asset/equipment_type/index') || request()->is('asset/equipment_type/create') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -312,7 +322,8 @@
                             </div>
 
                             <!-- Assets Menu Item -->
-                            <div class="menu-item menu-accordion mb-1 {{ request()->is('client/index') || request()->is('client/create') ? 'hover show' : '' }}" data-kt-menu-trigger="click">
+                            <div class="menu-item menu-accordion mb-1 {{ request()->is('client/user/index') || request()->is('client/user/create') ? 'hover show' : '' }}"
+                                data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <i class="fas fa-user-friends"></i>
@@ -320,7 +331,8 @@
                                     <span class="menu-title">Clients</span>
                                     <span class="menu-arrow"></span>
                                 </span>
-                                <div class="menu-sub menu-sub-accordion" style="{{ request()->is('client/index') || request()->is('client/create') ? 'display: block;' : 'display: none;' }}">
+                                <div class="menu-sub menu-sub-accordion"
+                                    style="{{ request()->is('client/user/index') || request()->is('client/user/create') ? 'display: block;' : 'display: none;' }}">
                                     <div class="menu-item">
                                         <a href="#" class="menu-link">
                                             <span class="menu-bullet">
@@ -338,8 +350,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('client.index') }}"
-                                            class="menu-link {{ request()->is('client/index') || request()->is('client/create') ? 'active' : '' }}">
+                                        <a href="{{ route('client.user.index') }}"
+                                            class="menu-link {{ request()->is('client/user/index') || request()->is('client/user/create') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -351,7 +363,8 @@
 
                             <!-- User Management Menu Item -->
                             @can('user_management_access')
-                                <div class="menu-item menu-accordion mb-1 {{ request()->is('users') || request()->is('users/*') || request()->is('roles') || request()->is('roles/*') || request()->is('permissions') || request()->is('permissions/*')  ? 'hover show' : '' }}" data-kt-menu-trigger="click">
+                                <div class="menu-item menu-accordion mb-1 {{ request()->is('users') || request()->is('users/*') || request()->is('roles') || request()->is('roles/*') || request()->is('permissions') || request()->is('permissions/*') ? 'hover show' : '' }}"
+                                    data-kt-menu-trigger="click">
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <i class="fas fa-users-cog"></i>
@@ -359,7 +372,8 @@
                                         <span class="menu-title">User Management</span>
                                         <span class="menu-arrow"></span>
                                     </span>
-                                    <div class="menu-sub menu-sub-accordion" style="{{ request()->is('users') || request()->is('users/*') || request()->is('roles') || request()->is('roles/*') || request()->is('permissions') || request()->is('permissions/*') ? 'display: block;' : 'display: none;' }}">
+                                    <div class="menu-sub menu-sub-accordion"
+                                        style="{{ request()->is('users') || request()->is('users/*') || request()->is('roles') || request()->is('roles/*') || request()->is('permissions') || request()->is('permissions/*') ? 'display: block;' : 'display: none;' }}">
                                         <div class="menu-item">
                                             <a href="{{ route('users.index') }}"
                                                 class="menu-link {{ request()->is('users') || request()->is('users/*') ? 'active' : '' }}">

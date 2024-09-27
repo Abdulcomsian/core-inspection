@@ -3,16 +3,14 @@
 @section('content')
     <div class="d-flex flex-column flex-root">
         <!--begin::Authentication - Sign-up -->
-        <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed"
-            style="background-image: url(assets/media/illustrations/progress-hd.png)">
-            <!--begin::Content-->
+        {{-- <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed"
+            style="background-image: url(assets/media/illustrations/progress-hd.png)"> --}}
+            <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed">
+
             <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
-                <!--begin::Logo-->
-                <a href="{{ route('login') }}" class="mb-12">
+                <a href="#" class="mb-12">
                     <img alt="Logo" src="assets/media/logos/logo-2-dark.svg" class="h-45px" />
                 </a>
-                <!--end::Logo-->
-                <!--begin::Wrapper-->
                 <div class="w-lg-600px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <!--begin::Form-->
                     <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" method="POST" action="{{ route('register') }}">
@@ -44,14 +42,14 @@
                             <label class="form-label fw-bolder text-dark fs-6">Email</label>
                             <input class="form-control form-control-lg form-control-solid" type="email" name="email" placeholder="email here..." autocomplete="off" required />
                         </div>
-                        <div class="fv-row mb-7">
+                        {{-- <div class="fv-row mb-7">
                             <label>Role:</label>
                             <select class="form-control" name="role" required>
                                 <option value="">Select Role</option>
                                 <option value="User">User</option>
                                 <option value="Admin">Admin</option>
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="mb-10 fv-row">
                             <label class="form-label fw-bolder text-dark fs-6">Password</label>
                             <input class="form-control form-control-lg form-control-solid" type="password" placeholder="********" name="password" required />
@@ -76,12 +74,8 @@
                             </button>
                         </div>
                     </form>
-                    <!--end::Form-->
                 </div>
-                <!--end::Wrapper-->
             </div>
-            <!--end::Content-->
         </div>
-        <!--end::Authentication - Sign-up-->
     </div>
 @endsection

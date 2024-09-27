@@ -49,18 +49,22 @@
 
     @media (min-width: 992px) {
         .w-lg-500px {
-            width: 500px !important;
+            width: 470px !important;
         }
     }
 
     @media (min-width: 992px) {
         .w-lg-600px {
-            width: 500px !important;
+            width: 470px !important;
         }
     }
 
     a:hover {
         color: #D35400 !important;
+    }
+
+    .content {
+        background-color: #fff !important;
     }
 </style>
 

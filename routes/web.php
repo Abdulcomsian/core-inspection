@@ -1,18 +1,25 @@
 <?php
 
+use App\Http\Controllers\Job\RentalsController;
+use App\Http\Controllers\Job\InspectionController;
+use App\Http\Controllers\Job\SchedulerController;
+use App\Http\Controllers\asset\EquipmentTypeController;
+use App\Http\Controllers\asset\PartController;
+use App\Http\Controllers\Client\LocationController;
+use App\Http\Controllers\Client\ZoneController;
+use App\Http\Controllers\Client\UserController;
+use App\Http\Controllers\BillingController;
+use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\OtpConfirmationController;
+use App\Http\Controllers\Auth\ChangePasswordController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EquipmentsController;
-use App\Http\Controllers\ResetPasswordController;
-use App\Http\Controllers\OtpConfirmationController;
 use App\Http\Controllers\Report\ScheduleController;
-use App\Http\Controllers\Report\InspectionController;
 use App\Http\Controllers\Report\JobForcastController;
 use App\Http\Controllers\Setup\JobTemplateController;
-use App\Http\Controllers\Configuration\UserController;
-use App\Http\Controllers\Auth\ChangePasswordController;
 use App\Http\Controllers\Configuration\BranchController;
 use App\Http\Controllers\Report\OverdueClientController;
 use App\Http\Controllers\Configuration\CommentController;
@@ -20,7 +27,6 @@ use App\Http\Controllers\Setup\ServiceTemplateController;
 use App\Http\Controllers\Setup\SummaryTemplateController;
 use App\Http\Controllers\Setup\RegisterTemplateController;
 use App\Http\Controllers\Setup\InspectionTemplateController;
-use App\Http\Controllers\Configuration\EquipmentTypeController;
 use App\Http\Controllers\Configuration\GeneralSettingController;
 use App\Http\Controllers\Configuration\PartMaintenanceController;
 use App\Http\Controllers\Configuration\ZoneMaintenanceController;
@@ -43,7 +49,6 @@ Auth::routes();
 // Group all authenticated routes
 Route::middleware(['auth'])->namespace('Admin')->group(function () {
 
-    // Admin Routes
     Route::get('/', 'HomeController@index')->name('home');
 
     // Permissions
@@ -57,21 +62,14 @@ Route::middleware(['auth'])->namespace('Admin')->group(function () {
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
-
 });
-    Route::middleware(['auth'])->group(function () {
-    // Report Routes
-    Route::prefix('report')->name('report.')->group(function () {
-
-        // Job Forecast
-        Route::prefix('forcast')->name('forcast.')->controller(JobForcastController::class)->group(function () {
+Route::middleware(['auth'])->group(function () {
+    // Job Routes
+    Route::prefix('job')->name('job.')->group(function () {
+        // Rentals
+        Route::prefix('rental')->name('rental.')->controller(RentalsController::class)->group(function () {
             Route::get('index', 'index')->name('index');
             Route::get('create', 'create')->name('create');
-        });
-
-        // Overdue Client
-        Route::prefix('overdue_client')->name('overdue_client.')->controller(OverdueClientController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
         });
 
         // Inspection
@@ -79,103 +77,168 @@ Route::middleware(['auth'])->namespace('Admin')->group(function () {
             Route::get('index', 'index')->name('index');
         });
 
-        // Schedule
-        Route::prefix('schedule')->name('schedule.')->controller(ScheduleController::class)->group(function () {
+        // Scheduler
+        Route::prefix('scheduler')->name('scheduler.')->controller(SchedulerController::class)->group(function () {
             Route::get('index', 'index')->name('index');
         });
     });
 
-    // Job Routes
-    Route::prefix('job')->name('job.')->controller(JobController::class)->group(function () {
-        Route::get('index', 'index')->name('index');
-        Route::get('create', 'create')->name('create');
-    });
-
-    // Equipment Routes
-    Route::prefix('equipment')->name('equipment.')->controller(EquipmentsController::class)->group(function () {
-        Route::get('index', 'index')->name('index');
-        Route::get('create', 'create')->name('create');
-    });
-
-    // Client Routes
-    Route::prefix('client')->name('client.')->controller(ClientController::class)->group(function () {
-        Route::get('index', 'index')->name('index');
-        Route::get('create', 'create')->name('create');
-    });
-
-    // Configuration Routes
-    Route::prefix('configuration')->name('configuration.')->group(function () {
-
-        // Branch Configuration
-        Route::prefix('branch')->name('branch.')->controller(BranchController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
-
-        // Equipment Type Configuration
+    // Assets Routes
+    Route::prefix('asset')->name('asset.')->group(function () {
+        // Equipment Type
         Route::prefix('equipment_type')->name('equipment_type.')->controller(EquipmentTypeController::class)->group(function () {
             Route::get('index', 'index')->name('index');
             Route::get('create', 'create')->name('create');
         });
 
-        // User Configuration
-        Route::prefix('users')->name('users.')->controller(UserController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
-
-        // Part Maintenance Configuration
-        Route::prefix('part_maintenance')->name('part_maintenance.')->controller(PartMaintenanceController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
-
-        // Competencies Maintenance
-        Route::prefix('competencies_maintenance')->name('competencies_maintenance.')->controller(CompetenciesMaintenanceController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
-
-        // Zone Maintenance
-        Route::prefix('zone_maintenance')->name('zone_maintenance.')->controller(ZoneMaintenanceController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
-
-        // Predefined Comment
-        Route::prefix('predefined_comment')->name('predefined_comment.')->controller(CommentController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
-
-        // General Settings
-        Route::prefix('general_setting')->name('general_setting.')->controller(GeneralSettingController::class)->group(function () {
+        // Part
+        Route::prefix('part')->name('part.')->controller(PartController::class)->group(function () {
             Route::get('index', 'index')->name('index');
         });
     });
 
-    // Setup Routes
-    Route::prefix('setup')->name('setup.')->group(function () {
+    // Clients Routes
+    Route::prefix('client')->name('client.')->group(function () {
+        // Job Forecast
+        Route::prefix('location')->name('location.')->controller(LocationController::class)->group(function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+        });
 
-        // Inspection Template
-        Route::prefix('inspection_template')->name('inspection_template.')->controller(InspectionTemplateController::class)->group(function () {
+        // Inspection
+        Route::prefix('zone')->name('zone.')->controller(ZoneController::class)->group(function () {
             Route::get('index', 'index')->name('index');
         });
 
-        // Job Template
-        Route::prefix('job_template')->name('job_template.')->controller(JobTemplateController::class)->group(function () {
+        // Inspection
+        Route::prefix('user')->name('user.')->controller(UserController::class)->group(function () {
             Route::get('index', 'index')->name('index');
-        });
-
-        // Register Template
-        Route::prefix('register_template')->name('register_template.')->controller(RegisterTemplateController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
-
-        // Service Template
-        Route::prefix('service_template')->name('service_template.')->controller(ServiceTemplateController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
-        });
-
-        // Summary Template
-        Route::prefix('summary_template')->name('summary_template.')->controller(SummaryTemplateController::class)->group(function () {
-            Route::get('index', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
         });
     });
+
+    // Billing Routes
+    Route::prefix('billing')->name('billing.')->controller(BillingController::class)->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+    });
+
+    // Report Routes
+    // Route::prefix('report')->name('report.')->group(function () {
+
+    //     // Job Forecast
+    //     Route::prefix('forcast')->name('forcast.')->controller(JobForcastController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //         Route::get('create', 'create')->name('create');
+    //     });
+
+    //     // Overdue Client
+    //     Route::prefix('overdue_client')->name('overdue_client.')->controller(OverdueClientController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Inspection
+    //     Route::prefix('inspection')->name('inspection.')->controller(InspectionController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Schedule
+    //     Route::prefix('schedule')->name('schedule.')->controller(ScheduleController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+    // });
+
+    // // Job Routes
+    // Route::prefix('job')->name('job.')->controller(JobController::class)->group(function () {
+    //     Route::get('index', 'index')->name('index');
+    //     Route::get('create', 'create')->name('create');
+    // });
+
+    // // Equipment Routes
+    // Route::prefix('equipment')->name('equipment.')->controller(EquipmentsController::class)->group(function () {
+    //     Route::get('index', 'index')->name('index');
+    //     Route::get('create', 'create')->name('create');
+    // });
+
+    // // Client Routes
+    // Route::prefix('client')->name('client.')->controller(ClientController::class)->group(function () {
+    //     Route::get('index', 'index')->name('index');
+    //     Route::get('create', 'create')->name('create');
+    // });
+
+    // // Configuration Routes
+    // Route::prefix('configuration')->name('configuration.')->group(function () {
+
+    //     // Branch Configuration
+    //     Route::prefix('branch')->name('branch.')->controller(BranchController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Equipment Type Configuration
+    //     Route::prefix('equipment_type')->name('equipment_type.')->controller(EquipmentTypeController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //         Route::get('create', 'create')->name('create');
+    //     });
+
+    //     // User Configuration
+    //     Route::prefix('users')->name('users.')->controller(UserController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Part Maintenance Configuration
+    //     Route::prefix('part_maintenance')->name('part_maintenance.')->controller(PartMaintenanceController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Competencies Maintenance
+    //     Route::prefix('competencies_maintenance')->name('competencies_maintenance.')->controller(CompetenciesMaintenanceController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Zone Maintenance
+    //     Route::prefix('zone_maintenance')->name('zone_maintenance.')->controller(ZoneMaintenanceController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Predefined Comment
+    //     Route::prefix('predefined_comment')->name('predefined_comment.')->controller(CommentController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // General Settings
+    //     Route::prefix('general_setting')->name('general_setting.')->controller(GeneralSettingController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+    // });
+
+    // // Setup Routes
+    // Route::prefix('setup')->name('setup.')->group(function () {
+
+    //     // Inspection Template
+    //     Route::prefix('inspection_template')->name('inspection_template.')->controller(InspectionTemplateController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Job Template
+    //     Route::prefix('job_template')->name('job_template.')->controller(JobTemplateController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Register Template
+    //     Route::prefix('register_template')->name('register_template.')->controller(RegisterTemplateController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Service Template
+    //     Route::prefix('service_template')->name('service_template.')->controller(ServiceTemplateController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+
+    //     // Summary Template
+    //     Route::prefix('summary_template')->name('summary_template.')->controller(SummaryTemplateController::class)->group(function () {
+    //         Route::get('index', 'index')->name('index');
+    //     });
+    // });
 });
 
 // Profile Routes

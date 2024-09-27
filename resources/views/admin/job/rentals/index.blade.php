@@ -11,7 +11,7 @@
         <div class="container-fluid fluid">
             <div>
                 <div class="d-flex mb-3">
-                    <a href="{{ route('asset.equipment_type.create') }}">
+                    <a href="{{ route('job.rental.create') }}">
                         <button type="button" class="btn btn-sm me-3 add-section"><i class="fas fa-plus icon"></i>
                             Add New
                         </button>

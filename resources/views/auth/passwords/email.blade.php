@@ -2,8 +2,9 @@
 @section('title', 'Software')
 @section('content')
     <div class="d-flex flex-column flex-root">
-        <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed"
-            style="background-image: url(assets/media/illustrations/progress-hd.png)">
+        {{-- <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed"
+            style="background-image: url(assets/media/illustrations/progress-hd.png)"> --}}
+            <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed">
             <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
                 <a href="index.html" class="mb-12">
                     <img alt="Logo" src="assets/media/logos/logo-2-dark.svg" class="h-45px" />
@@ -11,7 +12,6 @@
                 <div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
-
                         <div>
                             <div class="form-group">
                                 <input id="username" type="text"

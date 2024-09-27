@@ -25,7 +25,7 @@
                     <div class="mt-3">
                         <div class="row">
                             <div class="col-md-6">
-                                <a href="{{ route('client.create') }}">
+                                <a href="{{ route('client.user.create') }}">
                                     <button type="button" class="btn btn-sm me-3 add-section">
                                         <i class="fas fa-plus icon"></i>
                                         Add New
