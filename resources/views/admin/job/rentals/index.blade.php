@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Software')
-@section('header', 'Equipment Types')
+@section('header', 'Rentals')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 
@@ -181,8 +181,6 @@
             $('#geographicZoneSelect').select2();
             $('#salesPersonSelect').select2();
         });
-
-
 
         $('.dropdown').click(function() {
 

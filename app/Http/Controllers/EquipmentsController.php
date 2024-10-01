@@ -15,4 +15,9 @@ class EquipmentsController extends Controller
     {
         return view('admin.equipments.create');
     }
+
+    public function show()
+    {
+        return view('admin.equipments.show');
+    }
 }

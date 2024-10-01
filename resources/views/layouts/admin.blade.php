@@ -124,6 +124,16 @@
     html {
         font-weight: 450 !important;
     }
+
+    #kt_aside_logo .logo {
+        max-width: 70%;
+        height: auto;
+    }
+
+    #kt_aside_logo {
+        text-align: left;
+        padding: 5px 0;
+    }
 </style>
 
 <body id="kt_body"
@@ -137,8 +147,9 @@
                 data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
                 <div class="aside-logo flex-column-auto" id="kt_aside_logo">
                     <a href="index.html">
-                        <img alt="Logo" src="{{ asset('assets/src/media/logos/logo-1.svg') }}"
-                            class="h-15px logo" />
+                        <img alt="Logo"
+                            src="{{ asset('assets/src/media/logos/CertFID-03-2024-removebg-preview.png') }}"
+                            class="logo" />
                     </a>
                     <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
                         data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"

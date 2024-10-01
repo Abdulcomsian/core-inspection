@@ -53,7 +53,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-center"><a class="btn btn-sm save-btn"
-                                                href="javascript:void(0)">Open</a></td>
+                                                href="{{ route('client.user.show') }}">Open</a></td>
                                         <td>Alex</td>
                                         <td>195</td>
                                         <td>2434</td>

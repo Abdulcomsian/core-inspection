@@ -114,7 +114,15 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('user')->name('user.')->controller(UserController::class)->group(function () {
             Route::get('index', 'index')->name('index');
             Route::get('create', 'create')->name('create');
+            Route::get('show', 'show')->name('show');
         });
+    });
+
+    // Equipment Routes
+    Route::prefix('equipment')->name('equipment.')->controller(EquipmentsController::class)->group(function () {
+        Route::get('index', 'index')->name('index');
+        Route::get('create', 'create')->name('create');
+        Route::get('show', 'show')->name('show');
     });
 
     // Billing Routes

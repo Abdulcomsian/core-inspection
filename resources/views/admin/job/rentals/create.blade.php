@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Software')
-@section('header', 'Equipment Type Details')
+@section('header', 'Rental Details')
 @section('content')
     <div class="row mt-5">
         <div class="col-md-12 mt-5">

@@ -16,4 +16,9 @@ class UserController extends Controller
     {
         return view('admin.client.user.create');
     }
+
+    public function show()
+    {
+        return view('admin.client.user.show');
+    }
 }
