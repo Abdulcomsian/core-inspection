@@ -6,10 +6,54 @@
         <div class="col-md-12 mt-5">
             <div class="card mt-5">
                 <div class="card-body">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="detail-tab" data-toggle="tab" href="#detail" role="tab"
+                                aria-controls="detail" aria-selected="true">Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="inspection-tab" data-toggle="tab" href="#inspection" role="tab"
+                                aria-controls="inspection" aria-selected="false">Inspections</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="attachment-tab" data-toggle="tab" href="#attachment" role="tab"
+                                aria-controls="attachment" aria-selected="false">Attachements</a>
+                        </li>
+                    </ul>
                     <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="detail" role="tabpanel" aria-labelledby="detail-tab">
                             <!-- Equipment Type Description Section -->
                             <h5 class="mb-4">Mandatory Job Information</h5>
                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="JobInfoClientSelect">Client</label>
+                                        <select id="JobInfoClientSelect" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="jobInforclientSiteSelect">Client Site</label>
+                                        <select id="jobInforclientSiteSelect" class="form-control">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {{-- <div class="col-md-2">
+                            <div class="form-group mb-3">
+                                <br>
+                                <button type="button" class="btn btn-success btn-sm" style="margin-top: 9px;">Load from
+                                    Template</button>
+                            </div>
+                        </div> --}}
 
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
@@ -223,7 +267,10 @@
                                 </button>
                             </div>
 
+                        </div>
 
+                        <!-- Inspection Tab Content -->
+                        <div class="tab-pane fade" id="inspection" role="tabpanel" aria-labelledby="inspection">
                             <div class="mt-3">
                                 <div class="table-responsive">
                                     <table id="mytable"
@@ -250,7 +297,9 @@
                                     </table>
                                 </div>
                             </div>
-
+                        </div>
+                        <!-- Attachments Tab Content -->
+                        <div class="tab-pane fade" id="attachment" role="tabpanel" aria-labelledby="attachment">
                             <div class="mt-3">
                                 <button type="button" class="btn add-section btn-sm"><i class="fas fa-plus-circle icon"></i>Add
                                     Attachement</button>
@@ -289,7 +338,10 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
                     </div>
+
+
                 </div>
             </div>
         </div>

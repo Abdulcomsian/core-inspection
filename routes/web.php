@@ -9,6 +9,7 @@ use App\Http\Controllers\Client\LocationController;
 use App\Http\Controllers\Client\ZoneController;
 use App\Http\Controllers\Client\UserController;
 use App\Http\Controllers\BillingController;
+use App\Http\Controllers\equipment\MultipleEquipmentController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\OtpConfirmationController;
 use App\Http\Controllers\Auth\ChangePasswordController;
@@ -16,7 +17,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ClientController;
-use App\Http\Controllers\EquipmentsController;
 use App\Http\Controllers\Report\ScheduleController;
 use App\Http\Controllers\Report\JobForcastController;
 use App\Http\Controllers\Setup\JobTemplateController;
@@ -31,6 +31,7 @@ use App\Http\Controllers\Configuration\GeneralSettingController;
 use App\Http\Controllers\Configuration\PartMaintenanceController;
 use App\Http\Controllers\Configuration\ZoneMaintenanceController;
 use App\Http\Controllers\Configuration\CompetenciesMaintenanceController;
+use App\Http\Controllers\equipment\EquipmentController;
 
 // Redirect to login page by default
 Route::redirect('/', '/login');
@@ -75,6 +76,9 @@ Route::middleware(['auth'])->group(function () {
         // Inspection
         Route::prefix('inspection')->name('inspection.')->controller(InspectionController::class)->group(function () {
             Route::get('index', 'index')->name('index');
+            Route::get('show', 'show')->name('show');
+            Route::get('create', 'create')->name('create');
+            Route::get('edit', 'edit')->name('edit');
         });
 
         // Scheduler
@@ -89,6 +93,7 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('equipment_type')->name('equipment_type.')->controller(EquipmentTypeController::class)->group(function () {
             Route::get('index', 'index')->name('index');
             Route::get('create', 'create')->name('create');
+            Route::get('show', 'show')->name('show');
         });
 
         // Part
@@ -103,14 +108,17 @@ Route::middleware(['auth'])->group(function () {
         Route::prefix('location')->name('location.')->controller(LocationController::class)->group(function () {
             Route::get('index', 'index')->name('index');
             Route::get('create', 'create')->name('create');
+            Route::get('show', 'show')->name('show');
         });
 
-        // Inspection
+        // Zone
         Route::prefix('zone')->name('zone.')->controller(ZoneController::class)->group(function () {
             Route::get('index', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::get('show', 'show')->name('show');
         });
 
-        // Inspection
+        // User
         Route::prefix('user')->name('user.')->controller(UserController::class)->group(function () {
             Route::get('index', 'index')->name('index');
             Route::get('create', 'create')->name('create');
@@ -119,10 +127,15 @@ Route::middleware(['auth'])->group(function () {
     });
 
     // Equipment Routes
-    Route::prefix('equipment')->name('equipment.')->controller(EquipmentsController::class)->group(function () {
-        Route::get('index', 'index')->name('index');
-        Route::get('create', 'create')->name('create');
-        Route::get('show', 'show')->name('show');
+    Route::prefix('equipment')->name('equipment.')->group(function () {
+        Route::controller(EquipmentController::class)->group(function () {
+            Route::get('index', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::get('show', 'show')->name('show');
+        });
+        Route::prefix('multiple')->name('multiple.')->controller(MultipleEquipmentController::class)->group(function () {
+            Route::get('create', 'create')->name('create');
+        });
     });
 
     // Billing Routes

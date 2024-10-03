@@ -9,11 +9,16 @@ class EquipmentTypeController extends Controller
 {
     public function index()
     {
-        return view("admin.configuration.equipment_type.index");
+        return view("admin.asset.equipment_type.index");
     }
 
     public function create()
     {
-        return view("admin.configuration.equipment_type.create");
+        return view("admin.asset.equipment_type.create");
+    }
+
+    public function show()
+    {
+        return view("admin.asset.equipment_type.show");
     }
 }

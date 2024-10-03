@@ -42,31 +42,32 @@
                         <div class="tab-pane fade show active" id="activeJob" role="tabpanel" aria-labelledby="active-tab">
                             <div class="d-flex flex-wrap gap-2 mb-3">
                                 <a href="{{ route('equipment.create') }}">
-                                <button type="button" class="btn btn-sm add-section flex-fill">
-                                    <i class="fas fa-plus-circle icon"></i> Add New Equipment
-                                </button>
-                            </a>
-    
-                                <button type="button" class="btn btn-sm save-btn flex-fill">
-                                    <i class="fas fa-plus-square icon"></i> Add Multiple New Equipment
-                                </button>
-    
-                                <button type="button" class="btn btn-light btn-sm flex-fill">
+                                    <button type="button" class="btn btn-sm add-section flex-fill">
+                                        <i class="fas fa-plus-circle icon"></i> Add New Equipment
+                                    </button>
+                                </a>
+                                <a href="{{ route('equipment.multiple.create') }}">
+                                    <button type="button" class="btn btn-sm save-btn flex-fill">
+                                        <i class="fas fa-plus-square icon"></i> Add Multiple New Equipment
+                                    </button>
+                                </a>
+
+                                {{-- <button type="button" class="btn btn-light btn-sm flex-fill">
                                     <i class="fas fa-file-import icon"></i> Import
                                 </button>
-    
+
                                 <button type="button" class="btn btn-secondary btn-sm flex-fill">
                                     <i class="fas fa-exchange-alt"></i> Change Client Site
                                 </button>
-    
+
                                 <button type="button" class="btn btn-dark btn-sm flex-fill">
                                     <i class="fas fa-chart-bar"></i> Reports
                                 </button>
-    
+
                                 <button type="button" class="btn btn-sm delete-btn flex-fill">
                                     <i class="fas fa-map-marker-alt icon"></i> Change Asset Location
-                                </button>
-    
+                                </button> --}}
+
                                 {{-- <button type="button" class="btn btn-primary btn-sm flex-fill">
                                         <i class="fas fa-archive"></i> Archive Selected Equipment
                                     </button> --}}
@@ -92,7 +93,8 @@
                                     </thead>
                                     <tbody>
                                         <tr class="rgRow">
-                                            <td class="text-center"><a class="btn save-btn btn-sm" href="{{ route('equipment.show') }}">Open</a></td>
+                                            <td class="text-center"><a class="btn save-btn btn-sm"
+                                                    href="{{ route('equipment.show') }}">Open</a></td>
                                             <td>01 Aug 2024</td>
                                             <td>195</td>
                                             <td>LIEBHERR - AMERICA, INC.</td>

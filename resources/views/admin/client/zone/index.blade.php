@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title', 'Software')
-@section('header', 'Equipment Types')
+@section('header', 'Zones')
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 
@@ -11,7 +11,7 @@
         <div class="container-fluid fluid">
             <div>
                 <div class="d-flex mb-3">
-                    <a href="{{ route('asset.equipment_type.create') }}">
+                    <a href="{{ route('client.zone.create') }}">
                         <button type="button" class="btn btn-sm me-3 add-section"><i class="fas fa-plus icon"></i>
                             Add New
                         </button>
@@ -37,7 +37,7 @@
                         </thead>
                         <tbody>
                             <tr class="no-records">
-                                <td class="text-center"><a class="btn btn-sm save-btn" href="{{ route('asset.equipment_type.show') }}">Open</a>
+                                <td class="text-center"><a class="btn btn-sm save-btn" href="{{ route('client.zone.show') }}">Open</a>
                                 </td>
                                 <td class="text-center">ANCHOR POINT / SAFETY LINE (PERMANENT)</td>
                                 <td class="text-center">6</td>
@@ -181,8 +181,6 @@
             $('#geographicZoneSelect').select2();
             $('#salesPersonSelect').select2();
         });
-
-
 
         $('.dropdown').click(function() {
 

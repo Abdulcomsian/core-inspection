@@ -7,7 +7,7 @@
             <div class="card mt-5">
                 <div class="card-body">
                     <!-- Equipment Type Description Section -->
-                        <h5 class="mb-4">Mandatory Job Information</h5>
+                    <h5 class="mb-4">Mandatory Job Information</h5>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3">
@@ -84,10 +84,10 @@
                             <div class="form-group mb-3">
                                 <label for="status">Status</label>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <button type="button" class="btn btn-sm" style="background-color: #7F8C8D">Pending
+                                    <div class="form-group col-md-6 mt-3">
+                                        <button type="button" class="btn btn-sm" style="background-color: #7F8C8D;color: #fff;">Pending
                                             Job</button>
-                                        <button type="button" class="btn btn-sm" style="background-color: #E67E22">Active
+                                        <button type="button" class="btn btn-sm" style="background-color: #E67E22;color: #fff;">Active
                                             Job</button>
                                     </div>
                                 </div>

@@ -16,9 +16,9 @@
                             Add New
                         </button>
                     </a>
-                    <button type="button" class="btn btn-sm me-3 delete-btn"><i class="fas fa-search icon"></i>
+                    {{-- <button type="button" class="btn btn-sm me-3 delete-btn"><i class="fas fa-search icon"></i>
                         Search
-                    </button>
+                    </button> --}}
                 </div>
                 <div class="table-responsive">
                     <table id="mytable"
@@ -37,7 +37,7 @@
                         </thead>
                         <tbody>
                             <tr class="no-records">
-                                <td class="text-center"><a class="btn btn-sm save-btn" href="javascript:void(0)">Open</a>
+                                <td class="text-center"><a class="btn btn-sm save-btn" href="{{ route('job.inspection.show') }}">Open</a>
                                 </td>
                                 <td class="text-center">ANCHOR POINT / SAFETY LINE (PERMANENT)</td>
                                 <td class="text-center">6</td>

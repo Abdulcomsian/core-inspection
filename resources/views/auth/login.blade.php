@@ -5,22 +5,38 @@
     html {
         overflow: hidden;
     }
+    .logo {
+    width: 100px; /* Set a custom width */
+    height: auto; /* Automatically adjust height to maintain aspect ratio */
+}
+
+@media (min-width: 768px) {
+    .logo {
+        width: 200px; /* Increase width for larger screens */
+    }
+}
+
 </style>
 @section('content')
 <div class="d-flex flex-column flex-root">
     {{-- <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(assets/media/illustrations/progress-hd.png)"> --}}
         <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed">
-        <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
-            <a href="#" class="mb-12">
-                <img alt="Logo" src="assets/media/logos/logo-2-dark.svg" class="h-45px" />
-            </a>
+            <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+                {{-- <a href="#" class="mb-12">
+                    <img alt="Logo" src="assets/src/media/logos/CertFID-03-2024.jpeg" class="logo" />
+                </a>             --}}
+                <div class="bg-dark text-center p-3 mb-5 rounded-top">
+                    <a href="#" class="mb-12">
+                    <img alt="Logo" src="assets/src/media/logos/CertFID-03-2024.jpeg" class="logo" />
+                </a>            
+                </div>
             <div class="w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="text-center mb-10">
                         <h1 class="text-dark mb-3">Sign In to Core Inspection</h1>
-                        <div class="text-gray-400 fw-bold fs-4">New Here?
-                        <a href="{{ route('register') }}" class="fw-bolder light-orange">Create an Account</a></div>
+                        {{-- <div class="text-gray-400 fw-bold fs-4">New Here?
+                        <a href="{{ route('register') }}" class="fw-bolder light-orange">Create an Account</a></div> --}}
                     </div>
                     <div class="fv-row mb-10">
                         <label class="form-label fs-6 fw-bolder text-dark">Email</label>

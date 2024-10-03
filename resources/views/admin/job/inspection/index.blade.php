@@ -41,9 +41,9 @@
                         <tbody>
                             <tr class="rgRow">
                                 <td style="padding-left: 5px;">
-                                    <a class="btn btn-sm save-btn" href="javascript:void(0)">View Job</a>
+                                    <a class="btn btn-sm save-btn" href="{{ route('job.inspection.show') }}">View Job</a>
                                 </td>
-                                <td><a class="btn btn-sm save-btn" href="javascript:void(0)">View Equipment</a></td>
+                                <td><a class="btn btn-sm save-btn" href="{{ route('equipment.show') }}">View Equipment</a></td>
                                 <td>28/08/2024</td>
                                 <td>221</td>
                                 <td>MC2 CIVIL, INC.</td>

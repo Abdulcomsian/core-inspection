@@ -134,6 +134,21 @@
         text-align: left;
         padding: 5px 0;
     }
+
+    .nav-link:focus,
+    .nav-link:hover {
+        color: #D35400 !important;
+    }
+
+    a.nav-link {
+        color: #E67E22 !important;
+    }
+
+    .nav-tabs .nav-link.active {
+        color: #7F8C8D !important;
+        background-color: #F0F0F0 !important;
+        /* border-color: #dee2e6 #dee2e6 #fff; */
+    }
 </style>
 
 <body id="kt_body"
@@ -333,7 +348,17 @@
                             </div>
 
                             <!-- Assets Menu Item -->
-                            <div class="menu-item menu-accordion mb-1 {{ request()->is('client/user/index') || request()->is('client/user/create') ? 'hover show' : '' }}"
+                            <div class="menu-item menu-accordion mb-1 {{ request()->is('client/user/index') ||
+                            request()->is('client/user/create') ||
+                            request()->is('client/user/show') ||
+                            request()->is('client/location/index') ||
+                            request()->is('client/location/create') ||
+                            request()->is('client/location/show') ||
+                            request()->is('client/zone/index') ||
+                            request()->is('client/zone/create') ||
+                            request()->is('client/zone/show')
+                                ? 'hover show'
+                                : '' }}"
                                 data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
@@ -343,9 +368,20 @@
                                     <span class="menu-arrow"></span>
                                 </span>
                                 <div class="menu-sub menu-sub-accordion"
-                                    style="{{ request()->is('client/user/index') || request()->is('client/user/create') ? 'display: block;' : 'display: none;' }}">
+                                    style="{{ request()->is('client/user/index') ||
+                                    request()->is('client/user/create') ||
+                                    request()->is('client/user/show') ||
+                                    request()->is('client/location/index') ||
+                                    request()->is('client/location/create') ||
+                                    request()->is('client/location/show') ||
+                                    request()->is('client/zone/index') ||
+                                    request()->is('client/zone/create') ||
+                                    request()->is('client/zone/show')
+                                        ? 'display: block;'
+                                        : 'display: none;' }}">
                                     <div class="menu-item">
-                                        <a href="#" class="menu-link">
+                                        <a href="{{ route('client.location.index') }}"
+                                            class="menu-link {{ request()->is('client/location/index') || request()->is('client/location/create') || request()->is('client/location/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -353,7 +389,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#" class="menu-link">
+                                        <a href="{{ route('client.zone.index') }}"
+                                            class="menu-link {{ request()->is('client/zone/index') || request()->is('client/zone/create') || request()->is('client/zone/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -361,8 +398,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('client.user.index') }}"
-                                            class="menu-link {{ request()->is('client/user/index') || request()->is('client/user/create') ? 'active' : '' }}">
+                                        <a href="{{ route('client.zone.index') }}"
+                                            class="menu-link {{ request()->is('client/user/index') || request()->is('client/user/create') || request()->is('client/user/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>

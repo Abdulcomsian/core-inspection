@@ -1,5 +1,17 @@
 @extends('layouts.app')
 @section('title', 'Software')
+<style>
+        .logo {
+    width: 100px; /* Set a custom width */
+    height: auto; /* Automatically adjust height to maintain aspect ratio */
+}
+
+@media (min-width: 768px) {
+    .logo {
+        width: 200px; /* Increase width for larger screens */
+    }
+}
+</style>
 @section('content')
     <div class="d-flex flex-column flex-root">
         <!--begin::Authentication - Sign-up -->
@@ -9,8 +21,8 @@
 
             <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
                 <a href="#" class="mb-12">
-                    <img alt="Logo" src="assets/media/logos/logo-2-dark.svg" class="h-45px" />
-                </a>
+                    <img alt="Logo" src="assets/media/logos/CertFID-03-2024.jpeg" class="logo" />
+                </a> 
                 <div class="w-lg-600px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <!--begin::Form-->
                     <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" method="POST" action="{{ route('register') }}">
