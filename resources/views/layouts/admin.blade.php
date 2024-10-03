@@ -270,7 +270,7 @@
                                     <div class="menu-item">
                                         <a href="{{ route('job.rental.index') }}" class="menu-link">
                                             <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span>
+                                                <span class="bullet bullet-dot"></span> 
                                             </span>
                                             <span class="menu-title">Rentals</span>
                                         </a>
@@ -398,7 +398,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('client.zone.index') }}"
+                                        <a href="{{ route('client.user.index') }}"
                                             class="menu-link {{ request()->is('client/user/index') || request()->is('client/user/create') || request()->is('client/user/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
