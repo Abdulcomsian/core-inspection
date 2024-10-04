@@ -12,7 +12,7 @@
         content="Metronic, bootstrap, bootstrap 5, Angular 11, VueJs, React, Laravel, admin themes, web design, figma, web development, ree admin themes, bootstrap admin, bootstrap dashboard" />
     <link rel="canonical" href="Https://preview.keenthemes.com/metronic8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    {{-- <link rel="shortcut icon" href="assets/media/logos/favicon.ico" /> --}}
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -270,7 +270,7 @@
                                     <div class="menu-item">
                                         <a href="{{ route('job.rental.index') }}" class="menu-link">
                                             <span class="menu-bullet">
-                                                <span class="bullet bullet-dot"></span> 
+                                                <span class="bullet bullet-dot"></span>
                                             </span>
                                             <span class="menu-title">Rentals</span>
                                         </a>
@@ -316,7 +316,13 @@
                             </div> --}}
 
                             <!-- Assets Menu Item -->
-                            <div class="menu-item menu-accordion mb-1 {{ request()->is('asset/equipment_type/index') || request()->is('asset/equipment_type/create') ? 'hover show' : '' }}"
+                            <div class="menu-item menu-accordion mb-1 {{ request()->is('asset/equipment_type/index') ||
+                            request()->is('asset/equipment_type/create') ||
+                            request()->is('asset/part/index') ||
+                            request()->is('asset/part/create') ||
+                            request()->is('asset/part/show')
+                                ? 'hover show'
+                                : '' }}"
                                 data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
@@ -326,7 +332,13 @@
                                     <span class="menu-arrow"></span>
                                 </span>
                                 <div class="menu-sub menu-sub-accordion"
-                                    style="{{ request()->is('asset/equipment_type/index') || request()->is('asset/equipment_type/create') ? 'display: block;' : 'display: none;' }}">
+                                    style="{{ request()->is('asset/equipment_type/index') ||
+                                    request()->is('asset/equipment_type/create') ||
+                                    request()->is('asset/part/index') ||
+                                    request()->is('asset/part/create') ||
+                                    request()->is('asset/part/show')
+                                        ? 'display: block;'
+                                        : 'display: none;' }}">
                                     <div class="menu-item">
                                         <a href="{{ route('asset.equipment_type.index') }}"
                                             class="menu-link {{ request()->is('asset/equipment_type/index') || request()->is('asset/equipment_type/create') ? 'active' : '' }}">
@@ -337,7 +349,7 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#" class="menu-link">
+                                        <a href="{{ route('asset.part.index') }}" class="menu-link {{ request()->is('asset/part/index') || request()->is('asset/part/create') || request()->is('asset/part/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>

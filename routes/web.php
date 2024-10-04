@@ -9,6 +9,7 @@ use App\Http\Controllers\Client\LocationController;
 use App\Http\Controllers\Client\ZoneController;
 use App\Http\Controllers\Client\UserController;
 use App\Http\Controllers\BillingController;
+use App\Http\Controllers\equipment\EquipmentController;
 use App\Http\Controllers\equipment\MultipleEquipmentController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\OtpConfirmationController;
@@ -31,7 +32,6 @@ use App\Http\Controllers\Configuration\GeneralSettingController;
 use App\Http\Controllers\Configuration\PartMaintenanceController;
 use App\Http\Controllers\Configuration\ZoneMaintenanceController;
 use App\Http\Controllers\Configuration\CompetenciesMaintenanceController;
-use App\Http\Controllers\equipment\EquipmentController;
 
 // Redirect to login page by default
 Route::redirect('/', '/login');
@@ -99,12 +99,14 @@ Route::middleware(['auth'])->group(function () {
         // Part
         Route::prefix('part')->name('part.')->controller(PartController::class)->group(function () {
             Route::get('index', 'index')->name('index');
+            Route::get('create', 'create')->name('create');
+            Route::get('show', 'show')->name('show');
         });
     });
 
     // Clients Routes
     Route::prefix('client')->name('client.')->group(function () {
-        // Job Forecast
+        // Location
         Route::prefix('location')->name('location.')->controller(LocationController::class)->group(function () {
             Route::get('index', 'index')->name('index');
             Route::get('create', 'create')->name('create');
