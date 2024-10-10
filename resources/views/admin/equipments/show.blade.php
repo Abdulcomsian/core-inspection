@@ -47,14 +47,6 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="col-md-2">
-                            <div class="form-group mb-3">
-                                <br>
-                                <button type="button" class="btn btn-success btn-sm" style="margin-top: 9px;">Load from
-                                    Template</button>
-                            </div>
-                        </div> --}}
-
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
                                         <label for="jobInforTypeSelect">Type</label>

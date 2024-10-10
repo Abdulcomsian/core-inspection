@@ -7,7 +7,6 @@
             <div class="card mt-5">
                 <div class="card-body">
                     <div class="tab-content" id="myTabContent">
-                        <!-- Equipment Type Description Section -->
                         <h5 class="mb-4">Mandatory Job Information</h5>
                         <div class="row">
                             <div class="col-md-6">
@@ -300,24 +299,11 @@
             $('a[data-toggle="tab"]').on('shown.bs.tab click', function() {
                 $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
             });
-
-            $('#client').select2();
-            $('#geographicZoneSelect').select2();
-            $('#salesPersonSelect').select2();
         });
 
-        $('#JobInfoClientSelect').select2();
-        $('#jobInforclientSiteSelect').select2();
         $('#jobInforTypeSelect').select2();
         $('#locationNote').select2();
         $('#lastStatus').select2();
-        $('#competenciesRequiredSelect').select2();
-        $('#schedulingWorkersSelect').select2();
-
-        $("#inspectionInterval").select2({
-            width: '100%',
-            height: '100%',
-        });
     </script>
 @endsection
 @endsection

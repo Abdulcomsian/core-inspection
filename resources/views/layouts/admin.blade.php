@@ -256,7 +256,7 @@
                             @endcan --}}
 
                             <!-- Jobs Menu Item -->
-                            <div class="menu-item menu-accordion mb-1 {{ request()->is('report/inspection/index') || request()->is('report/inspection/create') || request()->is('report/rental/index') ? 'hover show' : '' }}"
+                            <div class="menu-item menu-accordion mb-1 {{ request()->is('report/inspection/index') || request()->is('report/inspection/create') || request()->is('report/rental/index') || request()->is('job/scheduler/index') ? 'hover show' : '' }}"
                                 data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
@@ -266,7 +266,7 @@
                                     <span class="menu-arrow"></span>
                                 </span>
                                 <div class="menu-sub menu-sub-accordion"
-                                    style="{{ request()->is('report/inspection/index') || request()->is('report/inspection/create') || request()->is('report/rental/index') ? 'display: block;' : 'display: none;' }}">
+                                    style="{{ request()->is('report/inspection/index') || request()->is('report/inspection/create') || request()->is('report/rental/index') || request()->is('job/scheduler/index') ? 'display: block;' : 'display: none;' }}">
                                     <div class="menu-item">
                                         <a href="{{ route('job.rental.index') }}" class="menu-link">
                                             <span class="menu-bullet">
@@ -285,7 +285,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#" class="menu-link">
+                                        <a href="{{ route('job.scheduler.index') }}"
+                                            class="menu-link {{ request()->is('job/scheduler/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -349,7 +350,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('asset.part.index') }}" class="menu-link {{ request()->is('asset/part/index') || request()->is('asset/part/create') || request()->is('asset/part/show') ? 'active' : '' }}">
+                                        <a href="{{ route('asset.part.index') }}"
+                                            class="menu-link {{ request()->is('asset/part/index') || request()->is('asset/part/create') || request()->is('asset/part/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -466,8 +468,10 @@
                             @endcan
 
                             <!-- Billing Menu Item -->
-                            <div class="menu-item">
-                                <a class="menu-link" href="#">
+                            <div
+                                class="menu-item {{ request()->is('billing/index') || request()->is('billing/create') || request()->is('billing/show') ? 'show' : '' }}">
+                                <a class="menu-link {{ request()->is('billing/index') || request()->is('billing/create') || request()->is('billing/show') ? 'active' : '' }}"
+                                    href="{{ route('billing.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-tachometer-alt"></i>
                                     </span>
@@ -679,11 +683,11 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+                        {{-- <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                             <a href="index.html" class="d-lg-none">
                                 <img alt="Logo" src="assets/media/logos/logo-3.svg" class="h-30px" />
                             </a>
-                        </div>
+                        </div> --}}
                         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
                             <div class="d-flex align-items-stretch" id="kt_header_nav">
                                 <div class="header-menu align-items-stretch" data-kt-drawer="true"
@@ -1628,14 +1632,14 @@
                                                 <input type="text" class="form-control form-control-solid"
                                                     placeholder="Enter card number" name="card_number"
                                                     value="4111 1111 1111 1111" />
-                                                <div class="position-absolute translate-middle-y top-50 end-0 me-5">
+                                                {{-- <div class="position-absolute translate-middle-y top-50 end-0 me-5">
                                                     <img src="assets/media/svg/card-logos/visa.svg" alt=""
                                                         class="h-25px" />
                                                     <img src="assets/media/svg/card-logos/mastercard.svg"
                                                         alt="" class="h-25px" />
                                                     <img src="assets/media/svg/card-logos/american-express.svg"
                                                         alt="" class="h-25px" />
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                         <div class="row mb-10">
@@ -1739,10 +1743,10 @@
                                         <h1 class="fw-bolder text-dark mb-3">Release!</h1>
                                         <div class="text-muted fw-bold fs-3">Submit your app to kickstart your
                                             project.</div>
-                                        <div class="text-center px-4 py-15">
+                                        {{-- <div class="text-center px-4 py-15">
                                             <img src="assets/media/illustrations/todo.png" alt=""
                                                 class="mw-100 mh-150px" />
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="d-flex flex-stack pt-10">
@@ -1865,7 +1869,7 @@
     <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
-
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
     <script>
         @if (session('success'))
             toastr.success('{{ session('success') }}');

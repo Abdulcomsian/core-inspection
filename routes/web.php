@@ -144,6 +144,7 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('billing')->name('billing.')->controller(BillingController::class)->group(function () {
         Route::get('index', 'index')->name('index');
         Route::get('create', 'create')->name('create');
+        Route::get('show', 'show')->name('show');
     });
 
     // Report Routes
