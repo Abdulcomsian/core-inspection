@@ -29,13 +29,8 @@ class OtpRequest extends FormRequest
 
     public function messages(): array 
     {
-
         return [
-
-            'otp.required' => 'Otp is required'
-            
+            'otp.required' => 'Otp is required' 
         ];
-
     }
-
 }

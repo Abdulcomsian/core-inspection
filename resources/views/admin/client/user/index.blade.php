@@ -5,51 +5,37 @@
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 
         <div class="container-fluid">
-            <div class="card bgg-light-primary">
-                <div class="card-title">
-                </div>
-                <div class="card-body pt-0">
-                    <div class="form-section">
-                        <div class="row">
-                            <div class="col-md-8 col-8">
-                                <div class="custom-grid-layout">
-                                    <label for="branchSelect1" class="small-label">Search</label>
-                                    <div class="d-flex flex-column flex-md-row gap-2 mb-3">
-                                        <select id="geographicZoneSelect" class="form-select mb-3">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-4">
-                                <button class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-md-6">
+                            <label for="geographicZoneSelect" class="small-label">Filter by Zone</label>
+                            <select id="geographicZoneSelect" class="form-select">
+                                <option value="1">Zone 1</option>
+                                <option value="2">Zone 2</option>
+                                <option value="3">Zone 3</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-sm delete-btn" style="margin-top: 27px;"><i class="fa fa-search"></i>
+                                Search</button>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="card mt-5">
-                <div class="container-fluid">
                     <div class="mt-3">
-                        <div class="d-flex mb-3">
-                            <a href="{{ route('client.create') }}">
-                                <button type="button" class="btn btn-primary me-3">
-                                    <span class="svg-icon svg-icon-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                            <rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
-                                            <rect fill="#000000" opacity="0.5" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000)" x="4" y="11" width="16" height="2" rx="1" />
-                                        </svg>
-                                    </span>
-                                    Add New
-                                </button>
-                            </a>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{{ route('client.user.create') }}">
+                                    <button type="button" class="btn btn-sm me-3 add-section">
+                                        <i class="fas fa-plus icon"></i>
+                                        Add New
+                                    </button>
+                                </a>
+                            </div>
                         </div>
                         <div class="table-responsive">
                             <table id="mytable"
-                                class="table table-bordered table-striped table-hover datatable datatable-Role"
+                                class="table table-bordered table-striped table-hover datatable datatable-Role cell-border"
                                 data-ordering="false">
                                 <thead>
                                     <tr style="text-wrap: nowrap;">
@@ -66,7 +52,8 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><a class="btn btn-success btn-sm" href="javascript:void(0)">Open</a></td>
+                                        <td class="text-center"><a class="btn btn-sm save-btn"
+                                                href="{{ route('client.user.show') }}">Open</a></td>
                                         <td>Alex</td>
                                         <td>195</td>
                                         <td>2434</td>
@@ -74,7 +61,7 @@
                                         <td>test@gmail.com</td>
                                         <td>Test Address</td>
                                         <td>Islamabad</td>
-                                        <td><button class="btn btn-danger btn-sm">Delete</button></td>
+                                        <td><button class="btn btn-sm delete-btn">Delete</button></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -130,6 +117,7 @@
             @endcan
 
             $.extend(true, $.fn.dataTable.defaults, {
+                autoWidth: false,
                 orderCellsTop: true,
                 order: [
                     [1, 'desc']
@@ -137,10 +125,20 @@
                 pageLength: 100,
                 responsive: true,
                 scrollX: true,
+                scrollCollapse: true,
                 columnDefs: [{
-                    orderable: false,
-                    targets: '_all'
-                }]
+                        width: '10%',
+                        targets: 0
+                    },
+                    {
+                        orderable: false,
+                        targets: '_all'
+                    }
+                ],
+                fixedColumns: {
+                    leftColumns: 1,
+                    rightColumns: 1
+                }
             });
 
             let table = $('.datatable-Role:not(.ajaxTable)').DataTable({

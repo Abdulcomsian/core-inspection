@@ -5,13 +5,14 @@
     <base href="">
     <meta charset="utf-8" />
     <title>Core Inspection - @yield('title')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description"
         content="Metronic admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
     <meta name="keywords"
         content="Metronic, bootstrap, bootstrap 5, Angular 11, VueJs, React, Laravel, admin themes, web design, figma, web development, ree admin themes, bootstrap admin, bootstrap dashboard" />
     <link rel="canonical" href="Https://preview.keenthemes.com/metronic8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    {{-- <link rel="shortcut icon" href="assets/media/logos/favicon.ico" /> --}}
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -20,12 +21,14 @@
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.6/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.5/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/home_page.css') }}">
 </head>
 
 <style>
@@ -35,6 +38,116 @@
 
     .menu-item.active>.menu-sub {
         display: block !important;
+    }
+
+    @media (min-width: 992px) {
+        .header-fixed.toolbar-fixed .wrapper {
+            padding-top: 0 !important;
+        }
+    }
+
+    .aside.aside-dark .aside-logo {
+        background-color: #2D2D2D !important;
+    }
+
+    .aside.aside-dark {
+        background-color: #F0F0F0 !important;
+    }
+
+    .aside-dark .menu .menu-item .menu-link:hover:not(.disabled):not(.active) .menu-icon i,
+    .aside-dark .menu .menu-item.hover>.menu-link:not(.disabled):not(.active) .menu-icon i {
+        color: #E67E22 !important;
+    }
+
+    .aside-dark .menu .menu-item .menu-link.active .menu-icon i {
+        color: #E67E22 !important;
+    }
+
+    .aside-dark .menu .menu-item .menu-link:hover:not(.disabled):not(.active),
+    .aside-dark .menu .menu-item.hover>.menu-link:not(.disabled):not(.active) {
+        background-color: #5A5A5A !important;
+    }
+
+    .aside-dark .menu .menu-item .menu-link.active {
+        background-color: #5A5A5A !important;
+    }
+
+    .header-fixed .header {
+        background-color: #F0F0F0 !important;
+    }
+
+    .btn-check:active+.btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn-check:checked+.btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary.active .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary.show .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary:active:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary:focus:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),
+    .btn.btn-active-color-primary:hover:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g),
+    .show>.btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g) {
+        fill: #E67E22 !important;
+    }
+
+    .content {
+        background-color: #fff !important;
+    }
+
+    .aside-dark .menu .menu-item .menu-link.active .menu-bullet .bullet {
+        background-color: #E67E22 !important;
+    }
+
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .menu-state-bg-light-primary .menu-item .menu-link:hover:not(.disabled):not(.active),
+    .menu-state-bg-light-primary .menu-item.hover>.menu-link:not(.disabled):not(.active) {
+        color: #D35400 !important;
+        background-color: #E0E0E0 !important;
+    }
+
+    .menu-gray-600 .menu-item .menu-link {
+        color: #5A5A5A !important;
+    }
+
+    .dropdown-item:focus,
+    .dropdown-item:hover {
+        color: #D35400 !important;
+        background-color: #E0E0E0 !important;
+    }
+
+    .text-hover-primary:hover {
+        color: #E67E22 !important;
+    }
+
+    body,
+    html {
+        font-weight: 450 !important;
+    }
+
+    #kt_aside_logo .logo {
+        max-width: 70%;
+        height: auto;
+    }
+
+    #kt_aside_logo {
+        text-align: left;
+        padding: 5px 0;
+    }
+
+    .nav-link:focus,
+    .nav-link:hover {
+        color: #D35400 !important;
+    }
+
+    a.nav-link {
+        color: #E67E22 !important;
+    }
+
+    .nav-tabs .nav-link.active {
+        color: #7F8C8D !important;
+        background-color: #F0F0F0 !important;
+        /* border-color: #dee2e6 #dee2e6 #fff; */
     }
 </style>
 
@@ -49,8 +162,9 @@
                 data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
                 <div class="aside-logo flex-column-auto" id="kt_aside_logo">
                     <a href="index.html">
-                        <img alt="Logo" src="{{ asset('assets/src/media/logos/logo-1.svg') }}"
-                            class="h-15px logo" />
+                        <img alt="Logo"
+                            src="{{ asset('assets/src/media/logos/CertFID-03-2024-removebg-preview.png') }}"
+                            class="logo" />
                     </a>
                     <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
                         data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
@@ -81,7 +195,7 @@
                         <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
                             id="kt_aside_menu" data-kt-menu="true">
 
-                            <div class="menu-item">
+                            <div class="menu-item {{ request()->is('/') ? 'show' : '' }}">
                                 <a class="menu-link {{ request()->is('/') ? 'active' : '' }}" href="/">
                                     <span class="menu-icon">
                                         <i class="fas fa-tachometer-alt"></i>
@@ -142,7 +256,8 @@
                             @endcan --}}
 
                             <!-- Jobs Menu Item -->
-                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                            <div class="menu-item menu-accordion mb-1 {{ request()->is('report/inspection/index') || request()->is('report/inspection/create') || request()->is('report/rental/index') || request()->is('job/scheduler/index') ? 'hover show' : '' }}"
+                                data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <i class="fas fa-briefcase"></i>
@@ -150,10 +265,10 @@
                                     <span class="menu-title">Jobs</span>
                                     <span class="menu-arrow"></span>
                                 </span>
-                                <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                <div class="menu-sub menu-sub-accordion"
+                                    style="{{ request()->is('report/inspection/index') || request()->is('report/inspection/create') || request()->is('report/rental/index') || request()->is('job/scheduler/index') ? 'display: block;' : 'display: none;' }}">
                                     <div class="menu-item">
-                                        <a href="{{ route('report.forcast.index') }}"
-                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                        <a href="{{ route('job.rental.index') }}" class="menu-link">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -161,8 +276,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('report.inspection.index') }}"
-                                            class="menu-link {{ request()->is('report/inspection/index') ? 'active' : '' }}">
+                                        <a href="{{ route('job.inspection.index') }}"
+                                            class="menu-link {{ request()->is('job/inspection/index') || request()->is('job/inspection/create') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -170,8 +285,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="#"
-                                            class="menu-link {{ request()->is('report/inspection/index') ? 'active' : '' }}">
+                                        <a href="{{ route('job.scheduler.index') }}"
+                                            class="menu-link {{ request()->is('job/scheduler/index') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -202,7 +317,14 @@
                             </div> --}}
 
                             <!-- Assets Menu Item -->
-                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                            <div class="menu-item menu-accordion mb-1 {{ request()->is('asset/equipment_type/index') ||
+                            request()->is('asset/equipment_type/create') ||
+                            request()->is('asset/part/index') ||
+                            request()->is('asset/part/create') ||
+                            request()->is('asset/part/show')
+                                ? 'hover show'
+                                : '' }}"
+                                data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <i class="fas fa-chart-line"></i>
@@ -210,10 +332,17 @@
                                     <span class="menu-title">Assets</span>
                                     <span class="menu-arrow"></span>
                                 </span>
-                                <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                <div class="menu-sub menu-sub-accordion"
+                                    style="{{ request()->is('asset/equipment_type/index') ||
+                                    request()->is('asset/equipment_type/create') ||
+                                    request()->is('asset/part/index') ||
+                                    request()->is('asset/part/create') ||
+                                    request()->is('asset/part/show')
+                                        ? 'display: block;'
+                                        : 'display: none;' }}">
                                     <div class="menu-item">
-                                        <a href="{{ route('configuration.equipment_type.index') }}"
-                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                        <a href="{{ route('asset.equipment_type.index') }}"
+                                            class="menu-link {{ request()->is('asset/equipment_type/index') || request()->is('asset/equipment_type/create') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -221,8 +350,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('report.schedule.index') }}"
-                                            class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
+                                        <a href="{{ route('asset.part.index') }}"
+                                            class="menu-link {{ request()->is('asset/part/index') || request()->is('asset/part/create') || request()->is('asset/part/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -233,7 +362,18 @@
                             </div>
 
                             <!-- Assets Menu Item -->
-                            <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                            <div class="menu-item menu-accordion mb-1 {{ request()->is('client/user/index') ||
+                            request()->is('client/user/create') ||
+                            request()->is('client/user/show') ||
+                            request()->is('client/location/index') ||
+                            request()->is('client/location/create') ||
+                            request()->is('client/location/show') ||
+                            request()->is('client/zone/index') ||
+                            request()->is('client/zone/create') ||
+                            request()->is('client/zone/show')
+                                ? 'hover show'
+                                : '' }}"
+                                data-kt-menu-trigger="click">
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <i class="fas fa-user-friends"></i>
@@ -241,10 +381,21 @@
                                     <span class="menu-title">Clients</span>
                                     <span class="menu-arrow"></span>
                                 </span>
-                                <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                <div class="menu-sub menu-sub-accordion"
+                                    style="{{ request()->is('client/user/index') ||
+                                    request()->is('client/user/create') ||
+                                    request()->is('client/user/show') ||
+                                    request()->is('client/location/index') ||
+                                    request()->is('client/location/create') ||
+                                    request()->is('client/location/show') ||
+                                    request()->is('client/zone/index') ||
+                                    request()->is('client/zone/create') ||
+                                    request()->is('client/zone/show')
+                                        ? 'display: block;'
+                                        : 'display: none;' }}">
                                     <div class="menu-item">
-                                        <a href="{{ route('configuration.equipment_type.index') }}"
-                                            class="menu-link {{ request()->is('report/forcast/index') ? 'active' : '' }}">
+                                        <a href="{{ route('client.location.index') }}"
+                                            class="menu-link {{ request()->is('client/location/index') || request()->is('client/location/create') || request()->is('client/location/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -252,8 +403,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('report.schedule.index') }}"
-                                            class="menu-link {{ request()->is('report/overdue_client/index') ? 'active' : '' }}">
+                                        <a href="{{ route('client.zone.index') }}"
+                                            class="menu-link {{ request()->is('client/zone/index') || request()->is('client/zone/create') || request()->is('client/zone/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -261,8 +412,8 @@
                                         </a>
                                     </div>
                                     <div class="menu-item">
-                                        <a href="{{ route('configuration.users.index') }}"
-                                            class="menu-link {{ request()->is('configuration/users/index') ? 'active' : '' }}">
+                                        <a href="{{ route('client.user.index') }}"
+                                            class="menu-link {{ request()->is('client/user/index') || request()->is('client/user/create') || request()->is('client/user/show') ? 'active' : '' }}">
                                             <span class="menu-bullet">
                                                 <span class="bullet bullet-dot"></span>
                                             </span>
@@ -274,7 +425,8 @@
 
                             <!-- User Management Menu Item -->
                             @can('user_management_access')
-                                <div class="menu-item menu-accordion mb-1" data-kt-menu-trigger="click">
+                                <div class="menu-item menu-accordion mb-1 {{ request()->is('users') || request()->is('users/*') || request()->is('roles') || request()->is('roles/*') || request()->is('permissions') || request()->is('permissions/*') ? 'hover show' : '' }}"
+                                    data-kt-menu-trigger="click">
                                     <span class="menu-link">
                                         <span class="menu-icon">
                                             <i class="fas fa-users-cog"></i>
@@ -282,7 +434,8 @@
                                         <span class="menu-title">User Management</span>
                                         <span class="menu-arrow"></span>
                                     </span>
-                                    <div class="menu-sub menu-sub-accordion" style="display: none;">
+                                    <div class="menu-sub menu-sub-accordion"
+                                        style="{{ request()->is('users') || request()->is('users/*') || request()->is('roles') || request()->is('roles/*') || request()->is('permissions') || request()->is('permissions/*') ? 'display: block;' : 'display: none;' }}">
                                         <div class="menu-item">
                                             <a href="{{ route('users.index') }}"
                                                 class="menu-link {{ request()->is('users') || request()->is('users/*') ? 'active' : '' }}">
@@ -315,8 +468,10 @@
                             @endcan
 
                             <!-- Billing Menu Item -->
-                            <div class="menu-item">
-                                <a class="menu-link {{ request()->is('/billing') ? 'active' : '' }}" href="/">
+                            <div
+                                class="menu-item {{ request()->is('billing/index') || request()->is('billing/create') || request()->is('billing/show') ? 'show' : '' }}">
+                                <a class="menu-link {{ request()->is('billing/index') || request()->is('billing/create') || request()->is('billing/show') ? 'active' : '' }}"
+                                    href="{{ route('billing.index') }}">
                                     <span class="menu-icon">
                                         <i class="fas fa-tachometer-alt"></i>
                                     </span>
@@ -326,8 +481,7 @@
 
                             <!-- Signout Menu Item -->
                             <div class="menu-item">
-                                <a class="menu-link"
-                                    href="{{ route('logout') }}"
+                                <a class="menu-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <span class="menu-icon">
                                         <i class="fas fa-sign-out-alt"></i>
@@ -529,11 +683,11 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+                        {{-- <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                             <a href="index.html" class="d-lg-none">
                                 <img alt="Logo" src="assets/media/logos/logo-3.svg" class="h-30px" />
                             </a>
-                        </div>
+                        </div> --}}
                         <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
                             <div class="d-flex align-items-stretch" id="kt_header_nav">
                                 <div class="header-menu align-items-stretch" data-kt-drawer="true"
@@ -554,9 +708,7 @@
                             </div>
                             <div class="d-flex align-items-stretch flex-shrink-0">
                                 <div class="d-flex align-items-stretch flex-shrink-0">
-                                    <div class="d-flex align-items-stretch ms-1 ms-lg-3">
-                                    </div>
-                                    <div class="d-flex align-items-center ms-1 ms-lg-3">
+                                    {{-- <div class="d-flex align-items-center ms-1 ms-lg-3">
                                         <div class="btn btn-icon btn-active-light-primary position-relative w-30px h-30px w-md-40px h-md-40px"
                                             data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                                             data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom">
@@ -1012,7 +1164,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="d-flex align-items-center ms-1 ms-lg-3"
                                         id="kt_header_user_menu_toggle">
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
@@ -1038,23 +1190,21 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="separator my-2"></div>
                                             <div class="menu-item px-5">
                                                 <a href="{{ route('profile.password.edit') }}"
                                                     class="menu-link px-5">
                                                     <i class="fas fa-user-circle"
-                                                        style="color: #3498db; margin-right: 8px;"></i>
+                                                        style="color: #E67E22; margin-right: 8px;"></i>
                                                     Account
                                                 </a>
                                             </div>
 
-                                            <div class="separator my-2"></div>
 
                                             <div class="menu-item px-5">
                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                     <i class="fas fa-sign-out-alt"
-                                                        style="color: #e74c3c; margin-right: 8px;"></i>
+                                                        style="color: #7F8C8D; margin-right: 8px;"></i>
                                                     {{ __('Sign out') }}
                                                 </a>
 
@@ -1482,14 +1632,14 @@
                                                 <input type="text" class="form-control form-control-solid"
                                                     placeholder="Enter card number" name="card_number"
                                                     value="4111 1111 1111 1111" />
-                                                <div class="position-absolute translate-middle-y top-50 end-0 me-5">
+                                                {{-- <div class="position-absolute translate-middle-y top-50 end-0 me-5">
                                                     <img src="assets/media/svg/card-logos/visa.svg" alt=""
                                                         class="h-25px" />
                                                     <img src="assets/media/svg/card-logos/mastercard.svg"
                                                         alt="" class="h-25px" />
                                                     <img src="assets/media/svg/card-logos/american-express.svg"
                                                         alt="" class="h-25px" />
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                         <div class="row mb-10">
@@ -1557,15 +1707,14 @@
                                                                 version="1.1">
                                                                 <g stroke="none" stroke-width="1" fill="none"
                                                                     fill-rule="evenodd">
-                                                                    <rect x="0" y="0" width="24"
-                                                                        height="24" />
+                                                                    <rect x="0" y="0" width="24" height="24" />
                                                                     <rect fill="#000000" opacity="0.3" x="2" y="5"
                                                                         width="20" height="14"
                                                                         rx="2" />
                                                                     <rect fill="#000000" x="2" y="8" width="20"
                                                                         height="3" />
-                                                                    <rect fill="#000000" opacity="0.3" x="16"
-                                                                        y="14" width="4" height="2"
+                                                                    <rect fill="#000000" opacity="0.3" x="16" y="14"
+                                                                        width="4" height="2"
                                                                         rx="1" />
                                                                 </g>
                                                             </svg>
@@ -1594,10 +1743,10 @@
                                         <h1 class="fw-bolder text-dark mb-3">Release!</h1>
                                         <div class="text-muted fw-bold fs-3">Submit your app to kickstart your
                                             project.</div>
-                                        <div class="text-center px-4 py-15">
+                                        {{-- <div class="text-center px-4 py-15">
                                             <img src="assets/media/illustrations/todo.png" alt=""
                                                 class="mw-100 mh-150px" />
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="d-flex flex-stack pt-10">
@@ -1720,7 +1869,7 @@
     <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
-
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
     <script>
         @if (session('success'))
             toastr.success('{{ session('success') }}');

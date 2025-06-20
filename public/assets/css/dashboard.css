@@ -1,5 +1,5 @@
-.card.bgg-light-primary {
-    background-color: #4f8edc !important;
+.card.bgg-light-orange {
+    background-color: #FB990A !important;
 }
 
 .card.bgg-light-primary .card-body {
@@ -74,7 +74,7 @@ table th {
 }
 
 .container-fluid {
-    padding: 20px;
+    padding: 20px 10px;
 }
 
 .card {
@@ -92,17 +92,36 @@ table th {
 }
 
 .form-header {
-    background-color: #4f8edc;
+    background-color: #FB990A;
+    ;
     color: white;
-    padding: 10px;
+    padding: 3px;
     margin-bottom: 20px;
     text-align: center;
     border-radius: 0.25rem;
 }
 
+.icon {
+    color: #FFFFFF;
+}
+
+.save-btn {
+    background-color: #E67E22;
+    color: #FFFFFF;
+}
+
+.delete-btn {
+    background-color: #7F8C8D;
+    color: #FFFFFF;
+}
+
+.add-section {
+    background-color: #D35400;
+    color: #FFFFFF;
+}
+
 .form-group {
     margin-bottom: 20px;
-    display: flex;
     align-items: center;
 }
 
@@ -137,7 +156,7 @@ table th {
 }
 
 .tab-content {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .main-card {
@@ -174,6 +193,7 @@ table th {
         margin-bottom: 20px;
     }
 }
+
 .dz-message {
     text-align: center;
     font-size: 1.2em;
@@ -187,6 +207,8 @@ table th {
 .form-control {
     border-radius: 4px;
     margin-top: 5px;
+    font-size: 0.96rem !important;
+    color: #444 !important;
 }
 
 .fa-question-circle {
@@ -198,3 +220,129 @@ table th {
     color: #0056b3;
 }
 
+.row>* {
+    padding-left: 0 !important;
+}
+
+.btn-sm {
+    padding: 6px 8px !important;
+    font-size: 12px !important;
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+
+table.dataTable {
+    table-layout: auto;
+    width: 100%;
+}
+
+td {
+    white-space: nowrap;
+}
+
+.color-white {
+    color: white;
+}
+
+.btn-add-field {
+    background-color: #FFA500;
+    color: #FFFFFF;
+}
+
+.btn-duplicate-section {
+    background-color: #A9A9A9;
+    color: #FFFFFF;
+}
+
+.btn-delete-section {
+    background-color: #C0C0C0;
+    color: #FFFFFF;
+}
+
+.page-item.active .page-link {
+    background-color: #E67E22 !important;
+}
+
+.aside-dark .menu .menu-item .menu-link:hover:not(.disabled):not(.active) .menu-bullet .bullet,
+.aside-dark .menu .menu-item.hover>.menu-link:not(.disabled):not(.active) .menu-bullet .bullet {
+    background-color: #E67E22 !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button:hover {
+    background: linear-gradient(to bottom, #D35400 0%, #D35400 150%) !important;
+    border-radius: 0.6rem !important;
+}
+
+div.dt-container .dt-paging .dt-paging-button {
+    padding: 0;
+}
+
+.select2-container--default {
+    margin-top: 5px;
+}
+
+.page-link:hover {
+    color: #fff !important;
+    background-color: transparent !important;
+}
+
+.row {
+    margin-left: 0;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ced4da !important;
+    height: 42px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 40px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 8px !important;
+}
+
+h5 {
+    color: #5A5A5A;
+}
+
+.dz-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.mt-1 {
+    margin-top: 14px !important;
+}
+
+.modal-dialog {
+    max-height: 90vh;
+}
+
+.modal-body {
+    max-height: 75vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+.form-check-input:checked {
+    background-color: #E67E22 !important;
+    border-color: #E67E22 !important;
+}
+
+.scrolltop {
+    background-color: #E67E22 !important; 
+    /* scrolltop */
+}
